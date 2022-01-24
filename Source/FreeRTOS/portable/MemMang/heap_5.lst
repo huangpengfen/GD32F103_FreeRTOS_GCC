@@ -1,0 +1,3754 @@
+ARM GAS  /tmp/ccX30Dk5.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   5              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   6              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   7              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+   8              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+   9              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  10              		.eabi_attribute 30, 6	@ Tag_ABI_optimization_goals
+  11              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  12              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  13              		.file	"heap_5.c"
+  14              	@ GNU C17 (GNU Arm Embedded Toolchain 10.3-2021.10) version 10.3.1 20210824 (release) (arm-none-eab
+  15              	@	compiled by GNU C version 4.8.4, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl ve
+  16              	
+  17              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  18              	@ options passed:  -I . -I ./Source -I ./Libraries/CMSIS
+  19              	@ -I ./Libraries/CMSIS/GD/GD32F10x/Source
+  20              	@ -I ./Libraries/GD32F10x_standard_peripheral/Include
+  21              	@ -I ./Libraries/GD32F10x_standard_peripheral -I ./Source/FreeRTOS/include
+  22              	@ -I ./Source/FreeRTOS/portable/GCC/ARM_CM3 -imultilib thumb/v7-m/nofp
+  23              	@ -iprefix /home/hpf/Compile_chain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3
+  24              	@ -isysroot /home/hpf/Compile_chain/gcc-arm-none-eabi-10.3-2021.10/bin/../arm-none-eabi
+  25              	@ -D__USES_INITFINI__ -D GD32F10X_HD -D USE_STDPERIPH_DRIVER
+  26              	@ -D RUN_FROM_FLASH=1 Source/FreeRTOS/portable/MemMang/heap_5.c
+  27              	@ -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -mlibarch=armv7-m -march=armv7-m
+  28              	@ -auxbase-strip Source/FreeRTOS/portable/MemMang/heap_5.o -g -gdwarf-2 -O0
+  29              	@ -Wall -fomit-frame-pointer -fverbose-asm
+  30              	@ options enabled:  -faggressive-loop-optimizations -fallocation-dce
+  31              	@ -fauto-inc-dec -fdelete-null-pointer-checks -fdwarf2-cfi-asm
+  32              	@ -fearly-inlining -feliminate-unused-debug-symbols
+  33              	@ -feliminate-unused-debug-types -ffp-int-builtin-inexact -ffunction-cse
+  34              	@ -fgcse-lm -fgnu-unique -fident -finline-atomics -fipa-stack-alignment
+  35              	@ -fira-hoist-pressure -fira-share-save-slots -fira-share-spill-slots
+  36              	@ -fivopts -fkeep-static-consts -fleading-underscore -flifetime-dse
+  37              	@ -fmath-errno -fmerge-debug-strings -fomit-frame-pointer -fpeephole -fplt
+  38              	@ -fprefetch-loop-arrays -freg-struct-return
+  39              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  40              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  41              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  42              	@ -fsched-stalled-insns-dep -fsemantic-interposition -fshow-column
+  43              	@ -fshrink-wrap-separate -fsigned-zeros -fsplit-ivs-in-unroller
+  44              	@ -fssa-backprop -fstdarg-opt -fstrict-volatile-bitfields -fsync-libcalls
+  45              	@ -ftrapping-math -ftree-cselim -ftree-forwprop -ftree-loop-if-convert
+  46              	@ -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-optimize
+  47              	@ -ftree-parallelize-loops= -ftree-phiprop -ftree-reassoc -ftree-scev-cprop
+  48              	@ -funit-at-a-time -fverbose-asm -fzero-initialized-in-bss
+  49              	@ -masm-syntax-unified -mbe32 -mfix-cortex-m3-ldrd -mlittle-endian
+  50              	@ -mpic-data-is-text-relative -msched-prolog -mthumb -munaligned-access
+  51              	@ -mvectorize-with-neon-quad
+  52              	
+  53              		.text
+  54              	.Ltext0:
+  55              		.cfi_sections	.debug_frame
+  56              		.section	.rodata
+  57              		.align	2
+ARM GAS  /tmp/ccX30Dk5.s 			page 2
+
+
+  58              		.type	xHeapStructSize, %object
+  59              		.size	xHeapStructSize, 4
+  60              	xHeapStructSize:
+  61 0000 08000000 		.word	8
+  62              		.bss
+  63              		.align	2
+  64              	xStart:
+  65 0000 00000000 		.space	8
+  65      00000000 
+  66              		.size	xStart, 8
+  67              		.align	2
+  68              	pxEnd:
+  69 0008 00000000 		.space	4
+  70              		.size	pxEnd, 4
+  71              		.align	2
+  72              	xFreeBytesRemaining:
+  73 000c 00000000 		.space	4
+  74              		.size	xFreeBytesRemaining, 4
+  75              		.align	2
+  76              	xMinimumEverFreeBytesRemaining:
+  77 0010 00000000 		.space	4
+  78              		.size	xMinimumEverFreeBytesRemaining, 4
+  79              		.align	2
+  80              	xNumberOfSuccessfulAllocations:
+  81 0014 00000000 		.space	4
+  82              		.size	xNumberOfSuccessfulAllocations, 4
+  83              		.align	2
+  84              	xNumberOfSuccessfulFrees:
+  85 0018 00000000 		.space	4
+  86              		.size	xNumberOfSuccessfulFrees, 4
+  87              		.align	2
+  88              	xBlockAllocatedBit:
+  89 001c 00000000 		.space	4
+  90              		.size	xBlockAllocatedBit, 4
+  91              		.section	.rodata
+  92              		.align	2
+  93              	.LC0:
+  94 0004 536F7572 		.ascii	"Source/FreeRTOS/portable/MemMang/heap_5.c\000"
+  94      63652F46 
+  94      72656552 
+  94      544F532F 
+  94      706F7274 
+  95 002e 0000     		.align	2
+  96              	.LC1:
+  97 0030 4572726F 		.ascii	"Error:%s,%d\015\012\000"
+  97      723A2573 
+  97      2C25640D 
+  97      0A00
+  98              		.text
+  99              		.align	1
+ 100              		.global	pvPortMalloc
+ 101              		.syntax unified
+ 102              		.thumb
+ 103              		.thumb_func
+ 104              		.type	pvPortMalloc, %function
+ 105              	pvPortMalloc:
+ 106              	.LFB5:
+ARM GAS  /tmp/ccX30Dk5.s 			page 3
+
+
+ 107              		.file 1 "Source/FreeRTOS/portable/MemMang/heap_5.c"
+   1:Source/FreeRTOS/portable/MemMang/heap_5.c **** /*
+   2:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * FreeRTOS Kernel V10.4.4
+   3:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * Copyright (C) 2021 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
+   4:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+   5:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * SPDX-License-Identifier: MIT
+   6:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+   7:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * Permission is hereby granted, free of charge, to any person obtaining a copy of
+   8:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * this software and associated documentation files (the "Software"), to deal in
+   9:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * the Software without restriction, including without limitation the rights to
+  10:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+  11:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * the Software, and to permit persons to whom the Software is furnished to do so,
+  12:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * subject to the following conditions:
+  13:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  14:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * The above copyright notice and this permission notice shall be included in all
+  15:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * copies or substantial portions of the Software.
+  16:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  17:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  18:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+  19:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+  20:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+  21:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+  22:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  23:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  24:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * https://www.FreeRTOS.org
+  25:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * https://github.com/FreeRTOS
+  26:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  27:Source/FreeRTOS/portable/MemMang/heap_5.c ****  */
+  28:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+  29:Source/FreeRTOS/portable/MemMang/heap_5.c **** /*
+  30:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * A sample implementation of pvPortMalloc() that allows the heap to be defined
+  31:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * across multiple non-contigous blocks and combines (coalescences) adjacent
+  32:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * memory blocks as they are freed.
+  33:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  34:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * See heap_1.c, heap_2.c, heap_3.c and heap_4.c for alternative
+  35:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * implementations, and the memory management pages of https://www.FreeRTOS.org
+  36:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * for more information.
+  37:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  38:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * Usage notes:
+  39:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  40:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * vPortDefineHeapRegions() ***must*** be called before pvPortMalloc().
+  41:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * pvPortMalloc() will be called if any task objects (tasks, queues, event
+  42:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * groups, etc.) are created, therefore vPortDefineHeapRegions() ***must*** be
+  43:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * called before any other objects are defined.
+  44:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  45:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * vPortDefineHeapRegions() takes a single parameter.  The parameter is an array
+  46:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * of HeapRegion_t structures.  HeapRegion_t is defined in portable.h as
+  47:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  48:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * typedef struct HeapRegion
+  49:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * {
+  50:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *  uint8_t *pucStartAddress; << Start address of a block of memory that will be part of the heap.
+  51:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *  size_t xSizeInBytes;      << Size of the block of memory.
+  52:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * } HeapRegion_t;
+  53:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  54:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * The array is terminated using a NULL zero sized region definition, and the
+  55:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * memory regions defined in the array ***must*** appear in address order from
+  56:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * low address to high address.  So the following is a valid example of how
+ARM GAS  /tmp/ccX30Dk5.s 			page 4
+
+
+  57:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * to use the function.
+  58:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  59:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * HeapRegion_t xHeapRegions[] =
+  60:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * {
+  61:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *  { ( uint8_t * ) 0x80000000UL, 0x10000 }, << Defines a block of 0x10000 bytes starting at addres
+  62:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *  { ( uint8_t * ) 0x90000000UL, 0xa0000 }, << Defines a block of 0xa0000 bytes starting at addres
+  63:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *  { NULL, 0 }                << Terminates the array.
+  64:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * };
+  65:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  66:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * vPortDefineHeapRegions( xHeapRegions ); << Pass the array into vPortDefineHeapRegions().
+  67:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  68:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * Note 0x80000000 is the lower address so appears in the array first.
+  69:Source/FreeRTOS/portable/MemMang/heap_5.c ****  *
+  70:Source/FreeRTOS/portable/MemMang/heap_5.c ****  */
+  71:Source/FreeRTOS/portable/MemMang/heap_5.c **** #include <stdlib.h>
+  72:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+  73:Source/FreeRTOS/portable/MemMang/heap_5.c **** /* Defining MPU_WRAPPERS_INCLUDED_FROM_API_FILE prevents task.h from redefining
+  74:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * all the API functions to use the MPU wrappers.  That should only be done when
+  75:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * task.h is included from an application file. */
+  76:Source/FreeRTOS/portable/MemMang/heap_5.c **** #define MPU_WRAPPERS_INCLUDED_FROM_API_FILE
+  77:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+  78:Source/FreeRTOS/portable/MemMang/heap_5.c **** #include "FreeRTOS.h"
+  79:Source/FreeRTOS/portable/MemMang/heap_5.c **** #include "task.h"
+  80:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+  81:Source/FreeRTOS/portable/MemMang/heap_5.c **** #undef MPU_WRAPPERS_INCLUDED_FROM_API_FILE
+  82:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+  83:Source/FreeRTOS/portable/MemMang/heap_5.c **** #if ( configSUPPORT_DYNAMIC_ALLOCATION == 0 )
+  84:Source/FreeRTOS/portable/MemMang/heap_5.c ****     #error This file must not be used if configSUPPORT_DYNAMIC_ALLOCATION is 0
+  85:Source/FreeRTOS/portable/MemMang/heap_5.c **** #endif
+  86:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+  87:Source/FreeRTOS/portable/MemMang/heap_5.c **** /* Block sizes must not get too small. */
+  88:Source/FreeRTOS/portable/MemMang/heap_5.c **** #define heapMINIMUM_BLOCK_SIZE    ( ( size_t ) ( xHeapStructSize << 1 ) )
+  89:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+  90:Source/FreeRTOS/portable/MemMang/heap_5.c **** /* Assumes 8bit bytes! */
+  91:Source/FreeRTOS/portable/MemMang/heap_5.c **** #define heapBITS_PER_BYTE         ( ( size_t ) 8 )
+  92:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+  93:Source/FreeRTOS/portable/MemMang/heap_5.c **** /* Define the linked list structure.  This is used to link free blocks in order
+  94:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * of their memory address. */
+  95:Source/FreeRTOS/portable/MemMang/heap_5.c **** typedef struct A_BLOCK_LINK
+  96:Source/FreeRTOS/portable/MemMang/heap_5.c **** {
+  97:Source/FreeRTOS/portable/MemMang/heap_5.c ****     struct A_BLOCK_LINK * pxNextFreeBlock; /*<< The next free block in the list. */
+  98:Source/FreeRTOS/portable/MemMang/heap_5.c ****     size_t xBlockSize;                     /*<< The size of the free block. */
+  99:Source/FreeRTOS/portable/MemMang/heap_5.c **** } BlockLink_t;
+ 100:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 101:Source/FreeRTOS/portable/MemMang/heap_5.c **** /*-----------------------------------------------------------*/
+ 102:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 103:Source/FreeRTOS/portable/MemMang/heap_5.c **** /*
+ 104:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * Inserts a block of memory that is being freed into the correct position in
+ 105:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * the list of free memory blocks.  The block being freed will be merged with
+ 106:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * the block in front it and/or the block behind it if the memory blocks are
+ 107:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * adjacent to each other.
+ 108:Source/FreeRTOS/portable/MemMang/heap_5.c ****  */
+ 109:Source/FreeRTOS/portable/MemMang/heap_5.c **** static void prvInsertBlockIntoFreeList( BlockLink_t * pxBlockToInsert );
+ 110:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 111:Source/FreeRTOS/portable/MemMang/heap_5.c **** /*-----------------------------------------------------------*/
+ 112:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 113:Source/FreeRTOS/portable/MemMang/heap_5.c **** /* The size of the structure placed at the beginning of each allocated memory
+ARM GAS  /tmp/ccX30Dk5.s 			page 5
+
+
+ 114:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * block must by correctly byte aligned. */
+ 115:Source/FreeRTOS/portable/MemMang/heap_5.c **** static const size_t xHeapStructSize = ( sizeof( BlockLink_t ) + ( ( size_t ) ( portBYTE_ALIGNMENT -
+ 116:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 117:Source/FreeRTOS/portable/MemMang/heap_5.c **** /* Create a couple of list links to mark the start and end of the list. */
+ 118:Source/FreeRTOS/portable/MemMang/heap_5.c **** static BlockLink_t xStart, * pxEnd = NULL;
+ 119:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 120:Source/FreeRTOS/portable/MemMang/heap_5.c **** /* Keeps track of the number of calls to allocate and free memory as well as the
+ 121:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * number of free bytes remaining, but says nothing about fragmentation. */
+ 122:Source/FreeRTOS/portable/MemMang/heap_5.c **** static size_t xFreeBytesRemaining = 0U;
+ 123:Source/FreeRTOS/portable/MemMang/heap_5.c **** static size_t xMinimumEverFreeBytesRemaining = 0U;
+ 124:Source/FreeRTOS/portable/MemMang/heap_5.c **** static size_t xNumberOfSuccessfulAllocations = 0;
+ 125:Source/FreeRTOS/portable/MemMang/heap_5.c **** static size_t xNumberOfSuccessfulFrees = 0;
+ 126:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 127:Source/FreeRTOS/portable/MemMang/heap_5.c **** /* Gets set to the top bit of an size_t type.  When this bit in the xBlockSize
+ 128:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * member of an BlockLink_t structure is set then the block belongs to the
+ 129:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * application.  When the bit is free the block is still part of the free heap
+ 130:Source/FreeRTOS/portable/MemMang/heap_5.c ****  * space. */
+ 131:Source/FreeRTOS/portable/MemMang/heap_5.c **** static size_t xBlockAllocatedBit = 0;
+ 132:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 133:Source/FreeRTOS/portable/MemMang/heap_5.c **** /*-----------------------------------------------------------*/
+ 134:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 135:Source/FreeRTOS/portable/MemMang/heap_5.c **** void * pvPortMalloc( size_t xWantedSize )
+ 136:Source/FreeRTOS/portable/MemMang/heap_5.c **** {
+ 108              		.loc 1 136 1
+ 109              		.cfi_startproc
+ 110              		@ args = 0, pretend = 0, frame = 24
+ 111              		@ frame_needed = 0, uses_anonymous_args = 0
+ 112 0000 00B5     		push	{lr}	@
+ 113              	.LCFI0:
+ 114              		.cfi_def_cfa_offset 4
+ 115              		.cfi_offset 14, -4
+ 116 0002 87B0     		sub	sp, sp, #28	@,,
+ 117              	.LCFI1:
+ 118              		.cfi_def_cfa_offset 32
+ 119 0004 0190     		str	r0, [sp, #4]	@ xWantedSize, xWantedSize
+ 120              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:138:     void * pvReturn = NULL;
+ 137:Source/FreeRTOS/portable/MemMang/heap_5.c ****     BlockLink_t * pxBlock, * pxPreviousBlock, * pxNewBlockLink;
+ 138:Source/FreeRTOS/portable/MemMang/heap_5.c ****     void * pvReturn = NULL;
+ 121              		.loc 1 138 12
+ 122 0006 0023     		movs	r3, #0	@ tmp149,
+ 123 0008 0393     		str	r3, [sp, #12]	@ tmp149, pvReturn
+ 124              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:142:     configASSERT( pxEnd );
+ 139:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 140:Source/FreeRTOS/portable/MemMang/heap_5.c ****     /* The heap must be initialised before the first call to
+ 141:Source/FreeRTOS/portable/MemMang/heap_5.c ****      * prvPortMalloc(). */
+ 142:Source/FreeRTOS/portable/MemMang/heap_5.c ****     configASSERT( pxEnd );
+ 125              		.loc 1 142 5
+ 126 000a 4F4B     		ldr	r3, .L14	@ tmp150,
+ 127 000c 1B68     		ldr	r3, [r3]	@ pxEnd.0_1, pxEnd
+ 128 000e 002B     		cmp	r3, #0	@ pxEnd.0_1,
+ 129 0010 04D1     		bne	.L2		@,
+ 130              	.LBB2:
+ 131              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:142:     configASSERT( pxEnd );
+ 132              		.loc 1 142 5 is_stmt 0 discriminator 1
+ 133 0012 8E22     		movs	r2, #142	@,
+ 134 0014 4D49     		ldr	r1, .L14+4	@,
+ 135 0016 4E48     		ldr	r0, .L14+8	@,
+ARM GAS  /tmp/ccX30Dk5.s 			page 6
+
+
+ 136 0018 FFF7FEFF 		bl	printf		@
+ 137              	.L2:
+ 138              	.LBE2:
+ 139              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:144:     vTaskSuspendAll();
+ 143:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 144:Source/FreeRTOS/portable/MemMang/heap_5.c ****     vTaskSuspendAll();
+ 140              		.loc 1 144 5 is_stmt 1
+ 141 001c FFF7FEFF 		bl	vTaskSuspendAll		@
+ 142              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:150:         if( ( xWantedSize & xBlockAllocatedBit ) =
+ 145:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 146:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* Check the requested block size is not so large that the top bit is
+ 147:Source/FreeRTOS/portable/MemMang/heap_5.c ****          * set.  The top bit of the block size member of the BlockLink_t structure
+ 148:Source/FreeRTOS/portable/MemMang/heap_5.c ****          * is used to determine who owns the block - the application or the
+ 149:Source/FreeRTOS/portable/MemMang/heap_5.c ****          * kernel, so it must be free. */
+ 150:Source/FreeRTOS/portable/MemMang/heap_5.c ****         if( ( xWantedSize & xBlockAllocatedBit ) == 0 )
+ 143              		.loc 1 150 27
+ 144 0020 4C4B     		ldr	r3, .L14+12	@ tmp151,
+ 145 0022 1A68     		ldr	r2, [r3]	@ xBlockAllocatedBit.1_2, xBlockAllocatedBit
+ 146 0024 019B     		ldr	r3, [sp, #4]	@ tmp152, xWantedSize
+ 147 0026 1340     		ands	r3, r3, r2	@, _3, tmp152, xBlockAllocatedBit.1_2
+ 148              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:150:         if( ( xWantedSize & xBlockAllocatedBit ) =
+ 149              		.loc 1 150 11
+ 150 0028 002B     		cmp	r3, #0	@ _3,
+ 151 002a 40F08680 		bne	.L3		@,
+ 152              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:154:             if( ( xWantedSize > 0 ) &&
+ 151:Source/FreeRTOS/portable/MemMang/heap_5.c ****         {
+ 152:Source/FreeRTOS/portable/MemMang/heap_5.c ****             /* The wanted size is increased so it can contain a BlockLink_t
+ 153:Source/FreeRTOS/portable/MemMang/heap_5.c ****              * structure in addition to the requested amount of bytes. */
+ 154:Source/FreeRTOS/portable/MemMang/heap_5.c ****             if( ( xWantedSize > 0 ) &&
+ 153              		.loc 1 154 15
+ 154 002e 019B     		ldr	r3, [sp, #4]	@ tmp153, xWantedSize
+ 155 0030 002B     		cmp	r3, #0	@ tmp153,
+ 156 0032 1ED0     		beq	.L4		@,
+ 157              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:155:                 ( ( xWantedSize + xHeapStructSize 
+ 155:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 ( ( xWantedSize + xHeapStructSize ) >  xWantedSize ) ) /* Overflow check */
+ 158              		.loc 1 155 33 discriminator 1
+ 159 0034 0822     		movs	r2, #8	@ xHeapStructSize.2_4,
+ 160 0036 019B     		ldr	r3, [sp, #4]	@ tmp154, xWantedSize
+ 161 0038 1344     		add	r3, r3, r2	@ _5, xHeapStructSize.2_4
+ 162              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:154:             if( ( xWantedSize > 0 ) &&
+ 154:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 ( ( xWantedSize + xHeapStructSize ) >  xWantedSize ) ) /* Overflow check */
+ 163              		.loc 1 154 37 discriminator 1
+ 164 003a 019A     		ldr	r2, [sp, #4]	@ tmp155, xWantedSize
+ 165 003c 9A42     		cmp	r2, r3	@ tmp155, _5
+ 166 003e 18D2     		bcs	.L4		@,
+ 167              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:157:                 xWantedSize += xHeapStructSize;
+ 156:Source/FreeRTOS/portable/MemMang/heap_5.c ****             {
+ 157:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 xWantedSize += xHeapStructSize;
+ 168              		.loc 1 157 29
+ 169 0040 0822     		movs	r2, #8	@ xHeapStructSize.3_6,
+ 170 0042 019B     		ldr	r3, [sp, #4]	@ tmp157, xWantedSize
+ 171 0044 1344     		add	r3, r3, r2	@ tmp156, xHeapStructSize.3_6
+ 172 0046 0193     		str	r3, [sp, #4]	@ tmp156, xWantedSize
+ 173              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:160:                 if( ( xWantedSize & portBYTE_ALIGN
+ 158:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 159:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 /* Ensure that blocks are always aligned */
+ 160:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 if( ( xWantedSize & portBYTE_ALIGNMENT_MASK ) != 0x00 )
+ARM GAS  /tmp/ccX30Dk5.s 			page 7
+
+
+ 174              		.loc 1 160 35
+ 175 0048 019B     		ldr	r3, [sp, #4]	@ tmp158, xWantedSize
+ 176 004a 03F00703 		and	r3, r3, #7	@ _7, tmp158,
+ 177              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:160:                 if( ( xWantedSize & portBYTE_ALIGN
+ 178              		.loc 1 160 19
+ 179 004e 002B     		cmp	r3, #0	@ _7,
+ 180 0050 11D0     		beq	.L7		@,
+ 181              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:163:                     if( ( xWantedSize + ( portBYTE
+ 161:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 162:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     /* Byte alignment required. Check for overflow */
+ 163:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     if( ( xWantedSize + ( portBYTE_ALIGNMENT - ( xWantedSize & portBYTE_ALIGNMENT_M
+ 182              		.loc 1 163 39
+ 183 0052 019B     		ldr	r3, [sp, #4]	@ tmp159, xWantedSize
+ 184 0054 23F00703 		bic	r3, r3, #7	@ _8, tmp159,
+ 185 0058 0833     		adds	r3, r3, #8	@ _9, _8,
+ 186              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:163:                     if( ( xWantedSize + ( portBYTE
+ 187              		.loc 1 163 23
+ 188 005a 019A     		ldr	r2, [sp, #4]	@ tmp160, xWantedSize
+ 189 005c 9A42     		cmp	r2, r3	@ tmp160, _9
+ 190 005e 05D2     		bcs	.L6		@,
+ 191              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:166:                         xWantedSize += ( portBYTE_
+ 164:Source/FreeRTOS/portable/MemMang/heap_5.c ****                          xWantedSize )
+ 165:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     {
+ 166:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         xWantedSize += ( portBYTE_ALIGNMENT - ( xWantedSize & portBYTE_ALIGNMENT_MA
+ 192              		.loc 1 166 37
+ 193 0060 019B     		ldr	r3, [sp, #4]	@ tmp161, xWantedSize
+ 194 0062 23F00703 		bic	r3, r3, #7	@ _10, tmp161,
+ 195 0066 0833     		adds	r3, r3, #8	@ tmp162, _10,
+ 196 0068 0193     		str	r3, [sp, #4]	@ tmp162, xWantedSize
+ 197              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:160:                 if( ( xWantedSize & portBYTE_ALIGN
+ 160:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 198              		.loc 1 160 19
+ 199 006a 04E0     		b	.L7		@
+ 200              	.L6:
+ 201              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:170:                         xWantedSize = 0;
+ 167:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     }
+ 168:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     else
+ 169:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     {
+ 170:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         xWantedSize = 0;
+ 202              		.loc 1 170 37
+ 203 006c 0023     		movs	r3, #0	@ tmp163,
+ 204 006e 0193     		str	r3, [sp, #4]	@ tmp163, xWantedSize
+ 205              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:160:                 if( ( xWantedSize & portBYTE_ALIGN
+ 160:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 206              		.loc 1 160 19
+ 207 0070 01E0     		b	.L7		@
+ 208              	.L4:
+ 209              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:180:                 xWantedSize = 0;
+ 171:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     }
+ 172:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 }
+ 173:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 else
+ 174:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 175:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     mtCOVERAGE_TEST_MARKER();
+ 176:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 }
+ 177:Source/FreeRTOS/portable/MemMang/heap_5.c ****             }
+ 178:Source/FreeRTOS/portable/MemMang/heap_5.c ****             else
+ 179:Source/FreeRTOS/portable/MemMang/heap_5.c ****             {
+ARM GAS  /tmp/ccX30Dk5.s 			page 8
+
+
+ 180:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 xWantedSize = 0;
+ 210              		.loc 1 180 29
+ 211 0072 0023     		movs	r3, #0	@ tmp164,
+ 212 0074 0193     		str	r3, [sp, #4]	@ tmp164, xWantedSize
+ 213              	.L7:
+ 214              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:183:             if( ( xWantedSize > 0 ) && ( xWantedSi
+ 181:Source/FreeRTOS/portable/MemMang/heap_5.c ****             }
+ 182:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 183:Source/FreeRTOS/portable/MemMang/heap_5.c ****             if( ( xWantedSize > 0 ) && ( xWantedSize <= xFreeBytesRemaining ) )
+ 215              		.loc 1 183 15
+ 216 0076 019B     		ldr	r3, [sp, #4]	@ tmp165, xWantedSize
+ 217 0078 002B     		cmp	r3, #0	@ tmp165,
+ 218 007a 5ED0     		beq	.L3		@,
+ 219              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:183:             if( ( xWantedSize > 0 ) && ( xWantedSi
+ 220              		.loc 1 183 54 discriminator 1
+ 221 007c 364B     		ldr	r3, .L14+16	@ tmp166,
+ 222 007e 1B68     		ldr	r3, [r3]	@ xFreeBytesRemaining.4_11, xFreeBytesRemaining
+ 223              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:183:             if( ( xWantedSize > 0 ) && ( xWantedSi
+ 224              		.loc 1 183 37 discriminator 1
+ 225 0080 019A     		ldr	r2, [sp, #4]	@ tmp167, xWantedSize
+ 226 0082 9A42     		cmp	r2, r3	@ tmp167, xFreeBytesRemaining.4_11
+ 227 0084 59D8     		bhi	.L3		@,
+ 228              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:187:                 pxPreviousBlock = &xStart;
+ 184:Source/FreeRTOS/portable/MemMang/heap_5.c ****             {
+ 185:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 /* Traverse the list from the start (lowest address) block until
+ 186:Source/FreeRTOS/portable/MemMang/heap_5.c ****                  * one of adequate size is found. */
+ 187:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 pxPreviousBlock = &xStart;
+ 229              		.loc 1 187 33
+ 230 0086 354B     		ldr	r3, .L14+20	@ tmp168,
+ 231 0088 0493     		str	r3, [sp, #16]	@ tmp168, pxPreviousBlock
+ 232              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:188:                 pxBlock = xStart.pxNextFreeBlock;
+ 188:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 pxBlock = xStart.pxNextFreeBlock;
+ 233              		.loc 1 188 25
+ 234 008a 344B     		ldr	r3, .L14+20	@ tmp169,
+ 235 008c 1B68     		ldr	r3, [r3]	@ tmp170, xStart.pxNextFreeBlock
+ 236 008e 0593     		str	r3, [sp, #20]	@ tmp170, pxBlock
+ 237              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:190:                 while( ( pxBlock->xBlockSize < xWa
+ 189:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 190:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 while( ( pxBlock->xBlockSize < xWantedSize ) && ( pxBlock->pxNextFreeBlock != NULL 
+ 238              		.loc 1 190 22
+ 239 0090 04E0     		b	.L8		@
+ 240              	.L10:
+ 241              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:192:                     pxPreviousBlock = pxBlock;
+ 191:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 192:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     pxPreviousBlock = pxBlock;
+ 242              		.loc 1 192 37
+ 243 0092 059B     		ldr	r3, [sp, #20]	@ tmp171, pxBlock
+ 244 0094 0493     		str	r3, [sp, #16]	@ tmp171, pxPreviousBlock
+ 245              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:193:                     pxBlock = pxBlock->pxNextFreeB
+ 193:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     pxBlock = pxBlock->pxNextFreeBlock;
+ 246              		.loc 1 193 29
+ 247 0096 059B     		ldr	r3, [sp, #20]	@ tmp172, pxBlock
+ 248 0098 1B68     		ldr	r3, [r3]	@ tmp173, pxBlock_37->pxNextFreeBlock
+ 249 009a 0593     		str	r3, [sp, #20]	@ tmp173, pxBlock
+ 250              	.L8:
+ 251              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:190:                 while( ( pxBlock->xBlockSize < xWa
+ 190:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ARM GAS  /tmp/ccX30Dk5.s 			page 9
+
+
+ 252              		.loc 1 190 33
+ 253 009c 059B     		ldr	r3, [sp, #20]	@ tmp174, pxBlock
+ 254 009e 5B68     		ldr	r3, [r3, #4]	@ _12, pxBlock_37->xBlockSize
+ 255              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:190:                 while( ( pxBlock->xBlockSize < xWa
+ 190:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 256              		.loc 1 190 22
+ 257 00a0 019A     		ldr	r2, [sp, #4]	@ tmp175, xWantedSize
+ 258 00a2 9A42     		cmp	r2, r3	@ tmp175, _12
+ 259 00a4 03D9     		bls	.L9		@,
+ 260              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:190:                 while( ( pxBlock->xBlockSize < xWa
+ 190:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 261              		.loc 1 190 74 discriminator 1
+ 262 00a6 059B     		ldr	r3, [sp, #20]	@ tmp176, pxBlock
+ 263 00a8 1B68     		ldr	r3, [r3]	@ _13, pxBlock_37->pxNextFreeBlock
+ 264              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:190:                 while( ( pxBlock->xBlockSize < xWa
+ 190:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 265              		.loc 1 190 62 discriminator 1
+ 266 00aa 002B     		cmp	r3, #0	@ _13,
+ 267 00ac F1D1     		bne	.L10		@,
+ 268              	.L9:
+ 269              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:198:                 if( pxBlock != pxEnd )
+ 194:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 }
+ 195:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 196:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 /* If the end marker was reached then a block of adequate size
+ 197:Source/FreeRTOS/portable/MemMang/heap_5.c ****                  * was not found. */
+ 198:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 if( pxBlock != pxEnd )
+ 270              		.loc 1 198 29
+ 271 00ae 264B     		ldr	r3, .L14	@ tmp177,
+ 272 00b0 1B68     		ldr	r3, [r3]	@ pxEnd.5_14, pxEnd
+ 273              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:198:                 if( pxBlock != pxEnd )
+ 274              		.loc 1 198 19
+ 275 00b2 059A     		ldr	r2, [sp, #20]	@ tmp178, pxBlock
+ 276 00b4 9A42     		cmp	r2, r3	@ tmp178, pxEnd.5_14
+ 277 00b6 40D0     		beq	.L3		@,
+ 278              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:202:                     pvReturn = ( void * ) ( ( ( ui
+ 199:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 200:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     /* Return the memory space pointed to - jumping over the
+ 201:Source/FreeRTOS/portable/MemMang/heap_5.c ****                      * BlockLink_t structure at its start. */
+ 202:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     pvReturn = ( void * ) ( ( ( uint8_t * ) pxPreviousBlock->pxNextFreeBlock ) + xH
+ 279              		.loc 1 202 76
+ 280 00b8 049B     		ldr	r3, [sp, #16]	@ tmp179, pxPreviousBlock
+ 281 00ba 1B68     		ldr	r3, [r3]	@ _15, pxPreviousBlock_38->pxNextFreeBlock
+ 282              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:202:                     pvReturn = ( void * ) ( ( ( ui
+ 283              		.loc 1 202 32
+ 284 00bc 0822     		movs	r2, #8	@ xHeapStructSize.6_16,
+ 285              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:202:                     pvReturn = ( void * ) ( ( ( ui
+ 286              		.loc 1 202 30
+ 287 00be 1344     		add	r3, r3, r2	@ tmp180, xHeapStructSize.6_16
+ 288 00c0 0393     		str	r3, [sp, #12]	@ tmp180, pvReturn
+ 289              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:206:                     pxPreviousBlock->pxNextFreeBlo
+ 203:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 204:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     /* This block is being returned for use so must be taken out
+ 205:Source/FreeRTOS/portable/MemMang/heap_5.c ****                      * of the list of free blocks. */
+ 206:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     pxPreviousBlock->pxNextFreeBlock = pxBlock->pxNextFreeBlock;
+ 290              		.loc 1 206 63
+ 291 00c2 059B     		ldr	r3, [sp, #20]	@ tmp181, pxBlock
+ 292 00c4 1A68     		ldr	r2, [r3]	@ _17, pxBlock_37->pxNextFreeBlock
+ARM GAS  /tmp/ccX30Dk5.s 			page 10
+
+
+ 293              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:206:                     pxPreviousBlock->pxNextFreeBlo
+ 294              		.loc 1 206 54
+ 295 00c6 049B     		ldr	r3, [sp, #16]	@ tmp182, pxPreviousBlock
+ 296 00c8 1A60     		str	r2, [r3]	@ _17, pxPreviousBlock_38->pxNextFreeBlock
+ 297              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:210:                     if( ( pxBlock->xBlockSize - xW
+ 207:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 208:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     /* If the block is larger than required it can be split into
+ 209:Source/FreeRTOS/portable/MemMang/heap_5.c ****                      * two. */
+ 210:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     if( ( pxBlock->xBlockSize - xWantedSize ) > heapMINIMUM_BLOCK_SIZE )
+ 298              		.loc 1 210 34
+ 299 00ca 059B     		ldr	r3, [sp, #20]	@ tmp183, pxBlock
+ 300 00cc 5A68     		ldr	r2, [r3, #4]	@ _18, pxBlock_37->xBlockSize
+ 301              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:210:                     if( ( pxBlock->xBlockSize - xW
+ 302              		.loc 1 210 47
+ 303 00ce 019B     		ldr	r3, [sp, #4]	@ tmp184, xWantedSize
+ 304 00d0 D21A     		subs	r2, r2, r3	@ _19, _18, tmp184
+ 305              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:210:                     if( ( pxBlock->xBlockSize - xW
+ 306              		.loc 1 210 65
+ 307 00d2 0823     		movs	r3, #8	@ xHeapStructSize.7_20,
+ 308 00d4 5B00     		lsls	r3, r3, #1	@ _21, xHeapStructSize.7_20,
+ 309              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:210:                     if( ( pxBlock->xBlockSize - xW
+ 310              		.loc 1 210 23
+ 311 00d6 9A42     		cmp	r2, r3	@ _19, _21
+ 312 00d8 0FD9     		bls	.L11		@,
+ 313              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:216:                         pxNewBlockLink = ( void * 
+ 211:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     {
+ 212:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         /* This block is to be split into two.  Create a new
+ 213:Source/FreeRTOS/portable/MemMang/heap_5.c ****                          * block following the number of bytes requested. The void
+ 214:Source/FreeRTOS/portable/MemMang/heap_5.c ****                          * cast is used to prevent byte alignment warnings from the
+ 215:Source/FreeRTOS/portable/MemMang/heap_5.c ****                          * compiler. */
+ 216:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         pxNewBlockLink = ( void * ) ( ( ( uint8_t * ) pxBlock ) + xWantedSize );
+ 314              		.loc 1 216 40
+ 315 00da 059A     		ldr	r2, [sp, #20]	@ tmp186, pxBlock
+ 316 00dc 019B     		ldr	r3, [sp, #4]	@ tmp187, xWantedSize
+ 317 00de 1344     		add	r3, r3, r2	@ tmp185, tmp186
+ 318 00e0 0293     		str	r3, [sp, #8]	@ tmp185, pxNewBlockLink
+ 319              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:220:                         pxNewBlockLink->xBlockSize
+ 217:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 218:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         /* Calculate the sizes of two blocks split from the
+ 219:Source/FreeRTOS/portable/MemMang/heap_5.c ****                          * single block. */
+ 220:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         pxNewBlockLink->xBlockSize = pxBlock->xBlockSize - xWantedSize;
+ 320              		.loc 1 220 61
+ 321 00e2 059B     		ldr	r3, [sp, #20]	@ tmp188, pxBlock
+ 322 00e4 5A68     		ldr	r2, [r3, #4]	@ _22, pxBlock_37->xBlockSize
+ 323              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:220:                         pxNewBlockLink->xBlockSize
+ 324              		.loc 1 220 74
+ 325 00e6 019B     		ldr	r3, [sp, #4]	@ tmp189, xWantedSize
+ 326 00e8 D21A     		subs	r2, r2, r3	@ _23, _22, tmp189
+ 327              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:220:                         pxNewBlockLink->xBlockSize
+ 328              		.loc 1 220 52
+ 329 00ea 029B     		ldr	r3, [sp, #8]	@ tmp190, pxNewBlockLink
+ 330 00ec 5A60     		str	r2, [r3, #4]	@ _23, pxNewBlockLink_59->xBlockSize
+ 331              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:221:                         pxBlock->xBlockSize = xWan
+ 221:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         pxBlock->xBlockSize = xWantedSize;
+ 332              		.loc 1 221 45
+ 333 00ee 059B     		ldr	r3, [sp, #20]	@ tmp191, pxBlock
+ 334 00f0 019A     		ldr	r2, [sp, #4]	@ tmp192, xWantedSize
+ARM GAS  /tmp/ccX30Dk5.s 			page 11
+
+
+ 335 00f2 5A60     		str	r2, [r3, #4]	@ tmp192, pxBlock_37->xBlockSize
+ 336              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:224:                         prvInsertBlockIntoFreeList
+ 222:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 223:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         /* Insert the new block into the list of free blocks. */
+ 224:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         prvInsertBlockIntoFreeList( ( pxNewBlockLink ) );
+ 337              		.loc 1 224 25
+ 338 00f4 0298     		ldr	r0, [sp, #8]	@, pxNewBlockLink
+ 339 00f6 00F09DF8 		bl	prvInsertBlockIntoFreeList		@
+ 340              	.L11:
+ 341              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:231:                     xFreeBytesRemaining -= pxBlock
+ 225:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     }
+ 226:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     else
+ 227:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     {
+ 228:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         mtCOVERAGE_TEST_MARKER();
+ 229:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     }
+ 230:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 231:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     xFreeBytesRemaining -= pxBlock->xBlockSize;
+ 342              		.loc 1 231 41
+ 343 00fa 174B     		ldr	r3, .L14+16	@ tmp193,
+ 344 00fc 1A68     		ldr	r2, [r3]	@ xFreeBytesRemaining.8_24, xFreeBytesRemaining
+ 345              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:231:                     xFreeBytesRemaining -= pxBlock
+ 346              		.loc 1 231 51
+ 347 00fe 059B     		ldr	r3, [sp, #20]	@ tmp194, pxBlock
+ 348 0100 5B68     		ldr	r3, [r3, #4]	@ _25, pxBlock_37->xBlockSize
+ 349              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:231:                     xFreeBytesRemaining -= pxBlock
+ 350              		.loc 1 231 41
+ 351 0102 D31A     		subs	r3, r2, r3	@ _26, xFreeBytesRemaining.8_24, _25
+ 352 0104 144A     		ldr	r2, .L14+16	@ tmp195,
+ 353 0106 1360     		str	r3, [r2]	@ _26, xFreeBytesRemaining
+ 354              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:233:                     if( xFreeBytesRemaining < xMin
+ 232:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 233:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     if( xFreeBytesRemaining < xMinimumEverFreeBytesRemaining )
+ 355              		.loc 1 233 45
+ 356 0108 134B     		ldr	r3, .L14+16	@ tmp196,
+ 357 010a 1A68     		ldr	r2, [r3]	@ xFreeBytesRemaining.9_27, xFreeBytesRemaining
+ 358 010c 144B     		ldr	r3, .L14+24	@ tmp197,
+ 359 010e 1B68     		ldr	r3, [r3]	@ xMinimumEverFreeBytesRemaining.10_28, xMinimumEverFreeBytesRemaining
+ 360              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:233:                     if( xFreeBytesRemaining < xMin
+ 361              		.loc 1 233 23
+ 362 0110 9A42     		cmp	r2, r3	@ xFreeBytesRemaining.9_27, xMinimumEverFreeBytesRemaining.10_28
+ 363 0112 03D2     		bcs	.L12		@,
+ 364              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:235:                         xMinimumEverFreeBytesRemai
+ 234:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     {
+ 235:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         xMinimumEverFreeBytesRemaining = xFreeBytesRemaining;
+ 365              		.loc 1 235 56
+ 366 0114 104B     		ldr	r3, .L14+16	@ tmp198,
+ 367 0116 1B68     		ldr	r3, [r3]	@ xFreeBytesRemaining.11_29, xFreeBytesRemaining
+ 368 0118 114A     		ldr	r2, .L14+24	@ tmp199,
+ 369 011a 1360     		str	r3, [r2]	@ xFreeBytesRemaining.11_29, xMinimumEverFreeBytesRemaining
+ 370              	.L12:
+ 371              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:244:                     pxBlock->xBlockSize |= xBlockA
+ 236:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     }
+ 237:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     else
+ 238:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     {
+ 239:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         mtCOVERAGE_TEST_MARKER();
+ 240:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     }
+ 241:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ARM GAS  /tmp/ccX30Dk5.s 			page 12
+
+
+ 242:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     /* The block is being returned - it is allocated and owned
+ 243:Source/FreeRTOS/portable/MemMang/heap_5.c ****                      * by the application and has no "next" block. */
+ 244:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     pxBlock->xBlockSize |= xBlockAllocatedBit;
+ 372              		.loc 1 244 41
+ 373 011c 059B     		ldr	r3, [sp, #20]	@ tmp200, pxBlock
+ 374 011e 5A68     		ldr	r2, [r3, #4]	@ _30, pxBlock_37->xBlockSize
+ 375 0120 0C4B     		ldr	r3, .L14+12	@ tmp201,
+ 376 0122 1B68     		ldr	r3, [r3]	@ xBlockAllocatedBit.12_31, xBlockAllocatedBit
+ 377 0124 1A43     		orrs	r2, r2, r3	@, _32, _30, xBlockAllocatedBit.12_31
+ 378 0126 059B     		ldr	r3, [sp, #20]	@ tmp202, pxBlock
+ 379 0128 5A60     		str	r2, [r3, #4]	@ _32, pxBlock_37->xBlockSize
+ 380              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:245:                     pxBlock->pxNextFreeBlock = NUL
+ 245:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     pxBlock->pxNextFreeBlock = NULL;
+ 381              		.loc 1 245 46
+ 382 012a 059B     		ldr	r3, [sp, #20]	@ tmp203, pxBlock
+ 383 012c 0022     		movs	r2, #0	@ tmp204,
+ 384 012e 1A60     		str	r2, [r3]	@ tmp204, pxBlock_37->pxNextFreeBlock
+ 385              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:246:                     xNumberOfSuccessfulAllocations
+ 246:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     xNumberOfSuccessfulAllocations++;
+ 386              		.loc 1 246 51
+ 387 0130 0C4B     		ldr	r3, .L14+28	@ tmp205,
+ 388 0132 1B68     		ldr	r3, [r3]	@ xNumberOfSuccessfulAllocations.13_33, xNumberOfSuccessfulAllocations
+ 389 0134 0133     		adds	r3, r3, #1	@ _34, xNumberOfSuccessfulAllocations.13_33,
+ 390 0136 0B4A     		ldr	r2, .L14+28	@ tmp206,
+ 391 0138 1360     		str	r3, [r2]	@ _34, xNumberOfSuccessfulAllocations
+ 392              	.L3:
+ 393              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:265:     ( void ) xTaskResumeAll();
+ 247:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 }
+ 248:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 else
+ 249:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 250:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     mtCOVERAGE_TEST_MARKER();
+ 251:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 }
+ 252:Source/FreeRTOS/portable/MemMang/heap_5.c ****             }
+ 253:Source/FreeRTOS/portable/MemMang/heap_5.c ****             else
+ 254:Source/FreeRTOS/portable/MemMang/heap_5.c ****             {
+ 255:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 mtCOVERAGE_TEST_MARKER();
+ 256:Source/FreeRTOS/portable/MemMang/heap_5.c ****             }
+ 257:Source/FreeRTOS/portable/MemMang/heap_5.c ****         }
+ 258:Source/FreeRTOS/portable/MemMang/heap_5.c ****         else
+ 259:Source/FreeRTOS/portable/MemMang/heap_5.c ****         {
+ 260:Source/FreeRTOS/portable/MemMang/heap_5.c ****             mtCOVERAGE_TEST_MARKER();
+ 261:Source/FreeRTOS/portable/MemMang/heap_5.c ****         }
+ 262:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 263:Source/FreeRTOS/portable/MemMang/heap_5.c ****         traceMALLOC( pvReturn, xWantedSize );
+ 264:Source/FreeRTOS/portable/MemMang/heap_5.c ****     }
+ 265:Source/FreeRTOS/portable/MemMang/heap_5.c ****     ( void ) xTaskResumeAll();
+ 394              		.loc 1 265 14
+ 395 013a FFF7FEFF 		bl	xTaskResumeAll		@
+ 396              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:281:     return pvReturn;
+ 266:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 267:Source/FreeRTOS/portable/MemMang/heap_5.c ****     #if ( configUSE_MALLOC_FAILED_HOOK == 1 )
+ 268:Source/FreeRTOS/portable/MemMang/heap_5.c ****         {
+ 269:Source/FreeRTOS/portable/MemMang/heap_5.c ****             if( pvReturn == NULL )
+ 270:Source/FreeRTOS/portable/MemMang/heap_5.c ****             {
+ 271:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 extern void vApplicationMallocFailedHook( void );
+ 272:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 vApplicationMallocFailedHook();
+ 273:Source/FreeRTOS/portable/MemMang/heap_5.c ****             }
+ARM GAS  /tmp/ccX30Dk5.s 			page 13
+
+
+ 274:Source/FreeRTOS/portable/MemMang/heap_5.c ****             else
+ 275:Source/FreeRTOS/portable/MemMang/heap_5.c ****             {
+ 276:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 mtCOVERAGE_TEST_MARKER();
+ 277:Source/FreeRTOS/portable/MemMang/heap_5.c ****             }
+ 278:Source/FreeRTOS/portable/MemMang/heap_5.c ****         }
+ 279:Source/FreeRTOS/portable/MemMang/heap_5.c ****     #endif /* if ( configUSE_MALLOC_FAILED_HOOK == 1 ) */
+ 280:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 281:Source/FreeRTOS/portable/MemMang/heap_5.c ****     return pvReturn;
+ 397              		.loc 1 281 12
+ 398 013e 039B     		ldr	r3, [sp, #12]	@ _69, pvReturn
+ 399              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:282: }
+ 282:Source/FreeRTOS/portable/MemMang/heap_5.c **** }
+ 400              		.loc 1 282 1
+ 401 0140 1846     		mov	r0, r3	@, <retval>
+ 402 0142 07B0     		add	sp, sp, #28	@,,
+ 403              	.LCFI2:
+ 404              		.cfi_def_cfa_offset 4
+ 405              		@ sp needed	@
+ 406 0144 5DF804FB 		ldr	pc, [sp], #4	@
+ 407              	.L15:
+ 408              		.align	2
+ 409              	.L14:
+ 410 0148 08000000 		.word	pxEnd
+ 411 014c 04000000 		.word	.LC0
+ 412 0150 30000000 		.word	.LC1
+ 413 0154 1C000000 		.word	xBlockAllocatedBit
+ 414 0158 0C000000 		.word	xFreeBytesRemaining
+ 415 015c 00000000 		.word	xStart
+ 416 0160 10000000 		.word	xMinimumEverFreeBytesRemaining
+ 417 0164 14000000 		.word	xNumberOfSuccessfulAllocations
+ 418              		.cfi_endproc
+ 419              	.LFE5:
+ 420              		.size	pvPortMalloc, .-pvPortMalloc
+ 421              		.align	1
+ 422              		.global	vPortFree
+ 423              		.syntax unified
+ 424              		.thumb
+ 425              		.thumb_func
+ 426              		.type	vPortFree, %function
+ 427              	vPortFree:
+ 428              	.LFB6:
+ 283:Source/FreeRTOS/portable/MemMang/heap_5.c **** /*-----------------------------------------------------------*/
+ 284:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 285:Source/FreeRTOS/portable/MemMang/heap_5.c **** void vPortFree( void * pv )
+ 286:Source/FreeRTOS/portable/MemMang/heap_5.c **** {
+ 429              		.loc 1 286 1
+ 430              		.cfi_startproc
+ 431              		@ args = 0, pretend = 0, frame = 16
+ 432              		@ frame_needed = 0, uses_anonymous_args = 0
+ 433 0168 00B5     		push	{lr}	@
+ 434              	.LCFI3:
+ 435              		.cfi_def_cfa_offset 4
+ 436              		.cfi_offset 14, -4
+ 437 016a 85B0     		sub	sp, sp, #20	@,,
+ 438              	.LCFI4:
+ 439              		.cfi_def_cfa_offset 24
+ 440 016c 0190     		str	r0, [sp, #4]	@ pv, pv
+ARM GAS  /tmp/ccX30Dk5.s 			page 14
+
+
+ 441              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:287:     uint8_t * puc = ( uint8_t * ) pv;
+ 287:Source/FreeRTOS/portable/MemMang/heap_5.c ****     uint8_t * puc = ( uint8_t * ) pv;
+ 442              		.loc 1 287 15
+ 443 016e 019B     		ldr	r3, [sp, #4]	@ tmp132, pv
+ 444 0170 0393     		str	r3, [sp, #12]	@ tmp132, puc
+ 445              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:290:     if( pv != NULL )
+ 288:Source/FreeRTOS/portable/MemMang/heap_5.c ****     BlockLink_t * pxLink;
+ 289:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 290:Source/FreeRTOS/portable/MemMang/heap_5.c ****     if( pv != NULL )
+ 446              		.loc 1 290 7
+ 447 0172 019B     		ldr	r3, [sp, #4]	@ tmp133, pv
+ 448 0174 002B     		cmp	r3, #0	@ tmp133,
+ 449 0176 43D0     		beq	.L20		@,
+ 450              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:294:         puc -= xHeapStructSize;
+ 291:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 292:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* The memory being freed will have an BlockLink_t structure immediately
+ 293:Source/FreeRTOS/portable/MemMang/heap_5.c ****          * before it. */
+ 294:Source/FreeRTOS/portable/MemMang/heap_5.c ****         puc -= xHeapStructSize;
+ 451              		.loc 1 294 13
+ 452 0178 0823     		movs	r3, #8	@ xHeapStructSize.14_1,
+ 453 017a 5B42     		rsbs	r3, r3, #0	@ _2, xHeapStructSize.14_1
+ 454 017c 039A     		ldr	r2, [sp, #12]	@ tmp135, puc
+ 455 017e 1344     		add	r3, r3, r2	@ tmp134, tmp135
+ 456 0180 0393     		str	r3, [sp, #12]	@ tmp134, puc
+ 457              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:297:         pxLink = ( void * ) puc;
+ 295:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 296:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* This casting is to keep the compiler from issuing warnings. */
+ 297:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxLink = ( void * ) puc;
+ 458              		.loc 1 297 16
+ 459 0182 039B     		ldr	r3, [sp, #12]	@ tmp136, puc
+ 460 0184 0293     		str	r3, [sp, #8]	@ tmp136, pxLink
+ 461              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:300:         configASSERT( ( pxLink->xBlockSize & xBloc
+ 298:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 299:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* Check the block is actually allocated. */
+ 300:Source/FreeRTOS/portable/MemMang/heap_5.c ****         configASSERT( ( pxLink->xBlockSize & xBlockAllocatedBit ) != 0 );
+ 462              		.loc 1 300 9
+ 463 0186 029B     		ldr	r3, [sp, #8]	@ tmp137, pxLink
+ 464 0188 5A68     		ldr	r2, [r3, #4]	@ _3, pxLink_27->xBlockSize
+ 465 018a 1F4B     		ldr	r3, .L21	@ tmp138,
+ 466 018c 1B68     		ldr	r3, [r3]	@ xBlockAllocatedBit.15_4, xBlockAllocatedBit
+ 467 018e 1340     		ands	r3, r3, r2	@, _5, xBlockAllocatedBit.15_4, _3
+ 468 0190 002B     		cmp	r3, #0	@ _5,
+ 469 0192 05D1     		bne	.L18		@,
+ 470              	.LBB3:
+ 471              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:300:         configASSERT( ( pxLink->xBlockSize & xBloc
+ 472              		.loc 1 300 9 is_stmt 0 discriminator 1
+ 473 0194 4FF49672 		mov	r2, #300	@,
+ 474 0198 1C49     		ldr	r1, .L21+4	@,
+ 475 019a 1D48     		ldr	r0, .L21+8	@,
+ 476 019c FFF7FEFF 		bl	printf		@
+ 477              	.L18:
+ 478              	.LBE3:
+ 479              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:301:         configASSERT( pxLink->pxNextFreeBlock == N
+ 301:Source/FreeRTOS/portable/MemMang/heap_5.c ****         configASSERT( pxLink->pxNextFreeBlock == NULL );
+ 480              		.loc 1 301 9 is_stmt 1
+ 481 01a0 029B     		ldr	r3, [sp, #8]	@ tmp139, pxLink
+ 482 01a2 1B68     		ldr	r3, [r3]	@ _6, pxLink_27->pxNextFreeBlock
+ARM GAS  /tmp/ccX30Dk5.s 			page 15
+
+
+ 483 01a4 002B     		cmp	r3, #0	@ _6,
+ 484 01a6 05D0     		beq	.L19		@,
+ 485              	.LBB4:
+ 486              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:301:         configASSERT( pxLink->pxNextFreeBlock == N
+ 487              		.loc 1 301 9 is_stmt 0 discriminator 1
+ 488 01a8 40F22D12 		movw	r2, #301	@,
+ 489 01ac 1749     		ldr	r1, .L21+4	@,
+ 490 01ae 1848     		ldr	r0, .L21+8	@,
+ 491 01b0 FFF7FEFF 		bl	printf		@
+ 492              	.L19:
+ 493              	.LBE4:
+ 494              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:303:         if( ( pxLink->xBlockSize & xBlockAllocated
+ 302:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 303:Source/FreeRTOS/portable/MemMang/heap_5.c ****         if( ( pxLink->xBlockSize & xBlockAllocatedBit ) != 0 )
+ 495              		.loc 1 303 21 is_stmt 1
+ 496 01b4 029B     		ldr	r3, [sp, #8]	@ tmp140, pxLink
+ 497 01b6 5A68     		ldr	r2, [r3, #4]	@ _7, pxLink_27->xBlockSize
+ 498              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:303:         if( ( pxLink->xBlockSize & xBlockAllocated
+ 499              		.loc 1 303 34
+ 500 01b8 134B     		ldr	r3, .L21	@ tmp141,
+ 501 01ba 1B68     		ldr	r3, [r3]	@ xBlockAllocatedBit.16_8, xBlockAllocatedBit
+ 502 01bc 1340     		ands	r3, r3, r2	@, _9, xBlockAllocatedBit.16_8, _7
+ 503              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:303:         if( ( pxLink->xBlockSize & xBlockAllocated
+ 504              		.loc 1 303 11
+ 505 01be 002B     		cmp	r3, #0	@ _9,
+ 506 01c0 1ED0     		beq	.L20		@,
+ 507              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:305:             if( pxLink->pxNextFreeBlock == NULL )
+ 304:Source/FreeRTOS/portable/MemMang/heap_5.c ****         {
+ 305:Source/FreeRTOS/portable/MemMang/heap_5.c ****             if( pxLink->pxNextFreeBlock == NULL )
+ 508              		.loc 1 305 23
+ 509 01c2 029B     		ldr	r3, [sp, #8]	@ tmp142, pxLink
+ 510 01c4 1B68     		ldr	r3, [r3]	@ _10, pxLink_27->pxNextFreeBlock
+ 511              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:305:             if( pxLink->pxNextFreeBlock == NULL )
+ 512              		.loc 1 305 15
+ 513 01c6 002B     		cmp	r3, #0	@ _10,
+ 514 01c8 1AD1     		bne	.L20		@,
+ 515              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:309:                 pxLink->xBlockSize &= ~xBlockAlloc
+ 306:Source/FreeRTOS/portable/MemMang/heap_5.c ****             {
+ 307:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 /* The block is being returned to the heap - it is no longer
+ 308:Source/FreeRTOS/portable/MemMang/heap_5.c ****                  * allocated. */
+ 309:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 pxLink->xBlockSize &= ~xBlockAllocatedBit;
+ 516              		.loc 1 309 36
+ 517 01ca 029B     		ldr	r3, [sp, #8]	@ tmp143, pxLink
+ 518 01cc 5A68     		ldr	r2, [r3, #4]	@ _11, pxLink_27->xBlockSize
+ 519              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:309:                 pxLink->xBlockSize &= ~xBlockAlloc
+ 520              		.loc 1 309 39
+ 521 01ce 0E4B     		ldr	r3, .L21	@ tmp144,
+ 522 01d0 1B68     		ldr	r3, [r3]	@ xBlockAllocatedBit.17_12, xBlockAllocatedBit
+ 523 01d2 DB43     		mvns	r3, r3	@ _13, xBlockAllocatedBit.17_12
+ 524              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:309:                 pxLink->xBlockSize &= ~xBlockAlloc
+ 525              		.loc 1 309 36
+ 526 01d4 1A40     		ands	r2, r2, r3	@, _14, _11, _13
+ 527 01d6 029B     		ldr	r3, [sp, #8]	@ tmp145, pxLink
+ 528 01d8 5A60     		str	r2, [r3, #4]	@ _14, pxLink_27->xBlockSize
+ 529              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:311:                 vTaskSuspendAll();
+ 310:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 311:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 vTaskSuspendAll();
+ARM GAS  /tmp/ccX30Dk5.s 			page 16
+
+
+ 530              		.loc 1 311 17
+ 531 01da FFF7FEFF 		bl	vTaskSuspendAll		@
+ 532              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:314:                     xFreeBytesRemaining += pxLink-
+ 312:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 313:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     /* Add this block to the list of free blocks. */
+ 314:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     xFreeBytesRemaining += pxLink->xBlockSize;
+ 533              		.loc 1 314 50
+ 534 01de 029B     		ldr	r3, [sp, #8]	@ tmp146, pxLink
+ 535 01e0 5A68     		ldr	r2, [r3, #4]	@ _15, pxLink_27->xBlockSize
+ 536              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:314:                     xFreeBytesRemaining += pxLink-
+ 537              		.loc 1 314 41
+ 538 01e2 0C4B     		ldr	r3, .L21+12	@ tmp147,
+ 539 01e4 1B68     		ldr	r3, [r3]	@ xFreeBytesRemaining.18_16, xFreeBytesRemaining
+ 540 01e6 1344     		add	r3, r3, r2	@ _17, _15
+ 541 01e8 0A4A     		ldr	r2, .L21+12	@ tmp148,
+ 542 01ea 1360     		str	r3, [r2]	@ _17, xFreeBytesRemaining
+ 543              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:316:                     prvInsertBlockIntoFreeList( ( 
+ 315:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     traceFREE( pv, pxLink->xBlockSize );
+ 316:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     prvInsertBlockIntoFreeList( ( ( BlockLink_t * ) pxLink ) );
+ 544              		.loc 1 316 21
+ 545 01ec 0298     		ldr	r0, [sp, #8]	@, pxLink
+ 546 01ee 00F021F8 		bl	prvInsertBlockIntoFreeList		@
+ 547              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:317:                     xNumberOfSuccessfulFrees++;
+ 317:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     xNumberOfSuccessfulFrees++;
+ 548              		.loc 1 317 45
+ 549 01f2 094B     		ldr	r3, .L21+16	@ tmp149,
+ 550 01f4 1B68     		ldr	r3, [r3]	@ xNumberOfSuccessfulFrees.19_18, xNumberOfSuccessfulFrees
+ 551 01f6 0133     		adds	r3, r3, #1	@ _19, xNumberOfSuccessfulFrees.19_18,
+ 552 01f8 074A     		ldr	r2, .L21+16	@ tmp150,
+ 553 01fa 1360     		str	r3, [r2]	@ _19, xNumberOfSuccessfulFrees
+ 554              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:319:                 ( void ) xTaskResumeAll();
+ 318:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 }
+ 319:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 ( void ) xTaskResumeAll();
+ 555              		.loc 1 319 26
+ 556 01fc FFF7FEFF 		bl	xTaskResumeAll		@
+ 557              	.L20:
+ 558              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:331: }
+ 320:Source/FreeRTOS/portable/MemMang/heap_5.c ****             }
+ 321:Source/FreeRTOS/portable/MemMang/heap_5.c ****             else
+ 322:Source/FreeRTOS/portable/MemMang/heap_5.c ****             {
+ 323:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 mtCOVERAGE_TEST_MARKER();
+ 324:Source/FreeRTOS/portable/MemMang/heap_5.c ****             }
+ 325:Source/FreeRTOS/portable/MemMang/heap_5.c ****         }
+ 326:Source/FreeRTOS/portable/MemMang/heap_5.c ****         else
+ 327:Source/FreeRTOS/portable/MemMang/heap_5.c ****         {
+ 328:Source/FreeRTOS/portable/MemMang/heap_5.c ****             mtCOVERAGE_TEST_MARKER();
+ 329:Source/FreeRTOS/portable/MemMang/heap_5.c ****         }
+ 330:Source/FreeRTOS/portable/MemMang/heap_5.c ****     }
+ 331:Source/FreeRTOS/portable/MemMang/heap_5.c **** }
+ 559              		.loc 1 331 1
+ 560 0200 00BF     		nop	
+ 561 0202 05B0     		add	sp, sp, #20	@,,
+ 562              	.LCFI5:
+ 563              		.cfi_def_cfa_offset 4
+ 564              		@ sp needed	@
+ 565 0204 5DF804FB 		ldr	pc, [sp], #4	@
+ 566              	.L22:
+ARM GAS  /tmp/ccX30Dk5.s 			page 17
+
+
+ 567              		.align	2
+ 568              	.L21:
+ 569 0208 1C000000 		.word	xBlockAllocatedBit
+ 570 020c 04000000 		.word	.LC0
+ 571 0210 30000000 		.word	.LC1
+ 572 0214 0C000000 		.word	xFreeBytesRemaining
+ 573 0218 18000000 		.word	xNumberOfSuccessfulFrees
+ 574              		.cfi_endproc
+ 575              	.LFE6:
+ 576              		.size	vPortFree, .-vPortFree
+ 577              		.align	1
+ 578              		.global	xPortGetFreeHeapSize
+ 579              		.syntax unified
+ 580              		.thumb
+ 581              		.thumb_func
+ 582              		.type	xPortGetFreeHeapSize, %function
+ 583              	xPortGetFreeHeapSize:
+ 584              	.LFB7:
+ 332:Source/FreeRTOS/portable/MemMang/heap_5.c **** /*-----------------------------------------------------------*/
+ 333:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 334:Source/FreeRTOS/portable/MemMang/heap_5.c **** size_t xPortGetFreeHeapSize( void )
+ 335:Source/FreeRTOS/portable/MemMang/heap_5.c **** {
+ 585              		.loc 1 335 1
+ 586              		.cfi_startproc
+ 587              		@ args = 0, pretend = 0, frame = 0
+ 588              		@ frame_needed = 0, uses_anonymous_args = 0
+ 589              		@ link register save eliminated.
+ 590              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:336:     return xFreeBytesRemaining;
+ 336:Source/FreeRTOS/portable/MemMang/heap_5.c ****     return xFreeBytesRemaining;
+ 591              		.loc 1 336 12
+ 592 021c 014B     		ldr	r3, .L25	@ tmp115,
+ 593 021e 1B68     		ldr	r3, [r3]	@ _2, xFreeBytesRemaining
+ 594              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:337: }
+ 337:Source/FreeRTOS/portable/MemMang/heap_5.c **** }
+ 595              		.loc 1 337 1
+ 596 0220 1846     		mov	r0, r3	@, <retval>
+ 597 0222 7047     		bx	lr	@
+ 598              	.L26:
+ 599              		.align	2
+ 600              	.L25:
+ 601 0224 0C000000 		.word	xFreeBytesRemaining
+ 602              		.cfi_endproc
+ 603              	.LFE7:
+ 604              		.size	xPortGetFreeHeapSize, .-xPortGetFreeHeapSize
+ 605              		.align	1
+ 606              		.global	xPortGetMinimumEverFreeHeapSize
+ 607              		.syntax unified
+ 608              		.thumb
+ 609              		.thumb_func
+ 610              		.type	xPortGetMinimumEverFreeHeapSize, %function
+ 611              	xPortGetMinimumEverFreeHeapSize:
+ 612              	.LFB8:
+ 338:Source/FreeRTOS/portable/MemMang/heap_5.c **** /*-----------------------------------------------------------*/
+ 339:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 340:Source/FreeRTOS/portable/MemMang/heap_5.c **** size_t xPortGetMinimumEverFreeHeapSize( void )
+ 341:Source/FreeRTOS/portable/MemMang/heap_5.c **** {
+ 613              		.loc 1 341 1
+ARM GAS  /tmp/ccX30Dk5.s 			page 18
+
+
+ 614              		.cfi_startproc
+ 615              		@ args = 0, pretend = 0, frame = 0
+ 616              		@ frame_needed = 0, uses_anonymous_args = 0
+ 617              		@ link register save eliminated.
+ 618              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:342:     return xMinimumEverFreeBytesRemaining;
+ 342:Source/FreeRTOS/portable/MemMang/heap_5.c ****     return xMinimumEverFreeBytesRemaining;
+ 619              		.loc 1 342 12
+ 620 0228 014B     		ldr	r3, .L29	@ tmp115,
+ 621 022a 1B68     		ldr	r3, [r3]	@ _2, xMinimumEverFreeBytesRemaining
+ 622              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:343: }
+ 343:Source/FreeRTOS/portable/MemMang/heap_5.c **** }
+ 623              		.loc 1 343 1
+ 624 022c 1846     		mov	r0, r3	@, <retval>
+ 625 022e 7047     		bx	lr	@
+ 626              	.L30:
+ 627              		.align	2
+ 628              	.L29:
+ 629 0230 10000000 		.word	xMinimumEverFreeBytesRemaining
+ 630              		.cfi_endproc
+ 631              	.LFE8:
+ 632              		.size	xPortGetMinimumEverFreeHeapSize, .-xPortGetMinimumEverFreeHeapSize
+ 633              		.align	1
+ 634              		.syntax unified
+ 635              		.thumb
+ 636              		.thumb_func
+ 637              		.type	prvInsertBlockIntoFreeList, %function
+ 638              	prvInsertBlockIntoFreeList:
+ 639              	.LFB9:
+ 344:Source/FreeRTOS/portable/MemMang/heap_5.c **** /*-----------------------------------------------------------*/
+ 345:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 346:Source/FreeRTOS/portable/MemMang/heap_5.c **** static void prvInsertBlockIntoFreeList( BlockLink_t * pxBlockToInsert )
+ 347:Source/FreeRTOS/portable/MemMang/heap_5.c **** {
+ 640              		.loc 1 347 1
+ 641              		.cfi_startproc
+ 642              		@ args = 0, pretend = 0, frame = 16
+ 643              		@ frame_needed = 0, uses_anonymous_args = 0
+ 644              		@ link register save eliminated.
+ 645 0234 84B0     		sub	sp, sp, #16	@,,
+ 646              	.LCFI6:
+ 647              		.cfi_def_cfa_offset 16
+ 648 0236 0190     		str	r0, [sp, #4]	@ pxBlockToInsert, pxBlockToInsert
+ 649              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:353:     for( pxIterator = &xStart; pxIterator->pxNextF
+ 348:Source/FreeRTOS/portable/MemMang/heap_5.c ****     BlockLink_t * pxIterator;
+ 349:Source/FreeRTOS/portable/MemMang/heap_5.c ****     uint8_t * puc;
+ 350:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 351:Source/FreeRTOS/portable/MemMang/heap_5.c ****     /* Iterate through the list until a block is found that has a higher address
+ 352:Source/FreeRTOS/portable/MemMang/heap_5.c ****      * than the block being inserted. */
+ 353:Source/FreeRTOS/portable/MemMang/heap_5.c ****     for( pxIterator = &xStart; pxIterator->pxNextFreeBlock < pxBlockToInsert; pxIterator = pxIterat
+ 650              		.loc 1 353 21
+ 651 0238 264B     		ldr	r3, .L40	@ tmp132,
+ 652 023a 0393     		str	r3, [sp, #12]	@ tmp132, pxIterator
+ 653              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:353:     for( pxIterator = &xStart; pxIterator->pxNextF
+ 654              		.loc 1 353 5
+ 655 023c 02E0     		b	.L32		@
+ 656              	.L33:
+ 657              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:353:     for( pxIterator = &xStart; pxIterator->pxNextF
+ 658              		.loc 1 353 90 discriminator 3
+ARM GAS  /tmp/ccX30Dk5.s 			page 19
+
+
+ 659 023e 039B     		ldr	r3, [sp, #12]	@ tmp133, pxIterator
+ 660 0240 1B68     		ldr	r3, [r3]	@ tmp134, pxIterator_21->pxNextFreeBlock
+ 661 0242 0393     		str	r3, [sp, #12]	@ tmp134, pxIterator
+ 662              	.L32:
+ 663              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:353:     for( pxIterator = &xStart; pxIterator->pxNextF
+ 664              		.loc 1 353 42 discriminator 1
+ 665 0244 039B     		ldr	r3, [sp, #12]	@ tmp135, pxIterator
+ 666 0246 1B68     		ldr	r3, [r3]	@ _1, pxIterator_21->pxNextFreeBlock
+ 667              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:353:     for( pxIterator = &xStart; pxIterator->pxNextF
+ 668              		.loc 1 353 5 discriminator 1
+ 669 0248 019A     		ldr	r2, [sp, #4]	@ tmp136, pxBlockToInsert
+ 670 024a 9A42     		cmp	r2, r3	@ tmp136, _1
+ 671 024c F7D8     		bhi	.L33		@,
+ 672              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:360:     puc = ( uint8_t * ) pxIterator;
+ 354:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 355:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* Nothing to do here, just iterate to the right position. */
+ 356:Source/FreeRTOS/portable/MemMang/heap_5.c ****     }
+ 357:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 358:Source/FreeRTOS/portable/MemMang/heap_5.c ****     /* Do the block being inserted, and the block it is being inserted after
+ 359:Source/FreeRTOS/portable/MemMang/heap_5.c ****      * make a contiguous block of memory? */
+ 360:Source/FreeRTOS/portable/MemMang/heap_5.c ****     puc = ( uint8_t * ) pxIterator;
+ 673              		.loc 1 360 9
+ 674 024e 039B     		ldr	r3, [sp, #12]	@ tmp137, pxIterator
+ 675 0250 0293     		str	r3, [sp, #8]	@ tmp137, puc
+ 676              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:362:     if( ( puc + pxIterator->xBlockSize ) == ( uint
+ 361:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 362:Source/FreeRTOS/portable/MemMang/heap_5.c ****     if( ( puc + pxIterator->xBlockSize ) == ( uint8_t * ) pxBlockToInsert )
+ 677              		.loc 1 362 27
+ 678 0252 039B     		ldr	r3, [sp, #12]	@ tmp138, pxIterator
+ 679 0254 5B68     		ldr	r3, [r3, #4]	@ _2, pxIterator_21->xBlockSize
+ 680              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:362:     if( ( puc + pxIterator->xBlockSize ) == ( uint
+ 681              		.loc 1 362 15
+ 682 0256 029A     		ldr	r2, [sp, #8]	@ tmp139, puc
+ 683 0258 1344     		add	r3, r3, r2	@ _3, tmp139
+ 684              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:362:     if( ( puc + pxIterator->xBlockSize ) == ( uint
+ 685              		.loc 1 362 7
+ 686 025a 019A     		ldr	r2, [sp, #4]	@ tmp140, pxBlockToInsert
+ 687 025c 9A42     		cmp	r2, r3	@ tmp140, _3
+ 688 025e 08D1     		bne	.L34		@,
+ 689              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:364:         pxIterator->xBlockSize += pxBlockToInsert-
+ 363:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 364:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxIterator->xBlockSize += pxBlockToInsert->xBlockSize;
+ 690              		.loc 1 364 32
+ 691 0260 039B     		ldr	r3, [sp, #12]	@ tmp141, pxIterator
+ 692 0262 5A68     		ldr	r2, [r3, #4]	@ _4, pxIterator_21->xBlockSize
+ 693              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:364:         pxIterator->xBlockSize += pxBlockToInsert-
+ 694              		.loc 1 364 50
+ 695 0264 019B     		ldr	r3, [sp, #4]	@ tmp142, pxBlockToInsert
+ 696 0266 5B68     		ldr	r3, [r3, #4]	@ _5, pxBlockToInsert_27(D)->xBlockSize
+ 697              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:364:         pxIterator->xBlockSize += pxBlockToInsert-
+ 698              		.loc 1 364 32
+ 699 0268 1A44     		add	r2, r2, r3	@ _6, _5
+ 700 026a 039B     		ldr	r3, [sp, #12]	@ tmp143, pxIterator
+ 701 026c 5A60     		str	r2, [r3, #4]	@ _6, pxIterator_21->xBlockSize
+ 702              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:365:         pxBlockToInsert = pxIterator;
+ 365:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxBlockToInsert = pxIterator;
+ 703              		.loc 1 365 25
+ARM GAS  /tmp/ccX30Dk5.s 			page 20
+
+
+ 704 026e 039B     		ldr	r3, [sp, #12]	@ tmp144, pxIterator
+ 705 0270 0193     		str	r3, [sp, #4]	@ tmp144, pxBlockToInsert
+ 706              	.L34:
+ 707              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:374:     puc = ( uint8_t * ) pxBlockToInsert;
+ 366:Source/FreeRTOS/portable/MemMang/heap_5.c ****     }
+ 367:Source/FreeRTOS/portable/MemMang/heap_5.c ****     else
+ 368:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 369:Source/FreeRTOS/portable/MemMang/heap_5.c ****         mtCOVERAGE_TEST_MARKER();
+ 370:Source/FreeRTOS/portable/MemMang/heap_5.c ****     }
+ 371:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 372:Source/FreeRTOS/portable/MemMang/heap_5.c ****     /* Do the block being inserted, and the block it is being inserted before
+ 373:Source/FreeRTOS/portable/MemMang/heap_5.c ****      * make a contiguous block of memory? */
+ 374:Source/FreeRTOS/portable/MemMang/heap_5.c ****     puc = ( uint8_t * ) pxBlockToInsert;
+ 708              		.loc 1 374 9
+ 709 0272 019B     		ldr	r3, [sp, #4]	@ tmp145, pxBlockToInsert
+ 710 0274 0293     		str	r3, [sp, #8]	@ tmp145, puc
+ 711              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:376:     if( ( puc + pxBlockToInsert->xBlockSize ) == (
+ 375:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 376:Source/FreeRTOS/portable/MemMang/heap_5.c ****     if( ( puc + pxBlockToInsert->xBlockSize ) == ( uint8_t * ) pxIterator->pxNextFreeBlock )
+ 712              		.loc 1 376 32
+ 713 0276 019B     		ldr	r3, [sp, #4]	@ tmp146, pxBlockToInsert
+ 714 0278 5B68     		ldr	r3, [r3, #4]	@ _7, pxBlockToInsert_20->xBlockSize
+ 715              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:376:     if( ( puc + pxBlockToInsert->xBlockSize ) == (
+ 716              		.loc 1 376 15
+ 717 027a 029A     		ldr	r2, [sp, #8]	@ tmp147, puc
+ 718 027c 1A44     		add	r2, r2, r3	@ _8, _7
+ 719              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:376:     if( ( puc + pxBlockToInsert->xBlockSize ) == (
+ 720              		.loc 1 376 74
+ 721 027e 039B     		ldr	r3, [sp, #12]	@ tmp148, pxIterator
+ 722 0280 1B68     		ldr	r3, [r3]	@ _9, pxIterator_21->pxNextFreeBlock
+ 723              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:376:     if( ( puc + pxBlockToInsert->xBlockSize ) == (
+ 724              		.loc 1 376 7
+ 725 0282 9A42     		cmp	r2, r3	@ _8, _9
+ 726 0284 18D1     		bne	.L35		@,
+ 727              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:378:         if( pxIterator->pxNextFreeBlock != pxEnd )
+ 377:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 378:Source/FreeRTOS/portable/MemMang/heap_5.c ****         if( pxIterator->pxNextFreeBlock != pxEnd )
+ 728              		.loc 1 378 23
+ 729 0286 039B     		ldr	r3, [sp, #12]	@ tmp149, pxIterator
+ 730 0288 1A68     		ldr	r2, [r3]	@ _10, pxIterator_21->pxNextFreeBlock
+ 731              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:378:         if( pxIterator->pxNextFreeBlock != pxEnd )
+ 732              		.loc 1 378 41
+ 733 028a 134B     		ldr	r3, .L40+4	@ tmp150,
+ 734 028c 1B68     		ldr	r3, [r3]	@ pxEnd.20_11, pxEnd
+ 735              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:378:         if( pxIterator->pxNextFreeBlock != pxEnd )
+ 736              		.loc 1 378 11
+ 737 028e 9A42     		cmp	r2, r3	@ _10, pxEnd.20_11
+ 738 0290 0DD0     		beq	.L36		@,
+ 739              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:381:             pxBlockToInsert->xBlockSize += pxItera
+ 379:Source/FreeRTOS/portable/MemMang/heap_5.c ****         {
+ 380:Source/FreeRTOS/portable/MemMang/heap_5.c ****             /* Form one big block from the two blocks. */
+ 381:Source/FreeRTOS/portable/MemMang/heap_5.c ****             pxBlockToInsert->xBlockSize += pxIterator->pxNextFreeBlock->xBlockSize;
+ 740              		.loc 1 381 41
+ 741 0292 019B     		ldr	r3, [sp, #4]	@ tmp151, pxBlockToInsert
+ 742 0294 5A68     		ldr	r2, [r3, #4]	@ _12, pxBlockToInsert_20->xBlockSize
+ 743              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:381:             pxBlockToInsert->xBlockSize += pxItera
+ 744              		.loc 1 381 54
+ARM GAS  /tmp/ccX30Dk5.s 			page 21
+
+
+ 745 0296 039B     		ldr	r3, [sp, #12]	@ tmp152, pxIterator
+ 746 0298 1B68     		ldr	r3, [r3]	@ _13, pxIterator_21->pxNextFreeBlock
+ 747              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:381:             pxBlockToInsert->xBlockSize += pxItera
+ 748              		.loc 1 381 71
+ 749 029a 5B68     		ldr	r3, [r3, #4]	@ _14, _13->xBlockSize
+ 750              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:381:             pxBlockToInsert->xBlockSize += pxItera
+ 751              		.loc 1 381 41
+ 752 029c 1A44     		add	r2, r2, r3	@ _15, _14
+ 753 029e 019B     		ldr	r3, [sp, #4]	@ tmp153, pxBlockToInsert
+ 754 02a0 5A60     		str	r2, [r3, #4]	@ _15, pxBlockToInsert_20->xBlockSize
+ 755              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:382:             pxBlockToInsert->pxNextFreeBlock = pxI
+ 382:Source/FreeRTOS/portable/MemMang/heap_5.c ****             pxBlockToInsert->pxNextFreeBlock = pxIterator->pxNextFreeBlock->pxNextFreeBlock;
+ 756              		.loc 1 382 58
+ 757 02a2 039B     		ldr	r3, [sp, #12]	@ tmp154, pxIterator
+ 758 02a4 1B68     		ldr	r3, [r3]	@ _16, pxIterator_21->pxNextFreeBlock
+ 759              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:382:             pxBlockToInsert->pxNextFreeBlock = pxI
+ 760              		.loc 1 382 75
+ 761 02a6 1A68     		ldr	r2, [r3]	@ _17, _16->pxNextFreeBlock
+ 762              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:382:             pxBlockToInsert->pxNextFreeBlock = pxI
+ 763              		.loc 1 382 46
+ 764 02a8 019B     		ldr	r3, [sp, #4]	@ tmp155, pxBlockToInsert
+ 765 02aa 1A60     		str	r2, [r3]	@ _17, pxBlockToInsert_20->pxNextFreeBlock
+ 766 02ac 08E0     		b	.L37		@
+ 767              	.L36:
+ 768              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:386:             pxBlockToInsert->pxNextFreeBlock = pxE
+ 383:Source/FreeRTOS/portable/MemMang/heap_5.c ****         }
+ 384:Source/FreeRTOS/portable/MemMang/heap_5.c ****         else
+ 385:Source/FreeRTOS/portable/MemMang/heap_5.c ****         {
+ 386:Source/FreeRTOS/portable/MemMang/heap_5.c ****             pxBlockToInsert->pxNextFreeBlock = pxEnd;
+ 769              		.loc 1 386 46
+ 770 02ae 0A4B     		ldr	r3, .L40+4	@ tmp156,
+ 771 02b0 1A68     		ldr	r2, [r3]	@ pxEnd.21_18, pxEnd
+ 772 02b2 019B     		ldr	r3, [sp, #4]	@ tmp157, pxBlockToInsert
+ 773 02b4 1A60     		str	r2, [r3]	@ pxEnd.21_18, pxBlockToInsert_20->pxNextFreeBlock
+ 774 02b6 03E0     		b	.L37		@
+ 775              	.L35:
+ 776              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:391:         pxBlockToInsert->pxNextFreeBlock = pxItera
+ 387:Source/FreeRTOS/portable/MemMang/heap_5.c ****         }
+ 388:Source/FreeRTOS/portable/MemMang/heap_5.c ****     }
+ 389:Source/FreeRTOS/portable/MemMang/heap_5.c ****     else
+ 390:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 391:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxBlockToInsert->pxNextFreeBlock = pxIterator->pxNextFreeBlock;
+ 777              		.loc 1 391 54
+ 778 02b8 039B     		ldr	r3, [sp, #12]	@ tmp158, pxIterator
+ 779 02ba 1A68     		ldr	r2, [r3]	@ _19, pxIterator_21->pxNextFreeBlock
+ 780              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:391:         pxBlockToInsert->pxNextFreeBlock = pxItera
+ 781              		.loc 1 391 42
+ 782 02bc 019B     		ldr	r3, [sp, #4]	@ tmp159, pxBlockToInsert
+ 783 02be 1A60     		str	r2, [r3]	@ _19, pxBlockToInsert_20->pxNextFreeBlock
+ 784              	.L37:
+ 785              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:398:     if( pxIterator != pxBlockToInsert )
+ 392:Source/FreeRTOS/portable/MemMang/heap_5.c ****     }
+ 393:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 394:Source/FreeRTOS/portable/MemMang/heap_5.c ****     /* If the block being inserted plugged a gab, so was merged with the block
+ 395:Source/FreeRTOS/portable/MemMang/heap_5.c ****      * before and the block after, then it's pxNextFreeBlock pointer will have
+ 396:Source/FreeRTOS/portable/MemMang/heap_5.c ****      * already been set, and should not be set here as that would make it point
+ 397:Source/FreeRTOS/portable/MemMang/heap_5.c ****      * to itself. */
+ARM GAS  /tmp/ccX30Dk5.s 			page 22
+
+
+ 398:Source/FreeRTOS/portable/MemMang/heap_5.c ****     if( pxIterator != pxBlockToInsert )
+ 786              		.loc 1 398 7
+ 787 02c0 039A     		ldr	r2, [sp, #12]	@ tmp160, pxIterator
+ 788 02c2 019B     		ldr	r3, [sp, #4]	@ tmp161, pxBlockToInsert
+ 789 02c4 9A42     		cmp	r2, r3	@ tmp160, tmp161
+ 790 02c6 02D0     		beq	.L39		@,
+ 791              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:400:         pxIterator->pxNextFreeBlock = pxBlockToIns
+ 399:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 400:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxIterator->pxNextFreeBlock = pxBlockToInsert;
+ 792              		.loc 1 400 37
+ 793 02c8 039B     		ldr	r3, [sp, #12]	@ tmp162, pxIterator
+ 794 02ca 019A     		ldr	r2, [sp, #4]	@ tmp163, pxBlockToInsert
+ 795 02cc 1A60     		str	r2, [r3]	@ tmp163, pxIterator_21->pxNextFreeBlock
+ 796              	.L39:
+ 797              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:406: }
+ 401:Source/FreeRTOS/portable/MemMang/heap_5.c ****     }
+ 402:Source/FreeRTOS/portable/MemMang/heap_5.c ****     else
+ 403:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 404:Source/FreeRTOS/portable/MemMang/heap_5.c ****         mtCOVERAGE_TEST_MARKER();
+ 405:Source/FreeRTOS/portable/MemMang/heap_5.c ****     }
+ 406:Source/FreeRTOS/portable/MemMang/heap_5.c **** }
+ 798              		.loc 1 406 1
+ 799 02ce 00BF     		nop	
+ 800 02d0 04B0     		add	sp, sp, #16	@,,
+ 801              	.LCFI7:
+ 802              		.cfi_def_cfa_offset 0
+ 803              		@ sp needed	@
+ 804 02d2 7047     		bx	lr	@
+ 805              	.L41:
+ 806              		.align	2
+ 807              	.L40:
+ 808 02d4 00000000 		.word	xStart
+ 809 02d8 08000000 		.word	pxEnd
+ 810              		.cfi_endproc
+ 811              	.LFE9:
+ 812              		.size	prvInsertBlockIntoFreeList, .-prvInsertBlockIntoFreeList
+ 813              		.align	1
+ 814              		.global	vPortDefineHeapRegions
+ 815              		.syntax unified
+ 816              		.thumb
+ 817              		.thumb_func
+ 818              		.type	vPortDefineHeapRegions, %function
+ 819              	vPortDefineHeapRegions:
+ 820              	.LFB10:
+ 407:Source/FreeRTOS/portable/MemMang/heap_5.c **** /*-----------------------------------------------------------*/
+ 408:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 409:Source/FreeRTOS/portable/MemMang/heap_5.c **** void vPortDefineHeapRegions( const HeapRegion_t * const pxHeapRegions )
+ 410:Source/FreeRTOS/portable/MemMang/heap_5.c **** {
+ 821              		.loc 1 410 1
+ 822              		.cfi_startproc
+ 823              		@ args = 0, pretend = 0, frame = 40
+ 824              		@ frame_needed = 0, uses_anonymous_args = 0
+ 825 02dc 00B5     		push	{lr}	@
+ 826              	.LCFI8:
+ 827              		.cfi_def_cfa_offset 4
+ 828              		.cfi_offset 14, -4
+ 829 02de 8BB0     		sub	sp, sp, #44	@,,
+ARM GAS  /tmp/ccX30Dk5.s 			page 23
+
+
+ 830              	.LCFI9:
+ 831              		.cfi_def_cfa_offset 48
+ 832 02e0 0190     		str	r0, [sp, #4]	@ pxHeapRegions, pxHeapRegions
+ 833              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:411:     BlockLink_t * pxFirstFreeBlockInRegion = NULL,
+ 411:Source/FreeRTOS/portable/MemMang/heap_5.c ****     BlockLink_t * pxFirstFreeBlockInRegion = NULL, * pxPreviousFreeBlock;
+ 834              		.loc 1 411 19
+ 835 02e2 0023     		movs	r3, #0	@ tmp136,
+ 836 02e4 0493     		str	r3, [sp, #16]	@ tmp136, pxFirstFreeBlockInRegion
+ 837              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:413:     size_t xTotalRegionSize, xTotalHeapSize = 0;
+ 412:Source/FreeRTOS/portable/MemMang/heap_5.c ****     size_t xAlignedHeap;
+ 413:Source/FreeRTOS/portable/MemMang/heap_5.c ****     size_t xTotalRegionSize, xTotalHeapSize = 0;
+ 838              		.loc 1 413 30
+ 839 02e6 0023     		movs	r3, #0	@ tmp137,
+ 840 02e8 0893     		str	r3, [sp, #32]	@ tmp137, xTotalHeapSize
+ 841              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:414:     BaseType_t xDefinedRegions = 0;
+ 414:Source/FreeRTOS/portable/MemMang/heap_5.c ****     BaseType_t xDefinedRegions = 0;
+ 842              		.loc 1 414 16
+ 843 02ea 0023     		movs	r3, #0	@ tmp138,
+ 844 02ec 0793     		str	r3, [sp, #28]	@ tmp138, xDefinedRegions
+ 845              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:419:     configASSERT( pxEnd == NULL );
+ 415:Source/FreeRTOS/portable/MemMang/heap_5.c ****     size_t xAddress;
+ 416:Source/FreeRTOS/portable/MemMang/heap_5.c ****     const HeapRegion_t * pxHeapRegion;
+ 417:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 418:Source/FreeRTOS/portable/MemMang/heap_5.c ****     /* Can only call once! */
+ 419:Source/FreeRTOS/portable/MemMang/heap_5.c ****     configASSERT( pxEnd == NULL );
+ 846              		.loc 1 419 5
+ 847 02ee 4F4B     		ldr	r3, .L52	@ tmp139,
+ 848 02f0 1B68     		ldr	r3, [r3]	@ pxEnd.22_1, pxEnd
+ 849 02f2 002B     		cmp	r3, #0	@ pxEnd.22_1,
+ 850 02f4 05D0     		beq	.L43		@,
+ 851              	.LBB5:
+ 852              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:419:     configASSERT( pxEnd == NULL );
+ 853              		.loc 1 419 5 is_stmt 0 discriminator 1
+ 854 02f6 40F2A312 		movw	r2, #419	@,
+ 855 02fa 4D49     		ldr	r1, .L52+4	@,
+ 856 02fc 4D48     		ldr	r0, .L52+8	@,
+ 857 02fe FFF7FEFF 		bl	printf		@
+ 858              	.L43:
+ 859              	.LBE5:
+ 860              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:421:     pxHeapRegion = &( pxHeapRegions[ xDefinedRegio
+ 420:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 421:Source/FreeRTOS/portable/MemMang/heap_5.c ****     pxHeapRegion = &( pxHeapRegions[ xDefinedRegions ] );
+ 861              		.loc 1 421 36 is_stmt 1
+ 862 0302 079B     		ldr	r3, [sp, #28]	@ xDefinedRegions.23_2, xDefinedRegions
+ 863 0304 DB00     		lsls	r3, r3, #3	@ _3, xDefinedRegions.23_2,
+ 864              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:421:     pxHeapRegion = &( pxHeapRegions[ xDefinedRegio
+ 865              		.loc 1 421 18
+ 866 0306 019A     		ldr	r2, [sp, #4]	@ tmp141, pxHeapRegions
+ 867 0308 1344     		add	r3, r3, r2	@ tmp140, tmp141
+ 868 030a 0593     		str	r3, [sp, #20]	@ tmp140, pxHeapRegion
+ 869              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:423:     while( pxHeapRegion->xSizeInBytes > 0 )
+ 422:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 423:Source/FreeRTOS/portable/MemMang/heap_5.c ****     while( pxHeapRegion->xSizeInBytes > 0 )
+ 870              		.loc 1 423 10
+ 871 030c 73E0     		b	.L44		@
+ 872              	.L50:
+ 873              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:425:         xTotalRegionSize = pxHeapRegion->xSizeInBy
+ARM GAS  /tmp/ccX30Dk5.s 			page 24
+
+
+ 424:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 425:Source/FreeRTOS/portable/MemMang/heap_5.c ****         xTotalRegionSize = pxHeapRegion->xSizeInBytes;
+ 874              		.loc 1 425 26
+ 875 030e 059B     		ldr	r3, [sp, #20]	@ tmp142, pxHeapRegion
+ 876 0310 5B68     		ldr	r3, [r3, #4]	@ tmp143, pxHeapRegion_28->xSizeInBytes
+ 877 0312 0993     		str	r3, [sp, #36]	@ tmp143, xTotalRegionSize
+ 878              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:428:         xAddress = ( size_t ) pxHeapRegion->pucSta
+ 426:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 427:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* Ensure the heap region starts on a correctly aligned boundary. */
+ 428:Source/FreeRTOS/portable/MemMang/heap_5.c ****         xAddress = ( size_t ) pxHeapRegion->pucStartAddress;
+ 879              		.loc 1 428 43
+ 880 0314 059B     		ldr	r3, [sp, #20]	@ tmp144, pxHeapRegion
+ 881 0316 1B68     		ldr	r3, [r3]	@ _4, pxHeapRegion_28->pucStartAddress
+ 882              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:428:         xAddress = ( size_t ) pxHeapRegion->pucSta
+ 883              		.loc 1 428 18
+ 884 0318 0693     		str	r3, [sp, #24]	@ _4, xAddress
+ 885              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:430:         if( ( xAddress & portBYTE_ALIGNMENT_MASK )
+ 429:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 430:Source/FreeRTOS/portable/MemMang/heap_5.c ****         if( ( xAddress & portBYTE_ALIGNMENT_MASK ) != 0 )
+ 886              		.loc 1 430 24
+ 887 031a 069B     		ldr	r3, [sp, #24]	@ tmp145, xAddress
+ 888 031c 03F00703 		and	r3, r3, #7	@ _5, tmp145,
+ 889              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:430:         if( ( xAddress & portBYTE_ALIGNMENT_MASK )
+ 890              		.loc 1 430 11
+ 891 0320 002B     		cmp	r3, #0	@ _5,
+ 892 0322 0ED0     		beq	.L45		@,
+ 893              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:432:             xAddress += ( portBYTE_ALIGNMENT - 1 )
+ 431:Source/FreeRTOS/portable/MemMang/heap_5.c ****         {
+ 432:Source/FreeRTOS/portable/MemMang/heap_5.c ****             xAddress += ( portBYTE_ALIGNMENT - 1 );
+ 894              		.loc 1 432 22
+ 895 0324 069B     		ldr	r3, [sp, #24]	@ tmp147, xAddress
+ 896 0326 0733     		adds	r3, r3, #7	@ tmp146, tmp147,
+ 897 0328 0693     		str	r3, [sp, #24]	@ tmp146, xAddress
+ 898              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:433:             xAddress &= ~portBYTE_ALIGNMENT_MASK;
+ 433:Source/FreeRTOS/portable/MemMang/heap_5.c ****             xAddress &= ~portBYTE_ALIGNMENT_MASK;
+ 899              		.loc 1 433 22
+ 900 032a 069B     		ldr	r3, [sp, #24]	@ tmp149, xAddress
+ 901 032c 23F00703 		bic	r3, r3, #7	@ tmp148, tmp149,
+ 902 0330 0693     		str	r3, [sp, #24]	@ tmp148, xAddress
+ 903              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:436:             xTotalRegionSize -= xAddress - ( size_
+ 434:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 435:Source/FreeRTOS/portable/MemMang/heap_5.c ****             /* Adjust the size for the bytes lost to alignment. */
+ 436:Source/FreeRTOS/portable/MemMang/heap_5.c ****             xTotalRegionSize -= xAddress - ( size_t ) pxHeapRegion->pucStartAddress;
+ 904              		.loc 1 436 67
+ 905 0332 059B     		ldr	r3, [sp, #20]	@ tmp150, pxHeapRegion
+ 906 0334 1B68     		ldr	r3, [r3]	@ _6, pxHeapRegion_28->pucStartAddress
+ 907              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:436:             xTotalRegionSize -= xAddress - ( size_
+ 908              		.loc 1 436 44
+ 909 0336 1A46     		mov	r2, r3	@ _7, _6
+ 910              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:436:             xTotalRegionSize -= xAddress - ( size_
+ 911              		.loc 1 436 30
+ 912 0338 069B     		ldr	r3, [sp, #24]	@ tmp151, xAddress
+ 913 033a D31A     		subs	r3, r2, r3	@ _8, _7, tmp151
+ 914 033c 099A     		ldr	r2, [sp, #36]	@ tmp153, xTotalRegionSize
+ 915 033e 1344     		add	r3, r3, r2	@ tmp152, tmp153
+ 916 0340 0993     		str	r3, [sp, #36]	@ tmp152, xTotalRegionSize
+ 917              	.L45:
+ARM GAS  /tmp/ccX30Dk5.s 			page 25
+
+
+ 918              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:439:         xAlignedHeap = xAddress;
+ 437:Source/FreeRTOS/portable/MemMang/heap_5.c ****         }
+ 438:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 439:Source/FreeRTOS/portable/MemMang/heap_5.c ****         xAlignedHeap = xAddress;
+ 919              		.loc 1 439 22
+ 920 0342 069B     		ldr	r3, [sp, #24]	@ tmp154, xAddress
+ 921 0344 0393     		str	r3, [sp, #12]	@ tmp154, xAlignedHeap
+ 922              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:442:         if( xDefinedRegions == 0 )
+ 440:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 441:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* Set xStart if it has not already been set. */
+ 442:Source/FreeRTOS/portable/MemMang/heap_5.c ****         if( xDefinedRegions == 0 )
+ 923              		.loc 1 442 11
+ 924 0346 079B     		ldr	r3, [sp, #28]	@ tmp155, xDefinedRegions
+ 925 0348 002B     		cmp	r3, #0	@ tmp155,
+ 926 034a 06D1     		bne	.L46		@,
+ 927              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:446:             xStart.pxNextFreeBlock = ( BlockLink_t
+ 443:Source/FreeRTOS/portable/MemMang/heap_5.c ****         {
+ 444:Source/FreeRTOS/portable/MemMang/heap_5.c ****             /* xStart is used to hold a pointer to the first item in the list of
+ 445:Source/FreeRTOS/portable/MemMang/heap_5.c ****              *  free blocks.  The void cast is used to prevent compiler warnings. */
+ 446:Source/FreeRTOS/portable/MemMang/heap_5.c ****             xStart.pxNextFreeBlock = ( BlockLink_t * ) xAlignedHeap;
+ 928              		.loc 1 446 38
+ 929 034c 039B     		ldr	r3, [sp, #12]	@ xAlignedHeap.24_9, xAlignedHeap
+ 930              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:446:             xStart.pxNextFreeBlock = ( BlockLink_t
+ 931              		.loc 1 446 36
+ 932 034e 3A4A     		ldr	r2, .L52+12	@ tmp156,
+ 933 0350 1360     		str	r3, [r2]	@ xAlignedHeap.24_9, xStart.pxNextFreeBlock
+ 934              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:447:             xStart.xBlockSize = ( size_t ) 0;
+ 447:Source/FreeRTOS/portable/MemMang/heap_5.c ****             xStart.xBlockSize = ( size_t ) 0;
+ 935              		.loc 1 447 31
+ 936 0352 394B     		ldr	r3, .L52+12	@ tmp157,
+ 937 0354 0022     		movs	r2, #0	@ tmp158,
+ 938 0356 5A60     		str	r2, [r3, #4]	@ tmp158, xStart.xBlockSize
+ 939 0358 15E0     		b	.L47		@
+ 940              	.L46:
+ 941              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:453:             configASSERT( pxEnd != NULL );
+ 448:Source/FreeRTOS/portable/MemMang/heap_5.c ****         }
+ 449:Source/FreeRTOS/portable/MemMang/heap_5.c ****         else
+ 450:Source/FreeRTOS/portable/MemMang/heap_5.c ****         {
+ 451:Source/FreeRTOS/portable/MemMang/heap_5.c ****             /* Should only get here if one region has already been added to the
+ 452:Source/FreeRTOS/portable/MemMang/heap_5.c ****              * heap. */
+ 453:Source/FreeRTOS/portable/MemMang/heap_5.c ****             configASSERT( pxEnd != NULL );
+ 942              		.loc 1 453 13
+ 943 035a 344B     		ldr	r3, .L52	@ tmp159,
+ 944 035c 1B68     		ldr	r3, [r3]	@ pxEnd.25_10, pxEnd
+ 945 035e 002B     		cmp	r3, #0	@ pxEnd.25_10,
+ 946 0360 05D1     		bne	.L48		@,
+ 947              	.LBB6:
+ 948              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:453:             configASSERT( pxEnd != NULL );
+ 949              		.loc 1 453 13 is_stmt 0 discriminator 1
+ 950 0362 40F2C512 		movw	r2, #453	@,
+ 951 0366 3249     		ldr	r1, .L52+4	@,
+ 952 0368 3248     		ldr	r0, .L52+8	@,
+ 953 036a FFF7FEFF 		bl	printf		@
+ 954              	.L48:
+ 955              	.LBE6:
+ 956              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:456:             configASSERT( xAddress > ( size_t ) px
+ 454:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ARM GAS  /tmp/ccX30Dk5.s 			page 26
+
+
+ 455:Source/FreeRTOS/portable/MemMang/heap_5.c ****             /* Check blocks are passed in with increasing start addresses. */
+ 456:Source/FreeRTOS/portable/MemMang/heap_5.c ****             configASSERT( xAddress > ( size_t ) pxEnd );
+ 957              		.loc 1 456 13 is_stmt 1
+ 958 036e 2F4B     		ldr	r3, .L52	@ tmp160,
+ 959 0370 1B68     		ldr	r3, [r3]	@ pxEnd.26_11, pxEnd
+ 960 0372 1A46     		mov	r2, r3	@ pxEnd.27_12, pxEnd.26_11
+ 961 0374 069B     		ldr	r3, [sp, #24]	@ tmp161, xAddress
+ 962 0376 9342     		cmp	r3, r2	@ tmp161, pxEnd.27_12
+ 963 0378 05D8     		bhi	.L47		@,
+ 964              	.LBB7:
+ 965              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:456:             configASSERT( xAddress > ( size_t ) px
+ 966              		.loc 1 456 13 is_stmt 0 discriminator 1
+ 967 037a 4FF4E472 		mov	r2, #456	@,
+ 968 037e 2C49     		ldr	r1, .L52+4	@,
+ 969 0380 2C48     		ldr	r0, .L52+8	@,
+ 970 0382 FFF7FEFF 		bl	printf		@
+ 971              	.L47:
+ 972              	.LBE7:
+ 973              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:461:         pxPreviousFreeBlock = pxEnd;
+ 457:Source/FreeRTOS/portable/MemMang/heap_5.c ****         }
+ 458:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 459:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* Remember the location of the end marker in the previous region, if
+ 460:Source/FreeRTOS/portable/MemMang/heap_5.c ****          * any. */
+ 461:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxPreviousFreeBlock = pxEnd;
+ 974              		.loc 1 461 29 is_stmt 1
+ 975 0386 294B     		ldr	r3, .L52	@ tmp162,
+ 976 0388 1B68     		ldr	r3, [r3]	@ tmp163, pxEnd
+ 977 038a 0293     		str	r3, [sp, #8]	@ tmp163, pxPreviousFreeBlock
+ 978              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:465:         xAddress = xAlignedHeap + xTotalRegionSize
+ 462:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 463:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* pxEnd is used to mark the end of the list of free blocks and is
+ 464:Source/FreeRTOS/portable/MemMang/heap_5.c ****          * inserted at the end of the region space. */
+ 465:Source/FreeRTOS/portable/MemMang/heap_5.c ****         xAddress = xAlignedHeap + xTotalRegionSize;
+ 979              		.loc 1 465 18
+ 980 038c 039A     		ldr	r2, [sp, #12]	@ tmp165, xAlignedHeap
+ 981 038e 099B     		ldr	r3, [sp, #36]	@ tmp166, xTotalRegionSize
+ 982 0390 1344     		add	r3, r3, r2	@ tmp164, tmp165
+ 983 0392 0693     		str	r3, [sp, #24]	@ tmp164, xAddress
+ 984              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:466:         xAddress -= xHeapStructSize;
+ 466:Source/FreeRTOS/portable/MemMang/heap_5.c ****         xAddress -= xHeapStructSize;
+ 985              		.loc 1 466 18
+ 986 0394 0822     		movs	r2, #8	@ xHeapStructSize.28_13,
+ 987 0396 069B     		ldr	r3, [sp, #24]	@ tmp168, xAddress
+ 988 0398 9B1A     		subs	r3, r3, r2	@ tmp167, tmp168, xHeapStructSize.28_13
+ 989 039a 0693     		str	r3, [sp, #24]	@ tmp167, xAddress
+ 990              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:467:         xAddress &= ~portBYTE_ALIGNMENT_MASK;
+ 467:Source/FreeRTOS/portable/MemMang/heap_5.c ****         xAddress &= ~portBYTE_ALIGNMENT_MASK;
+ 991              		.loc 1 467 18
+ 992 039c 069B     		ldr	r3, [sp, #24]	@ tmp170, xAddress
+ 993 039e 23F00703 		bic	r3, r3, #7	@ tmp169, tmp170,
+ 994 03a2 0693     		str	r3, [sp, #24]	@ tmp169, xAddress
+ 995              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:468:         pxEnd = ( BlockLink_t * ) xAddress;
+ 468:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxEnd = ( BlockLink_t * ) xAddress;
+ 996              		.loc 1 468 17
+ 997 03a4 069B     		ldr	r3, [sp, #24]	@ xAddress.29_14, xAddress
+ 998              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:468:         pxEnd = ( BlockLink_t * ) xAddress;
+ 999              		.loc 1 468 15
+ARM GAS  /tmp/ccX30Dk5.s 			page 27
+
+
+ 1000 03a6 214A     		ldr	r2, .L52	@ tmp171,
+ 1001 03a8 1360     		str	r3, [r2]	@ xAddress.29_14, pxEnd
+ 1002              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:469:         pxEnd->xBlockSize = 0;
+ 469:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxEnd->xBlockSize = 0;
+ 1003              		.loc 1 469 14
+ 1004 03aa 204B     		ldr	r3, .L52	@ tmp172,
+ 1005 03ac 1B68     		ldr	r3, [r3]	@ pxEnd.30_15, pxEnd
+ 1006              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:469:         pxEnd->xBlockSize = 0;
+ 1007              		.loc 1 469 27
+ 1008 03ae 0022     		movs	r2, #0	@ tmp173,
+ 1009 03b0 5A60     		str	r2, [r3, #4]	@ tmp173, pxEnd.30_15->xBlockSize
+ 1010              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:470:         pxEnd->pxNextFreeBlock = NULL;
+ 470:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxEnd->pxNextFreeBlock = NULL;
+ 1011              		.loc 1 470 14
+ 1012 03b2 1E4B     		ldr	r3, .L52	@ tmp174,
+ 1013 03b4 1B68     		ldr	r3, [r3]	@ pxEnd.31_16, pxEnd
+ 1014              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:470:         pxEnd->pxNextFreeBlock = NULL;
+ 1015              		.loc 1 470 32
+ 1016 03b6 0022     		movs	r2, #0	@ tmp175,
+ 1017 03b8 1A60     		str	r2, [r3]	@ tmp175, pxEnd.31_16->pxNextFreeBlock
+ 1018              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:475:         pxFirstFreeBlockInRegion = ( BlockLink_t *
+ 471:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 472:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* To start with there is a single free block in this region that is
+ 473:Source/FreeRTOS/portable/MemMang/heap_5.c ****          * sized to take up the entire heap region minus the space taken by the
+ 474:Source/FreeRTOS/portable/MemMang/heap_5.c ****          * free block structure. */
+ 475:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxFirstFreeBlockInRegion = ( BlockLink_t * ) xAlignedHeap;
+ 1019              		.loc 1 475 34
+ 1020 03ba 039B     		ldr	r3, [sp, #12]	@ tmp176, xAlignedHeap
+ 1021 03bc 0493     		str	r3, [sp, #16]	@ tmp176, pxFirstFreeBlockInRegion
+ 1022              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:476:         pxFirstFreeBlockInRegion->xBlockSize = xAd
+ 476:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxFirstFreeBlockInRegion->xBlockSize = xAddress - ( size_t ) pxFirstFreeBlockInRegion;
+ 1023              		.loc 1 476 59
+ 1024 03be 049B     		ldr	r3, [sp, #16]	@ pxFirstFreeBlockInRegion.32_17, pxFirstFreeBlockInRegion
+ 1025              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:476:         pxFirstFreeBlockInRegion->xBlockSize = xAd
+ 1026              		.loc 1 476 57
+ 1027 03c0 069A     		ldr	r2, [sp, #24]	@ tmp177, xAddress
+ 1028 03c2 D21A     		subs	r2, r2, r3	@ _18, tmp177, pxFirstFreeBlockInRegion.32_17
+ 1029              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:476:         pxFirstFreeBlockInRegion->xBlockSize = xAd
+ 1030              		.loc 1 476 46
+ 1031 03c4 049B     		ldr	r3, [sp, #16]	@ tmp178, pxFirstFreeBlockInRegion
+ 1032 03c6 5A60     		str	r2, [r3, #4]	@ _18, pxFirstFreeBlockInRegion_63->xBlockSize
+ 1033              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:477:         pxFirstFreeBlockInRegion->pxNextFreeBlock 
+ 477:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxFirstFreeBlockInRegion->pxNextFreeBlock = pxEnd;
+ 1034              		.loc 1 477 51
+ 1035 03c8 184B     		ldr	r3, .L52	@ tmp179,
+ 1036 03ca 1A68     		ldr	r2, [r3]	@ pxEnd.33_19, pxEnd
+ 1037 03cc 049B     		ldr	r3, [sp, #16]	@ tmp180, pxFirstFreeBlockInRegion
+ 1038 03ce 1A60     		str	r2, [r3]	@ pxEnd.33_19, pxFirstFreeBlockInRegion_63->pxNextFreeBlock
+ 1039              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:481:         if( pxPreviousFreeBlock != NULL )
+ 478:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 479:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* If this is not the first region that makes up the entire heap space
+ 480:Source/FreeRTOS/portable/MemMang/heap_5.c ****          * then link the previous region to this region. */
+ 481:Source/FreeRTOS/portable/MemMang/heap_5.c ****         if( pxPreviousFreeBlock != NULL )
+ 1040              		.loc 1 481 11
+ 1041 03d0 029B     		ldr	r3, [sp, #8]	@ tmp181, pxPreviousFreeBlock
+ 1042 03d2 002B     		cmp	r3, #0	@ tmp181,
+ 1043 03d4 02D0     		beq	.L49		@,
+ARM GAS  /tmp/ccX30Dk5.s 			page 28
+
+
+ 1044              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:483:             pxPreviousFreeBlock->pxNextFreeBlock =
+ 482:Source/FreeRTOS/portable/MemMang/heap_5.c ****         {
+ 483:Source/FreeRTOS/portable/MemMang/heap_5.c ****             pxPreviousFreeBlock->pxNextFreeBlock = pxFirstFreeBlockInRegion;
+ 1045              		.loc 1 483 50
+ 1046 03d6 029B     		ldr	r3, [sp, #8]	@ tmp182, pxPreviousFreeBlock
+ 1047 03d8 049A     		ldr	r2, [sp, #16]	@ tmp183, pxFirstFreeBlockInRegion
+ 1048 03da 1A60     		str	r2, [r3]	@ tmp183, pxPreviousFreeBlock_56->pxNextFreeBlock
+ 1049              	.L49:
+ 1050              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:486:         xTotalHeapSize += pxFirstFreeBlockInRegion
+ 484:Source/FreeRTOS/portable/MemMang/heap_5.c ****         }
+ 485:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 486:Source/FreeRTOS/portable/MemMang/heap_5.c ****         xTotalHeapSize += pxFirstFreeBlockInRegion->xBlockSize;
+ 1051              		.loc 1 486 51
+ 1052 03dc 049B     		ldr	r3, [sp, #16]	@ tmp184, pxFirstFreeBlockInRegion
+ 1053 03de 5B68     		ldr	r3, [r3, #4]	@ _20, pxFirstFreeBlockInRegion_63->xBlockSize
+ 1054              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:486:         xTotalHeapSize += pxFirstFreeBlockInRegion
+ 1055              		.loc 1 486 24
+ 1056 03e0 089A     		ldr	r2, [sp, #32]	@ tmp186, xTotalHeapSize
+ 1057 03e2 1344     		add	r3, r3, r2	@ tmp185, tmp186
+ 1058 03e4 0893     		str	r3, [sp, #32]	@ tmp185, xTotalHeapSize
+ 1059              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:489:         xDefinedRegions++;
+ 487:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 488:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* Move onto the next HeapRegion_t structure. */
+ 489:Source/FreeRTOS/portable/MemMang/heap_5.c ****         xDefinedRegions++;
+ 1060              		.loc 1 489 24
+ 1061 03e6 079B     		ldr	r3, [sp, #28]	@ tmp188, xDefinedRegions
+ 1062 03e8 0133     		adds	r3, r3, #1	@ tmp187, tmp188,
+ 1063 03ea 0793     		str	r3, [sp, #28]	@ tmp187, xDefinedRegions
+ 1064              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:490:         pxHeapRegion = &( pxHeapRegions[ xDefinedR
+ 490:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxHeapRegion = &( pxHeapRegions[ xDefinedRegions ] );
+ 1065              		.loc 1 490 40
+ 1066 03ec 079B     		ldr	r3, [sp, #28]	@ xDefinedRegions.34_21, xDefinedRegions
+ 1067 03ee DB00     		lsls	r3, r3, #3	@ _22, xDefinedRegions.34_21,
+ 1068              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:490:         pxHeapRegion = &( pxHeapRegions[ xDefinedR
+ 1069              		.loc 1 490 22
+ 1070 03f0 019A     		ldr	r2, [sp, #4]	@ tmp190, pxHeapRegions
+ 1071 03f2 1344     		add	r3, r3, r2	@ tmp189, tmp190
+ 1072 03f4 0593     		str	r3, [sp, #20]	@ tmp189, pxHeapRegion
+ 1073              	.L44:
+ 1074              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:423:     while( pxHeapRegion->xSizeInBytes > 0 )
+ 423:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 1075              		.loc 1 423 24
+ 1076 03f6 059B     		ldr	r3, [sp, #20]	@ tmp191, pxHeapRegion
+ 1077 03f8 5B68     		ldr	r3, [r3, #4]	@ _23, pxHeapRegion_28->xSizeInBytes
+ 1078              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:423:     while( pxHeapRegion->xSizeInBytes > 0 )
+ 423:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 1079              		.loc 1 423 10
+ 1080 03fa 002B     		cmp	r3, #0	@ _23,
+ 1081 03fc 87D1     		bne	.L50		@,
+ 1082              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:493:     xMinimumEverFreeBytesRemaining = xTotalHeapSiz
+ 491:Source/FreeRTOS/portable/MemMang/heap_5.c ****     }
+ 492:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 493:Source/FreeRTOS/portable/MemMang/heap_5.c ****     xMinimumEverFreeBytesRemaining = xTotalHeapSize;
+ 1083              		.loc 1 493 36
+ 1084 03fe 0F4A     		ldr	r2, .L52+16	@ tmp192,
+ 1085 0400 089B     		ldr	r3, [sp, #32]	@ tmp193, xTotalHeapSize
+ 1086 0402 1360     		str	r3, [r2]	@ tmp193, xMinimumEverFreeBytesRemaining
+ARM GAS  /tmp/ccX30Dk5.s 			page 29
+
+
+ 1087              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:494:     xFreeBytesRemaining = xTotalHeapSize;
+ 494:Source/FreeRTOS/portable/MemMang/heap_5.c ****     xFreeBytesRemaining = xTotalHeapSize;
+ 1088              		.loc 1 494 25
+ 1089 0404 0E4A     		ldr	r2, .L52+20	@ tmp194,
+ 1090 0406 089B     		ldr	r3, [sp, #32]	@ tmp195, xTotalHeapSize
+ 1091 0408 1360     		str	r3, [r2]	@ tmp195, xFreeBytesRemaining
+ 1092              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:497:     configASSERT( xTotalHeapSize );
+ 495:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 496:Source/FreeRTOS/portable/MemMang/heap_5.c ****     /* Check something was actually defined before it is accessed. */
+ 497:Source/FreeRTOS/portable/MemMang/heap_5.c ****     configASSERT( xTotalHeapSize );
+ 1093              		.loc 1 497 5
+ 1094 040a 089B     		ldr	r3, [sp, #32]	@ tmp196, xTotalHeapSize
+ 1095 040c 002B     		cmp	r3, #0	@ tmp196,
+ 1096 040e 05D1     		bne	.L51		@,
+ 1097              	.LBB8:
+ 1098              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:497:     configASSERT( xTotalHeapSize );
+ 1099              		.loc 1 497 5 is_stmt 0 discriminator 1
+ 1100 0410 40F2F112 		movw	r2, #497	@,
+ 1101 0414 0649     		ldr	r1, .L52+4	@,
+ 1102 0416 0748     		ldr	r0, .L52+8	@,
+ 1103 0418 FFF7FEFF 		bl	printf		@
+ 1104              	.L51:
+ 1105              	.LBE8:
+ 1106              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:500:     xBlockAllocatedBit = ( ( size_t ) 1 ) << ( ( s
+ 498:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 499:Source/FreeRTOS/portable/MemMang/heap_5.c ****     /* Work out the position of the top bit in a size_t variable. */
+ 500:Source/FreeRTOS/portable/MemMang/heap_5.c ****     xBlockAllocatedBit = ( ( size_t ) 1 ) << ( ( sizeof( size_t ) * heapBITS_PER_BYTE ) - 1 );
+ 1107              		.loc 1 500 24 is_stmt 1
+ 1108 041c 094B     		ldr	r3, .L52+24	@ tmp197,
+ 1109 041e 4FF00042 		mov	r2, #-2147483648	@ tmp198,
+ 1110 0422 1A60     		str	r2, [r3]	@ tmp198, xBlockAllocatedBit
+ 1111              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:501: }
+ 501:Source/FreeRTOS/portable/MemMang/heap_5.c **** }
+ 1112              		.loc 1 501 1
+ 1113 0424 00BF     		nop	
+ 1114 0426 0BB0     		add	sp, sp, #44	@,,
+ 1115              	.LCFI10:
+ 1116              		.cfi_def_cfa_offset 4
+ 1117              		@ sp needed	@
+ 1118 0428 5DF804FB 		ldr	pc, [sp], #4	@
+ 1119              	.L53:
+ 1120              		.align	2
+ 1121              	.L52:
+ 1122 042c 08000000 		.word	pxEnd
+ 1123 0430 04000000 		.word	.LC0
+ 1124 0434 30000000 		.word	.LC1
+ 1125 0438 00000000 		.word	xStart
+ 1126 043c 10000000 		.word	xMinimumEverFreeBytesRemaining
+ 1127 0440 0C000000 		.word	xFreeBytesRemaining
+ 1128 0444 1C000000 		.word	xBlockAllocatedBit
+ 1129              		.cfi_endproc
+ 1130              	.LFE10:
+ 1131              		.size	vPortDefineHeapRegions, .-vPortDefineHeapRegions
+ 1132              		.align	1
+ 1133              		.global	vPortGetHeapStats
+ 1134              		.syntax unified
+ 1135              		.thumb
+ARM GAS  /tmp/ccX30Dk5.s 			page 30
+
+
+ 1136              		.thumb_func
+ 1137              		.type	vPortGetHeapStats, %function
+ 1138              	vPortGetHeapStats:
+ 1139              	.LFB11:
+ 502:Source/FreeRTOS/portable/MemMang/heap_5.c **** /*-----------------------------------------------------------*/
+ 503:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 504:Source/FreeRTOS/portable/MemMang/heap_5.c **** void vPortGetHeapStats( HeapStats_t * pxHeapStats )
+ 505:Source/FreeRTOS/portable/MemMang/heap_5.c **** {
+ 1140              		.loc 1 505 1
+ 1141              		.cfi_startproc
+ 1142              		@ args = 0, pretend = 0, frame = 24
+ 1143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1144 0448 00B5     		push	{lr}	@
+ 1145              	.LCFI11:
+ 1146              		.cfi_def_cfa_offset 4
+ 1147              		.cfi_offset 14, -4
+ 1148 044a 87B0     		sub	sp, sp, #28	@,,
+ 1149              	.LCFI12:
+ 1150              		.cfi_def_cfa_offset 32
+ 1151 044c 0190     		str	r0, [sp, #4]	@ pxHeapStats, pxHeapStats
+ 1152              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:507:     size_t xBlocks = 0, xMaxSize = 0, xMinSize = p
+ 506:Source/FreeRTOS/portable/MemMang/heap_5.c ****     BlockLink_t * pxBlock;
+ 507:Source/FreeRTOS/portable/MemMang/heap_5.c ****     size_t xBlocks = 0, xMaxSize = 0, xMinSize = portMAX_DELAY; /* portMAX_DELAY used as a portable
+ 1153              		.loc 1 507 12
+ 1154 044e 0023     		movs	r3, #0	@ tmp121,
+ 1155 0450 0493     		str	r3, [sp, #16]	@ tmp121, xBlocks
+ 1156              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:507:     size_t xBlocks = 0, xMaxSize = 0, xMinSize = p
+ 1157              		.loc 1 507 25
+ 1158 0452 0023     		movs	r3, #0	@ tmp122,
+ 1159 0454 0393     		str	r3, [sp, #12]	@ tmp122, xMaxSize
+ 1160              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:507:     size_t xBlocks = 0, xMaxSize = 0, xMinSize = p
+ 1161              		.loc 1 507 39
+ 1162 0456 4FF0FF33 		mov	r3, #-1	@ tmp123,
+ 1163 045a 0293     		str	r3, [sp, #8]	@ tmp123, xMinSize
+ 1164              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:509:     vTaskSuspendAll();
+ 508:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 509:Source/FreeRTOS/portable/MemMang/heap_5.c ****     vTaskSuspendAll();
+ 1165              		.loc 1 509 5
+ 1166 045c FFF7FEFF 		bl	vTaskSuspendAll		@
+ 1167              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:511:         pxBlock = xStart.pxNextFreeBlock;
+ 510:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 511:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxBlock = xStart.pxNextFreeBlock;
+ 1168              		.loc 1 511 17
+ 1169 0460 234B     		ldr	r3, .L59	@ tmp124,
+ 1170 0462 1B68     		ldr	r3, [r3]	@ tmp125, xStart.pxNextFreeBlock
+ 1171 0464 0593     		str	r3, [sp, #20]	@ tmp125, pxBlock
+ 1172              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:515:         if( pxBlock != NULL )
+ 512:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 513:Source/FreeRTOS/portable/MemMang/heap_5.c ****         /* pxBlock will be NULL if the heap has not been initialised.  The heap
+ 514:Source/FreeRTOS/portable/MemMang/heap_5.c ****          * is initialised automatically when the first allocation is made. */
+ 515:Source/FreeRTOS/portable/MemMang/heap_5.c ****         if( pxBlock != NULL )
+ 1173              		.loc 1 515 11
+ 1174 0466 059B     		ldr	r3, [sp, #20]	@ tmp126, pxBlock
+ 1175 0468 002B     		cmp	r3, #0	@ tmp126,
+ 1176 046a 1ED0     		beq	.L55		@,
+ 1177              	.L58:
+ 1178              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:521:                 xBlocks++;
+ARM GAS  /tmp/ccX30Dk5.s 			page 31
+
+
+ 516:Source/FreeRTOS/portable/MemMang/heap_5.c ****         {
+ 517:Source/FreeRTOS/portable/MemMang/heap_5.c ****             do
+ 518:Source/FreeRTOS/portable/MemMang/heap_5.c ****             {
+ 519:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 /* Increment the number of blocks and record the largest block seen
+ 520:Source/FreeRTOS/portable/MemMang/heap_5.c ****                  * so far. */
+ 521:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 xBlocks++;
+ 1179              		.loc 1 521 24
+ 1180 046c 049B     		ldr	r3, [sp, #16]	@ tmp128, xBlocks
+ 1181 046e 0133     		adds	r3, r3, #1	@ tmp127, tmp128,
+ 1182 0470 0493     		str	r3, [sp, #16]	@ tmp127, xBlocks
+ 1183              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:523:                 if( pxBlock->xBlockSize > xMaxSize
+ 522:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 523:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 if( pxBlock->xBlockSize > xMaxSize )
+ 1184              		.loc 1 523 28
+ 1185 0472 059B     		ldr	r3, [sp, #20]	@ tmp129, pxBlock
+ 1186 0474 5B68     		ldr	r3, [r3, #4]	@ _1, pxBlock_9->xBlockSize
+ 1187              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:523:                 if( pxBlock->xBlockSize > xMaxSize
+ 1188              		.loc 1 523 19
+ 1189 0476 039A     		ldr	r2, [sp, #12]	@ tmp130, xMaxSize
+ 1190 0478 9A42     		cmp	r2, r3	@ tmp130, _1
+ 1191 047a 02D2     		bcs	.L56		@,
+ 1192              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:525:                     xMaxSize = pxBlock->xBlockSize
+ 524:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 525:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     xMaxSize = pxBlock->xBlockSize;
+ 1193              		.loc 1 525 30
+ 1194 047c 059B     		ldr	r3, [sp, #20]	@ tmp131, pxBlock
+ 1195 047e 5B68     		ldr	r3, [r3, #4]	@ tmp132, pxBlock_9->xBlockSize
+ 1196 0480 0393     		str	r3, [sp, #12]	@ tmp132, xMaxSize
+ 1197              	.L56:
+ 1198              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:531:                 if( pxBlock->xBlockSize != 0 )
+ 526:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 }
+ 527:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 528:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 /* Heap five will have a zero sized block at the end of each
+ 529:Source/FreeRTOS/portable/MemMang/heap_5.c ****                  * each region - the block is only used to link to the next
+ 530:Source/FreeRTOS/portable/MemMang/heap_5.c ****                  * heap region so it not a real block. */
+ 531:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 if( pxBlock->xBlockSize != 0 )
+ 1199              		.loc 1 531 28
+ 1200 0482 059B     		ldr	r3, [sp, #20]	@ tmp133, pxBlock
+ 1201 0484 5B68     		ldr	r3, [r3, #4]	@ _2, pxBlock_9->xBlockSize
+ 1202              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:531:                 if( pxBlock->xBlockSize != 0 )
+ 1203              		.loc 1 531 19
+ 1204 0486 002B     		cmp	r3, #0	@ _2,
+ 1205 0488 07D0     		beq	.L57		@,
+ 1206              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:533:                     if( pxBlock->xBlockSize < xMin
+ 532:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 {
+ 533:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     if( pxBlock->xBlockSize < xMinSize )
+ 1207              		.loc 1 533 32
+ 1208 048a 059B     		ldr	r3, [sp, #20]	@ tmp134, pxBlock
+ 1209 048c 5B68     		ldr	r3, [r3, #4]	@ _3, pxBlock_9->xBlockSize
+ 1210              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:533:                     if( pxBlock->xBlockSize < xMin
+ 1211              		.loc 1 533 23
+ 1212 048e 029A     		ldr	r2, [sp, #8]	@ tmp135, xMinSize
+ 1213 0490 9A42     		cmp	r2, r3	@ tmp135, _3
+ 1214 0492 02D9     		bls	.L57		@,
+ 1215              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:535:                         xMinSize = pxBlock->xBlock
+ 534:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     {
+ 535:Source/FreeRTOS/portable/MemMang/heap_5.c ****                         xMinSize = pxBlock->xBlockSize;
+ARM GAS  /tmp/ccX30Dk5.s 			page 32
+
+
+ 1216              		.loc 1 535 34
+ 1217 0494 059B     		ldr	r3, [sp, #20]	@ tmp136, pxBlock
+ 1218 0496 5B68     		ldr	r3, [r3, #4]	@ tmp137, pxBlock_9->xBlockSize
+ 1219 0498 0293     		str	r3, [sp, #8]	@ tmp137, xMinSize
+ 1220              	.L57:
+ 1221              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:541:                 pxBlock = pxBlock->pxNextFreeBlock
+ 536:Source/FreeRTOS/portable/MemMang/heap_5.c ****                     }
+ 537:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 }
+ 538:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 539:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 /* Move to the next block in the chain until the last block is
+ 540:Source/FreeRTOS/portable/MemMang/heap_5.c ****                  * reached. */
+ 541:Source/FreeRTOS/portable/MemMang/heap_5.c ****                 pxBlock = pxBlock->pxNextFreeBlock;
+ 1222              		.loc 1 541 25
+ 1223 049a 059B     		ldr	r3, [sp, #20]	@ tmp138, pxBlock
+ 1224 049c 1B68     		ldr	r3, [r3]	@ tmp139, pxBlock_9->pxNextFreeBlock
+ 1225 049e 0593     		str	r3, [sp, #20]	@ tmp139, pxBlock
+ 1226              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:542:             } while( pxBlock != pxEnd );
+ 542:Source/FreeRTOS/portable/MemMang/heap_5.c ****             } while( pxBlock != pxEnd );
+ 1227              		.loc 1 542 30
+ 1228 04a0 144B     		ldr	r3, .L59+4	@ tmp140,
+ 1229 04a2 1B68     		ldr	r3, [r3]	@ pxEnd.35_4, pxEnd
+ 1230              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:542:             } while( pxBlock != pxEnd );
+ 1231              		.loc 1 542 13
+ 1232 04a4 059A     		ldr	r2, [sp, #20]	@ tmp141, pxBlock
+ 1233 04a6 9A42     		cmp	r2, r3	@ tmp141, pxEnd.35_4
+ 1234 04a8 E0D1     		bne	.L58		@,
+ 1235              	.L55:
+ 1236              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:545:     ( void ) xTaskResumeAll();
+ 543:Source/FreeRTOS/portable/MemMang/heap_5.c ****         }
+ 544:Source/FreeRTOS/portable/MemMang/heap_5.c ****     }
+ 545:Source/FreeRTOS/portable/MemMang/heap_5.c ****     ( void ) xTaskResumeAll();
+ 1237              		.loc 1 545 14
+ 1238 04aa FFF7FEFF 		bl	xTaskResumeAll		@
+ 1239              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:547:     pxHeapStats->xSizeOfLargestFreeBlockInBytes = 
+ 546:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 547:Source/FreeRTOS/portable/MemMang/heap_5.c ****     pxHeapStats->xSizeOfLargestFreeBlockInBytes = xMaxSize;
+ 1240              		.loc 1 547 49
+ 1241 04ae 019B     		ldr	r3, [sp, #4]	@ tmp142, pxHeapStats
+ 1242 04b0 039A     		ldr	r2, [sp, #12]	@ tmp143, xMaxSize
+ 1243 04b2 5A60     		str	r2, [r3, #4]	@ tmp143, pxHeapStats_29(D)->xSizeOfLargestFreeBlockInBytes
+ 1244              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:548:     pxHeapStats->xSizeOfSmallestFreeBlockInBytes =
+ 548:Source/FreeRTOS/portable/MemMang/heap_5.c ****     pxHeapStats->xSizeOfSmallestFreeBlockInBytes = xMinSize;
+ 1245              		.loc 1 548 50
+ 1246 04b4 019B     		ldr	r3, [sp, #4]	@ tmp144, pxHeapStats
+ 1247 04b6 029A     		ldr	r2, [sp, #8]	@ tmp145, xMinSize
+ 1248 04b8 9A60     		str	r2, [r3, #8]	@ tmp145, pxHeapStats_29(D)->xSizeOfSmallestFreeBlockInBytes
+ 1249              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:549:     pxHeapStats->xNumberOfFreeBlocks = xBlocks;
+ 549:Source/FreeRTOS/portable/MemMang/heap_5.c ****     pxHeapStats->xNumberOfFreeBlocks = xBlocks;
+ 1250              		.loc 1 549 38
+ 1251 04ba 019B     		ldr	r3, [sp, #4]	@ tmp146, pxHeapStats
+ 1252 04bc 049A     		ldr	r2, [sp, #16]	@ tmp147, xBlocks
+ 1253 04be DA60     		str	r2, [r3, #12]	@ tmp147, pxHeapStats_29(D)->xNumberOfFreeBlocks
+ 1254              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:551:     taskENTER_CRITICAL();
+ 550:Source/FreeRTOS/portable/MemMang/heap_5.c **** 
+ 551:Source/FreeRTOS/portable/MemMang/heap_5.c ****     taskENTER_CRITICAL();
+ 1255              		.loc 1 551 5
+ 1256 04c0 FFF7FEFF 		bl	vPortEnterCritical		@
+ARM GAS  /tmp/ccX30Dk5.s 			page 33
+
+
+ 1257              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:553:         pxHeapStats->xAvailableHeapSpaceInBytes = 
+ 552:Source/FreeRTOS/portable/MemMang/heap_5.c ****     {
+ 553:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxHeapStats->xAvailableHeapSpaceInBytes = xFreeBytesRemaining;
+ 1258              		.loc 1 553 49
+ 1259 04c4 0C4B     		ldr	r3, .L59+8	@ tmp148,
+ 1260 04c6 1A68     		ldr	r2, [r3]	@ xFreeBytesRemaining.36_5, xFreeBytesRemaining
+ 1261 04c8 019B     		ldr	r3, [sp, #4]	@ tmp149, pxHeapStats
+ 1262 04ca 1A60     		str	r2, [r3]	@ xFreeBytesRemaining.36_5, pxHeapStats_29(D)->xAvailableHeapSpaceInBytes
+ 1263              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:554:         pxHeapStats->xNumberOfSuccessfulAllocation
+ 554:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxHeapStats->xNumberOfSuccessfulAllocations = xNumberOfSuccessfulAllocations;
+ 1264              		.loc 1 554 53
+ 1265 04cc 0B4B     		ldr	r3, .L59+12	@ tmp150,
+ 1266 04ce 1A68     		ldr	r2, [r3]	@ xNumberOfSuccessfulAllocations.37_6, xNumberOfSuccessfulAllocations
+ 1267 04d0 019B     		ldr	r3, [sp, #4]	@ tmp151, pxHeapStats
+ 1268 04d2 5A61     		str	r2, [r3, #20]	@ xNumberOfSuccessfulAllocations.37_6, pxHeapStats_29(D)->xNumberOfSuccessfulAll
+ 1269              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:555:         pxHeapStats->xNumberOfSuccessfulFrees = xN
+ 555:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxHeapStats->xNumberOfSuccessfulFrees = xNumberOfSuccessfulFrees;
+ 1270              		.loc 1 555 47
+ 1271 04d4 0A4B     		ldr	r3, .L59+16	@ tmp152,
+ 1272 04d6 1A68     		ldr	r2, [r3]	@ xNumberOfSuccessfulFrees.38_7, xNumberOfSuccessfulFrees
+ 1273 04d8 019B     		ldr	r3, [sp, #4]	@ tmp153, pxHeapStats
+ 1274 04da 9A61     		str	r2, [r3, #24]	@ xNumberOfSuccessfulFrees.38_7, pxHeapStats_29(D)->xNumberOfSuccessfulFrees
+ 1275              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:556:         pxHeapStats->xMinimumEverFreeBytesRemainin
+ 556:Source/FreeRTOS/portable/MemMang/heap_5.c ****         pxHeapStats->xMinimumEverFreeBytesRemaining = xMinimumEverFreeBytesRemaining;
+ 1276              		.loc 1 556 53
+ 1277 04dc 094B     		ldr	r3, .L59+20	@ tmp154,
+ 1278 04de 1A68     		ldr	r2, [r3]	@ xMinimumEverFreeBytesRemaining.39_8, xMinimumEverFreeBytesRemaining
+ 1279 04e0 019B     		ldr	r3, [sp, #4]	@ tmp155, pxHeapStats
+ 1280 04e2 1A61     		str	r2, [r3, #16]	@ xMinimumEverFreeBytesRemaining.39_8, pxHeapStats_29(D)->xMinimumEverFreeBytesR
+ 1281              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:558:     taskEXIT_CRITICAL();
+ 557:Source/FreeRTOS/portable/MemMang/heap_5.c ****     }
+ 558:Source/FreeRTOS/portable/MemMang/heap_5.c ****     taskEXIT_CRITICAL();
+ 1282              		.loc 1 558 5
+ 1283 04e4 FFF7FEFF 		bl	vPortExitCritical		@
+ 1284              	@ Source/FreeRTOS/portable/MemMang/heap_5.c:559: }
+ 559:Source/FreeRTOS/portable/MemMang/heap_5.c **** }
+ 1285              		.loc 1 559 1
+ 1286 04e8 00BF     		nop	
+ 1287 04ea 07B0     		add	sp, sp, #28	@,,
+ 1288              	.LCFI13:
+ 1289              		.cfi_def_cfa_offset 4
+ 1290              		@ sp needed	@
+ 1291 04ec 5DF804FB 		ldr	pc, [sp], #4	@
+ 1292              	.L60:
+ 1293              		.align	2
+ 1294              	.L59:
+ 1295 04f0 00000000 		.word	xStart
+ 1296 04f4 08000000 		.word	pxEnd
+ 1297 04f8 0C000000 		.word	xFreeBytesRemaining
+ 1298 04fc 14000000 		.word	xNumberOfSuccessfulAllocations
+ 1299 0500 18000000 		.word	xNumberOfSuccessfulFrees
+ 1300 0504 10000000 		.word	xMinimumEverFreeBytesRemaining
+ 1301              		.cfi_endproc
+ 1302              	.LFE11:
+ 1303              		.size	vPortGetHeapStats, .-vPortGetHeapStats
+ 1304              	.Letext0:
+ 1305              		.file 2 "/home/hpf/Compile_chain/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/inclu
+ARM GAS  /tmp/ccX30Dk5.s 			page 34
+
+
+ 1306              		.file 3 "/home/hpf/Compile_chain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_def
+ 1307              		.file 4 "/home/hpf/Compile_chain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.
+ 1308              		.file 5 "./Source/FreeRTOS/portable/GCC/ARM_CM3/portmacro.h"
+ 1309              		.file 6 "./Source/FreeRTOS/include/portable.h"
+ 1310              		.file 7 "<built-in>"
+ 1311              		.section	.debug_info,"",%progbits
+ 1312              	.Ldebug_info0:
+ 1313 0000 BF050000 		.4byte	0x5bf
+ 1314 0004 0200     		.2byte	0x2
+ 1315 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1316 000a 04       		.byte	0x4
+ 1317 000b 01       		.uleb128 0x1
+ 1318 000c 6E030000 		.4byte	.LASF68
+ 1319 0010 0C       		.byte	0xc
+ 1320 0011 10000000 		.4byte	.LASF69
+ 1321 0015 22010000 		.4byte	.LASF70
+ 1322 0019 00000000 		.4byte	.Ltext0
+ 1323 001d 08050000 		.4byte	.Letext0
+ 1324 0021 00000000 		.4byte	.Ldebug_line0
+ 1325 0025 02       		.uleb128 0x2
+ 1326 0026 A5000000 		.4byte	.LASF4
+ 1327 002a 02       		.byte	0x2
+ 1328 002b D1       		.byte	0xd1
+ 1329 002c 17       		.byte	0x17
+ 1330 002d 36000000 		.4byte	0x36
+ 1331 0031 03       		.uleb128 0x3
+ 1332 0032 25000000 		.4byte	0x25
+ 1333 0036 04       		.uleb128 0x4
+ 1334 0037 04       		.byte	0x4
+ 1335 0038 07       		.byte	0x7
+ 1336 0039 E5020000 		.4byte	.LASF0
+ 1337 003d 05       		.uleb128 0x5
+ 1338 003e 04       		.byte	0x4
+ 1339 003f 05       		.byte	0x5
+ 1340 0040 696E7400 		.ascii	"int\000"
+ 1341 0044 04       		.uleb128 0x4
+ 1342 0045 08       		.byte	0x8
+ 1343 0046 05       		.byte	0x5
+ 1344 0047 86010000 		.4byte	.LASF1
+ 1345 004b 04       		.uleb128 0x4
+ 1346 004c 08       		.byte	0x8
+ 1347 004d 04       		.byte	0x4
+ 1348 004e 24020000 		.4byte	.LASF2
+ 1349 0052 04       		.uleb128 0x4
+ 1350 0053 01       		.byte	0x1
+ 1351 0054 06       		.byte	0x6
+ 1352 0055 AC020000 		.4byte	.LASF3
+ 1353 0059 02       		.uleb128 0x2
+ 1354 005a B8010000 		.4byte	.LASF5
+ 1355 005e 03       		.byte	0x3
+ 1356 005f 2B       		.byte	0x2b
+ 1357 0060 18       		.byte	0x18
+ 1358 0061 65000000 		.4byte	0x65
+ 1359 0065 04       		.uleb128 0x4
+ 1360 0066 01       		.byte	0x1
+ 1361 0067 08       		.byte	0x8
+ 1362 0068 4F020000 		.4byte	.LASF6
+ARM GAS  /tmp/ccX30Dk5.s 			page 35
+
+
+ 1363 006c 04       		.uleb128 0x4
+ 1364 006d 02       		.byte	0x2
+ 1365 006e 05       		.byte	0x5
+ 1366 006f F5000000 		.4byte	.LASF7
+ 1367 0073 04       		.uleb128 0x4
+ 1368 0074 02       		.byte	0x2
+ 1369 0075 07       		.byte	0x7
+ 1370 0076 41030000 		.4byte	.LASF8
+ 1371 007a 04       		.uleb128 0x4
+ 1372 007b 04       		.byte	0x4
+ 1373 007c 05       		.byte	0x5
+ 1374 007d 9F010000 		.4byte	.LASF9
+ 1375 0081 02       		.uleb128 0x2
+ 1376 0082 2C040000 		.4byte	.LASF10
+ 1377 0086 03       		.byte	0x3
+ 1378 0087 4F       		.byte	0x4f
+ 1379 0088 19       		.byte	0x19
+ 1380 0089 8D000000 		.4byte	0x8d
+ 1381 008d 04       		.uleb128 0x4
+ 1382 008e 04       		.byte	0x4
+ 1383 008f 07       		.byte	0x7
+ 1384 0090 0B040000 		.4byte	.LASF11
+ 1385 0094 04       		.uleb128 0x4
+ 1386 0095 08       		.byte	0x8
+ 1387 0096 07       		.byte	0x7
+ 1388 0097 B8020000 		.4byte	.LASF12
+ 1389 009b 06       		.uleb128 0x6
+ 1390 009c 04       		.byte	0x4
+ 1391 009d 04       		.uleb128 0x4
+ 1392 009e 01       		.byte	0x1
+ 1393 009f 08       		.byte	0x8
+ 1394 00a0 69030000 		.4byte	.LASF13
+ 1395 00a4 03       		.uleb128 0x3
+ 1396 00a5 9D000000 		.4byte	0x9d
+ 1397 00a9 07       		.uleb128 0x7
+ 1398 00aa 04       		.byte	0x4
+ 1399 00ab A4000000 		.4byte	0xa4
+ 1400 00af 02       		.uleb128 0x2
+ 1401 00b0 1A010000 		.4byte	.LASF14
+ 1402 00b4 04       		.byte	0x4
+ 1403 00b5 18       		.byte	0x18
+ 1404 00b6 13       		.byte	0x13
+ 1405 00b7 59000000 		.4byte	0x59
+ 1406 00bb 02       		.uleb128 0x2
+ 1407 00bc CF020000 		.4byte	.LASF15
+ 1408 00c0 04       		.byte	0x4
+ 1409 00c1 30       		.byte	0x30
+ 1410 00c2 14       		.byte	0x14
+ 1411 00c3 81000000 		.4byte	0x81
+ 1412 00c7 02       		.uleb128 0x2
+ 1413 00c8 F2020000 		.4byte	.LASF16
+ 1414 00cc 05       		.byte	0x5
+ 1415 00cd 39       		.byte	0x39
+ 1416 00ce 1E       		.byte	0x1e
+ 1417 00cf 7A000000 		.4byte	0x7a
+ 1418 00d3 02       		.uleb128 0x2
+ 1419 00d4 94010000 		.4byte	.LASF17
+ARM GAS  /tmp/ccX30Dk5.s 			page 36
+
+
+ 1420 00d8 05       		.byte	0x5
+ 1421 00d9 40       		.byte	0x40
+ 1422 00da 1E       		.byte	0x1e
+ 1423 00db BB000000 		.4byte	0xbb
+ 1424 00df 08       		.uleb128 0x8
+ 1425 00e0 80040000 		.4byte	.LASF21
+ 1426 00e4 08       		.byte	0x8
+ 1427 00e5 06       		.byte	0x6
+ 1428 00e6 87       		.byte	0x87
+ 1429 00e7 10       		.byte	0x10
+ 1430 00e8 0B010000 		.4byte	0x10b
+ 1431 00ec 09       		.uleb128 0x9
+ 1432 00ed 69040000 		.4byte	.LASF18
+ 1433 00f1 06       		.byte	0x6
+ 1434 00f2 89       		.byte	0x89
+ 1435 00f3 0F       		.byte	0xf
+ 1436 00f4 0B010000 		.4byte	0x10b
+ 1437 00f8 02       		.byte	0x2
+ 1438 00f9 23       		.byte	0x23
+ 1439 00fa 00       		.uleb128 0
+ 1440 00fb 09       		.uleb128 0x9
+ 1441 00fc D0040000 		.4byte	.LASF19
+ 1442 0100 06       		.byte	0x6
+ 1443 0101 8A       		.byte	0x8a
+ 1444 0102 0C       		.byte	0xc
+ 1445 0103 25000000 		.4byte	0x25
+ 1446 0107 02       		.byte	0x2
+ 1447 0108 23       		.byte	0x23
+ 1448 0109 04       		.uleb128 0x4
+ 1449 010a 00       		.byte	0
+ 1450 010b 07       		.uleb128 0x7
+ 1451 010c 04       		.byte	0x4
+ 1452 010d AF000000 		.4byte	0xaf
+ 1453 0111 02       		.uleb128 0x2
+ 1454 0112 D8020000 		.4byte	.LASF20
+ 1455 0116 06       		.byte	0x6
+ 1456 0117 8B       		.byte	0x8b
+ 1457 0118 03       		.byte	0x3
+ 1458 0119 DF000000 		.4byte	0xdf
+ 1459 011d 03       		.uleb128 0x3
+ 1460 011e 11010000 		.4byte	0x111
+ 1461 0122 08       		.uleb128 0x8
+ 1462 0123 9F040000 		.4byte	.LASF22
+ 1463 0127 1C       		.byte	0x1c
+ 1464 0128 06       		.byte	0x6
+ 1465 0129 8E       		.byte	0x8e
+ 1466 012a 10       		.byte	0x10
+ 1467 012b 99010000 		.4byte	0x199
+ 1468 012f 09       		.uleb128 0x9
+ 1469 0130 74020000 		.4byte	.LASF23
+ 1470 0134 06       		.byte	0x6
+ 1471 0135 90       		.byte	0x90
+ 1472 0136 0C       		.byte	0xc
+ 1473 0137 25000000 		.4byte	0x25
+ 1474 013b 02       		.byte	0x2
+ 1475 013c 23       		.byte	0x23
+ 1476 013d 00       		.uleb128 0
+ARM GAS  /tmp/ccX30Dk5.s 			page 37
+
+
+ 1477 013e 09       		.uleb128 0x9
+ 1478 013f 22030000 		.4byte	.LASF24
+ 1479 0143 06       		.byte	0x6
+ 1480 0144 91       		.byte	0x91
+ 1481 0145 0C       		.byte	0xc
+ 1482 0146 25000000 		.4byte	0x25
+ 1483 014a 02       		.byte	0x2
+ 1484 014b 23       		.byte	0x23
+ 1485 014c 04       		.uleb128 0x4
+ 1486 014d 09       		.uleb128 0x9
+ 1487 014e 66010000 		.4byte	.LASF25
+ 1488 0152 06       		.byte	0x6
+ 1489 0153 92       		.byte	0x92
+ 1490 0154 0C       		.byte	0xc
+ 1491 0155 25000000 		.4byte	0x25
+ 1492 0159 02       		.byte	0x2
+ 1493 015a 23       		.byte	0x23
+ 1494 015b 08       		.uleb128 0x8
+ 1495 015c 09       		.uleb128 0x9
+ 1496 015d AC000000 		.4byte	.LASF26
+ 1497 0161 06       		.byte	0x6
+ 1498 0162 93       		.byte	0x93
+ 1499 0163 0C       		.byte	0xc
+ 1500 0164 25000000 		.4byte	0x25
+ 1501 0168 02       		.byte	0x2
+ 1502 0169 23       		.byte	0x23
+ 1503 016a 0C       		.uleb128 0xc
+ 1504 016b 09       		.uleb128 0x9
+ 1505 016c 46000000 		.4byte	.LASF27
+ 1506 0170 06       		.byte	0x6
+ 1507 0171 94       		.byte	0x94
+ 1508 0172 0C       		.byte	0xc
+ 1509 0173 25000000 		.4byte	0x25
+ 1510 0177 02       		.byte	0x2
+ 1511 0178 23       		.byte	0x23
+ 1512 0179 10       		.uleb128 0x10
+ 1513 017a 09       		.uleb128 0x9
+ 1514 017b 30020000 		.4byte	.LASF28
+ 1515 017f 06       		.byte	0x6
+ 1516 0180 95       		.byte	0x95
+ 1517 0181 0C       		.byte	0xc
+ 1518 0182 25000000 		.4byte	0x25
+ 1519 0186 02       		.byte	0x2
+ 1520 0187 23       		.byte	0x23
+ 1521 0188 14       		.uleb128 0x14
+ 1522 0189 09       		.uleb128 0x9
+ 1523 018a 50040000 		.4byte	.LASF29
+ 1524 018e 06       		.byte	0x6
+ 1525 018f 96       		.byte	0x96
+ 1526 0190 0C       		.byte	0xc
+ 1527 0191 25000000 		.4byte	0x25
+ 1528 0195 02       		.byte	0x2
+ 1529 0196 23       		.byte	0x23
+ 1530 0197 18       		.uleb128 0x18
+ 1531 0198 00       		.byte	0
+ 1532 0199 02       		.uleb128 0x2
+ 1533 019a 78000000 		.4byte	.LASF30
+ARM GAS  /tmp/ccX30Dk5.s 			page 38
+
+
+ 1534 019e 06       		.byte	0x6
+ 1535 019f 97       		.byte	0x97
+ 1536 01a0 03       		.byte	0x3
+ 1537 01a1 22010000 		.4byte	0x122
+ 1538 01a5 08       		.uleb128 0x8
+ 1539 01a6 4B010000 		.4byte	.LASF31
+ 1540 01aa 08       		.byte	0x8
+ 1541 01ab 01       		.byte	0x1
+ 1542 01ac 5F       		.byte	0x5f
+ 1543 01ad 10       		.byte	0x10
+ 1544 01ae D1010000 		.4byte	0x1d1
+ 1545 01b2 09       		.uleb128 0x9
+ 1546 01b3 8D000000 		.4byte	.LASF32
+ 1547 01b7 01       		.byte	0x1
+ 1548 01b8 61       		.byte	0x61
+ 1549 01b9 1B       		.byte	0x1b
+ 1550 01ba D1010000 		.4byte	0x1d1
+ 1551 01be 02       		.byte	0x2
+ 1552 01bf 23       		.byte	0x23
+ 1553 01c0 00       		.uleb128 0
+ 1554 01c1 09       		.uleb128 0x9
+ 1555 01c2 D4000000 		.4byte	.LASF33
+ 1556 01c6 01       		.byte	0x1
+ 1557 01c7 62       		.byte	0x62
+ 1558 01c8 0C       		.byte	0xc
+ 1559 01c9 25000000 		.4byte	0x25
+ 1560 01cd 02       		.byte	0x2
+ 1561 01ce 23       		.byte	0x23
+ 1562 01cf 04       		.uleb128 0x4
+ 1563 01d0 00       		.byte	0
+ 1564 01d1 07       		.uleb128 0x7
+ 1565 01d2 04       		.byte	0x4
+ 1566 01d3 A5010000 		.4byte	0x1a5
+ 1567 01d7 02       		.uleb128 0x2
+ 1568 01d8 18020000 		.4byte	.LASF34
+ 1569 01dc 01       		.byte	0x1
+ 1570 01dd 63       		.byte	0x63
+ 1571 01de 03       		.byte	0x3
+ 1572 01df A5010000 		.4byte	0x1a5
+ 1573 01e3 0A       		.uleb128 0xa
+ 1574 01e4 8F020000 		.4byte	.LASF35
+ 1575 01e8 01       		.byte	0x1
+ 1576 01e9 73       		.byte	0x73
+ 1577 01ea 15       		.byte	0x15
+ 1578 01eb 31000000 		.4byte	0x31
+ 1579 01ef 05       		.byte	0x5
+ 1580 01f0 03       		.byte	0x3
+ 1581 01f1 00000000 		.4byte	xHeapStructSize
+ 1582 01f5 0A       		.uleb128 0xa
+ 1583 01f6 79040000 		.4byte	.LASF36
+ 1584 01fa 01       		.byte	0x1
+ 1585 01fb 76       		.byte	0x76
+ 1586 01fc 14       		.byte	0x14
+ 1587 01fd D7010000 		.4byte	0x1d7
+ 1588 0201 05       		.byte	0x5
+ 1589 0202 03       		.byte	0x3
+ 1590 0203 00000000 		.4byte	xStart
+ARM GAS  /tmp/ccX30Dk5.s 			page 39
+
+
+ 1591 0207 0A       		.uleb128 0xa
+ 1592 0208 DF000000 		.4byte	.LASF37
+ 1593 020c 01       		.byte	0x1
+ 1594 020d 76       		.byte	0x76
+ 1595 020e 1E       		.byte	0x1e
+ 1596 020f 19020000 		.4byte	0x219
+ 1597 0213 05       		.byte	0x5
+ 1598 0214 03       		.byte	0x3
+ 1599 0215 08000000 		.4byte	pxEnd
+ 1600 0219 07       		.uleb128 0x7
+ 1601 021a 04       		.byte	0x4
+ 1602 021b D7010000 		.4byte	0x1d7
+ 1603 021f 0A       		.uleb128 0xa
+ 1604 0220 0E030000 		.4byte	.LASF38
+ 1605 0224 01       		.byte	0x1
+ 1606 0225 7A       		.byte	0x7a
+ 1607 0226 0F       		.byte	0xf
+ 1608 0227 25000000 		.4byte	0x25
+ 1609 022b 05       		.byte	0x5
+ 1610 022c 03       		.byte	0x3
+ 1611 022d 0C000000 		.4byte	xFreeBytesRemaining
+ 1612 0231 0A       		.uleb128 0xa
+ 1613 0232 46000000 		.4byte	.LASF27
+ 1614 0236 01       		.byte	0x1
+ 1615 0237 7B       		.byte	0x7b
+ 1616 0238 0F       		.byte	0xf
+ 1617 0239 25000000 		.4byte	0x25
+ 1618 023d 05       		.byte	0x5
+ 1619 023e 03       		.byte	0x3
+ 1620 023f 10000000 		.4byte	xMinimumEverFreeBytesRemaining
+ 1621 0243 0A       		.uleb128 0xa
+ 1622 0244 30020000 		.4byte	.LASF28
+ 1623 0248 01       		.byte	0x1
+ 1624 0249 7C       		.byte	0x7c
+ 1625 024a 0F       		.byte	0xf
+ 1626 024b 25000000 		.4byte	0x25
+ 1627 024f 05       		.byte	0x5
+ 1628 0250 03       		.byte	0x3
+ 1629 0251 14000000 		.4byte	xNumberOfSuccessfulAllocations
+ 1630 0255 0A       		.uleb128 0xa
+ 1631 0256 50040000 		.4byte	.LASF29
+ 1632 025a 01       		.byte	0x1
+ 1633 025b 7D       		.byte	0x7d
+ 1634 025c 0F       		.byte	0xf
+ 1635 025d 25000000 		.4byte	0x25
+ 1636 0261 05       		.byte	0x5
+ 1637 0262 03       		.byte	0x3
+ 1638 0263 18000000 		.4byte	xNumberOfSuccessfulFrees
+ 1639 0267 0A       		.uleb128 0xa
+ 1640 0268 65000000 		.4byte	.LASF39
+ 1641 026c 01       		.byte	0x1
+ 1642 026d 83       		.byte	0x83
+ 1643 026e 0F       		.byte	0xf
+ 1644 026f 25000000 		.4byte	0x25
+ 1645 0273 05       		.byte	0x5
+ 1646 0274 03       		.byte	0x3
+ 1647 0275 1C000000 		.4byte	xBlockAllocatedBit
+ARM GAS  /tmp/ccX30Dk5.s 			page 40
+
+
+ 1648 0279 0B       		.uleb128 0xb
+ 1649 027a 01       		.byte	0x1
+ 1650 027b B7040000 		.4byte	.LASF44
+ 1651 027f 01       		.byte	0x1
+ 1652 0280 F801     		.2byte	0x1f8
+ 1653 0282 06       		.byte	0x6
+ 1654 0283 01       		.byte	0x1
+ 1655 0284 48040000 		.4byte	.LFB11
+ 1656 0288 08050000 		.4byte	.LFE11
+ 1657 028c 00000000 		.4byte	.LLST4
+ 1658 0290 01       		.byte	0x1
+ 1659 0291 E6020000 		.4byte	0x2e6
+ 1660 0295 0C       		.uleb128 0xc
+ 1661 0296 3A000000 		.4byte	.LASF46
+ 1662 029a 01       		.byte	0x1
+ 1663 029b F801     		.2byte	0x1f8
+ 1664 029d 27       		.byte	0x27
+ 1665 029e E6020000 		.4byte	0x2e6
+ 1666 02a2 02       		.byte	0x2
+ 1667 02a3 91       		.byte	0x91
+ 1668 02a4 64       		.sleb128 -28
+ 1669 02a5 0D       		.uleb128 0xd
+ 1670 02a6 9D000000 		.4byte	.LASF40
+ 1671 02aa 01       		.byte	0x1
+ 1672 02ab FA01     		.2byte	0x1fa
+ 1673 02ad 13       		.byte	0x13
+ 1674 02ae 19020000 		.4byte	0x219
+ 1675 02b2 02       		.byte	0x2
+ 1676 02b3 91       		.byte	0x91
+ 1677 02b4 74       		.sleb128 -12
+ 1678 02b5 0D       		.uleb128 0xd
+ 1679 02b6 8B040000 		.4byte	.LASF41
+ 1680 02ba 01       		.byte	0x1
+ 1681 02bb FB01     		.2byte	0x1fb
+ 1682 02bd 0C       		.byte	0xc
+ 1683 02be 25000000 		.4byte	0x25
+ 1684 02c2 02       		.byte	0x2
+ 1685 02c3 91       		.byte	0x91
+ 1686 02c4 70       		.sleb128 -16
+ 1687 02c5 0D       		.uleb128 0xd
+ 1688 02c6 EF010000 		.4byte	.LASF42
+ 1689 02ca 01       		.byte	0x1
+ 1690 02cb FB01     		.2byte	0x1fb
+ 1691 02cd 19       		.byte	0x19
+ 1692 02ce 25000000 		.4byte	0x25
+ 1693 02d2 02       		.byte	0x2
+ 1694 02d3 91       		.byte	0x91
+ 1695 02d4 6C       		.sleb128 -20
+ 1696 02d5 0D       		.uleb128 0xd
+ 1697 02d6 AF010000 		.4byte	.LASF43
+ 1698 02da 01       		.byte	0x1
+ 1699 02db FB01     		.2byte	0x1fb
+ 1700 02dd 27       		.byte	0x27
+ 1701 02de 25000000 		.4byte	0x25
+ 1702 02e2 02       		.byte	0x2
+ 1703 02e3 91       		.byte	0x91
+ 1704 02e4 68       		.sleb128 -24
+ARM GAS  /tmp/ccX30Dk5.s 			page 41
+
+
+ 1705 02e5 00       		.byte	0
+ 1706 02e6 07       		.uleb128 0x7
+ 1707 02e7 04       		.byte	0x4
+ 1708 02e8 99010000 		.4byte	0x199
+ 1709 02ec 0B       		.uleb128 0xb
+ 1710 02ed 01       		.byte	0x1
+ 1711 02ee 5D020000 		.4byte	.LASF45
+ 1712 02f2 01       		.byte	0x1
+ 1713 02f3 9901     		.2byte	0x199
+ 1714 02f5 06       		.byte	0x6
+ 1715 02f6 01       		.byte	0x1
+ 1716 02f7 DC020000 		.4byte	.LFB10
+ 1717 02fb 48040000 		.4byte	.LFE10
+ 1718 02ff 38000000 		.4byte	.LLST3
+ 1719 0303 01       		.byte	0x1
+ 1720 0304 21040000 		.4byte	0x421
+ 1721 0308 0C       		.uleb128 0xc
+ 1722 0309 58010000 		.4byte	.LASF47
+ 1723 030d 01       		.byte	0x1
+ 1724 030e 9901     		.2byte	0x199
+ 1725 0310 39       		.byte	0x39
+ 1726 0311 27040000 		.4byte	0x427
+ 1727 0315 02       		.byte	0x2
+ 1728 0316 91       		.byte	0x91
+ 1729 0317 54       		.sleb128 -44
+ 1730 0318 0D       		.uleb128 0xd
+ 1731 0319 37040000 		.4byte	.LASF48
+ 1732 031d 01       		.byte	0x1
+ 1733 031e 9B01     		.2byte	0x19b
+ 1734 0320 13       		.byte	0x13
+ 1735 0321 19020000 		.4byte	0x219
+ 1736 0325 02       		.byte	0x2
+ 1737 0326 91       		.byte	0x91
+ 1738 0327 60       		.sleb128 -32
+ 1739 0328 0D       		.uleb128 0xd
+ 1740 0329 C0000000 		.4byte	.LASF49
+ 1741 032d 01       		.byte	0x1
+ 1742 032e 9B01     		.2byte	0x19b
+ 1743 0330 36       		.byte	0x36
+ 1744 0331 19020000 		.4byte	0x219
+ 1745 0335 02       		.byte	0x2
+ 1746 0336 91       		.byte	0x91
+ 1747 0337 58       		.sleb128 -40
+ 1748 0338 0D       		.uleb128 0xd
+ 1749 0339 9F020000 		.4byte	.LASF50
+ 1750 033d 01       		.byte	0x1
+ 1751 033e 9C01     		.2byte	0x19c
+ 1752 0340 0C       		.byte	0xc
+ 1753 0341 25000000 		.4byte	0x25
+ 1754 0345 02       		.byte	0x2
+ 1755 0346 91       		.byte	0x91
+ 1756 0347 5C       		.sleb128 -36
+ 1757 0348 0D       		.uleb128 0xd
+ 1758 0349 FD020000 		.4byte	.LASF51
+ 1759 034d 01       		.byte	0x1
+ 1760 034e 9D01     		.2byte	0x19d
+ 1761 0350 0C       		.byte	0xc
+ARM GAS  /tmp/ccX30Dk5.s 			page 42
+
+
+ 1762 0351 25000000 		.4byte	0x25
+ 1763 0355 02       		.byte	0x2
+ 1764 0356 91       		.byte	0x91
+ 1765 0357 74       		.sleb128 -12
+ 1766 0358 0D       		.uleb128 0xd
+ 1767 0359 1D040000 		.4byte	.LASF52
+ 1768 035d 01       		.byte	0x1
+ 1769 035e 9D01     		.2byte	0x19d
+ 1770 0360 1E       		.byte	0x1e
+ 1771 0361 25000000 		.4byte	0x25
+ 1772 0365 02       		.byte	0x2
+ 1773 0366 91       		.byte	0x91
+ 1774 0367 70       		.sleb128 -16
+ 1775 0368 0D       		.uleb128 0xd
+ 1776 0369 E5000000 		.4byte	.LASF53
+ 1777 036d 01       		.byte	0x1
+ 1778 036e 9E01     		.2byte	0x19e
+ 1779 0370 10       		.byte	0x10
+ 1780 0371 C7000000 		.4byte	0xc7
+ 1781 0375 02       		.byte	0x2
+ 1782 0376 91       		.byte	0x91
+ 1783 0377 6C       		.sleb128 -20
+ 1784 0378 0D       		.uleb128 0xd
+ 1785 0379 84000000 		.4byte	.LASF54
+ 1786 037d 01       		.byte	0x1
+ 1787 037e 9F01     		.2byte	0x19f
+ 1788 0380 0C       		.byte	0xc
+ 1789 0381 25000000 		.4byte	0x25
+ 1790 0385 02       		.byte	0x2
+ 1791 0386 91       		.byte	0x91
+ 1792 0387 68       		.sleb128 -24
+ 1793 0388 0D       		.uleb128 0xd
+ 1794 0389 EE030000 		.4byte	.LASF55
+ 1795 038d 01       		.byte	0x1
+ 1796 038e A001     		.2byte	0x1a0
+ 1797 0390 1A       		.byte	0x1a
+ 1798 0391 21040000 		.4byte	0x421
+ 1799 0395 02       		.byte	0x2
+ 1800 0396 91       		.byte	0x91
+ 1801 0397 64       		.sleb128 -28
+ 1802 0398 0E       		.uleb128 0xe
+ 1803 0399 F6020000 		.4byte	.LBB5
+ 1804 039d 02030000 		.4byte	.LBE5
+ 1805 03a1 BB030000 		.4byte	0x3bb
+ 1806 03a5 0F       		.uleb128 0xf
+ 1807 03a6 01       		.byte	0x1
+ 1808 03a7 A8010000 		.4byte	.LASF56
+ 1809 03ab 07       		.byte	0x7
+ 1810 03ac 00       		.byte	0
+ 1811 03ad 01       		.byte	0x1
+ 1812 03ae 3D000000 		.4byte	0x3d
+ 1813 03b2 01       		.byte	0x1
+ 1814 03b3 10       		.uleb128 0x10
+ 1815 03b4 A9000000 		.4byte	0xa9
+ 1816 03b8 11       		.uleb128 0x11
+ 1817 03b9 00       		.byte	0
+ 1818 03ba 00       		.byte	0
+ARM GAS  /tmp/ccX30Dk5.s 			page 43
+
+
+ 1819 03bb 0E       		.uleb128 0xe
+ 1820 03bc 62030000 		.4byte	.LBB6
+ 1821 03c0 6E030000 		.4byte	.LBE6
+ 1822 03c4 DE030000 		.4byte	0x3de
+ 1823 03c8 0F       		.uleb128 0xf
+ 1824 03c9 01       		.byte	0x1
+ 1825 03ca A8010000 		.4byte	.LASF56
+ 1826 03ce 07       		.byte	0x7
+ 1827 03cf 00       		.byte	0
+ 1828 03d0 01       		.byte	0x1
+ 1829 03d1 3D000000 		.4byte	0x3d
+ 1830 03d5 01       		.byte	0x1
+ 1831 03d6 10       		.uleb128 0x10
+ 1832 03d7 A9000000 		.4byte	0xa9
+ 1833 03db 11       		.uleb128 0x11
+ 1834 03dc 00       		.byte	0
+ 1835 03dd 00       		.byte	0
+ 1836 03de 0E       		.uleb128 0xe
+ 1837 03df 7A030000 		.4byte	.LBB7
+ 1838 03e3 86030000 		.4byte	.LBE7
+ 1839 03e7 01040000 		.4byte	0x401
+ 1840 03eb 0F       		.uleb128 0xf
+ 1841 03ec 01       		.byte	0x1
+ 1842 03ed A8010000 		.4byte	.LASF56
+ 1843 03f1 07       		.byte	0x7
+ 1844 03f2 00       		.byte	0
+ 1845 03f3 01       		.byte	0x1
+ 1846 03f4 3D000000 		.4byte	0x3d
+ 1847 03f8 01       		.byte	0x1
+ 1848 03f9 10       		.uleb128 0x10
+ 1849 03fa A9000000 		.4byte	0xa9
+ 1850 03fe 11       		.uleb128 0x11
+ 1851 03ff 00       		.byte	0
+ 1852 0400 00       		.byte	0
+ 1853 0401 12       		.uleb128 0x12
+ 1854 0402 10040000 		.4byte	.LBB8
+ 1855 0406 1C040000 		.4byte	.LBE8
+ 1856 040a 0F       		.uleb128 0xf
+ 1857 040b 01       		.byte	0x1
+ 1858 040c A8010000 		.4byte	.LASF56
+ 1859 0410 07       		.byte	0x7
+ 1860 0411 00       		.byte	0
+ 1861 0412 01       		.byte	0x1
+ 1862 0413 3D000000 		.4byte	0x3d
+ 1863 0417 01       		.byte	0x1
+ 1864 0418 10       		.uleb128 0x10
+ 1865 0419 A9000000 		.4byte	0xa9
+ 1866 041d 11       		.uleb128 0x11
+ 1867 041e 00       		.byte	0
+ 1868 041f 00       		.byte	0
+ 1869 0420 00       		.byte	0
+ 1870 0421 07       		.uleb128 0x7
+ 1871 0422 04       		.byte	0x4
+ 1872 0423 1D010000 		.4byte	0x11d
+ 1873 0427 03       		.uleb128 0x3
+ 1874 0428 21040000 		.4byte	0x421
+ 1875 042c 13       		.uleb128 0x13
+ARM GAS  /tmp/ccX30Dk5.s 			page 44
+
+
+ 1876 042d FF000000 		.4byte	.LASF71
+ 1877 0431 01       		.byte	0x1
+ 1878 0432 5A01     		.2byte	0x15a
+ 1879 0434 0D       		.byte	0xd
+ 1880 0435 01       		.byte	0x1
+ 1881 0436 34020000 		.4byte	.LFB9
+ 1882 043a DC020000 		.4byte	.LFE9
+ 1883 043e 70000000 		.4byte	.LLST2
+ 1884 0442 01       		.byte	0x1
+ 1885 0443 78040000 		.4byte	0x478
+ 1886 0447 0C       		.uleb128 0xc
+ 1887 0448 FB030000 		.4byte	.LASF57
+ 1888 044c 01       		.byte	0x1
+ 1889 044d 5A01     		.2byte	0x15a
+ 1890 044f 37       		.byte	0x37
+ 1891 0450 19020000 		.4byte	0x219
+ 1892 0454 02       		.byte	0x2
+ 1893 0455 91       		.byte	0x91
+ 1894 0456 74       		.sleb128 -12
+ 1895 0457 0D       		.uleb128 0xd
+ 1896 0458 5E030000 		.4byte	.LASF58
+ 1897 045c 01       		.byte	0x1
+ 1898 045d 5C01     		.2byte	0x15c
+ 1899 045f 13       		.byte	0x13
+ 1900 0460 19020000 		.4byte	0x219
+ 1901 0464 02       		.byte	0x2
+ 1902 0465 91       		.byte	0x91
+ 1903 0466 7C       		.sleb128 -4
+ 1904 0467 14       		.uleb128 0x14
+ 1905 0468 70756300 		.ascii	"puc\000"
+ 1906 046c 01       		.byte	0x1
+ 1907 046d 5D01     		.2byte	0x15d
+ 1908 046f 0F       		.byte	0xf
+ 1909 0470 0B010000 		.4byte	0x10b
+ 1910 0474 02       		.byte	0x2
+ 1911 0475 91       		.byte	0x91
+ 1912 0476 78       		.sleb128 -8
+ 1913 0477 00       		.byte	0
+ 1914 0478 15       		.uleb128 0x15
+ 1915 0479 01       		.byte	0x1
+ 1916 047a F8010000 		.4byte	.LASF59
+ 1917 047e 01       		.byte	0x1
+ 1918 047f 5401     		.2byte	0x154
+ 1919 0481 08       		.byte	0x8
+ 1920 0482 01       		.byte	0x1
+ 1921 0483 25000000 		.4byte	0x25
+ 1922 0487 28020000 		.4byte	.LFB8
+ 1923 048b 34020000 		.4byte	.LFE8
+ 1924 048f 02       		.byte	0x2
+ 1925 0490 7D       		.byte	0x7d
+ 1926 0491 00       		.sleb128 0
+ 1927 0492 01       		.byte	0x1
+ 1928 0493 15       		.uleb128 0x15
+ 1929 0494 01       		.byte	0x1
+ 1930 0495 D1010000 		.4byte	.LASF60
+ 1931 0499 01       		.byte	0x1
+ 1932 049a 4E01     		.2byte	0x14e
+ARM GAS  /tmp/ccX30Dk5.s 			page 45
+
+
+ 1933 049c 08       		.byte	0x8
+ 1934 049d 01       		.byte	0x1
+ 1935 049e 25000000 		.4byte	0x25
+ 1936 04a2 1C020000 		.4byte	.LFB7
+ 1937 04a6 28020000 		.4byte	.LFE7
+ 1938 04aa 02       		.byte	0x2
+ 1939 04ab 7D       		.byte	0x7d
+ 1940 04ac 00       		.sleb128 0
+ 1941 04ad 01       		.byte	0x1
+ 1942 04ae 0B       		.uleb128 0xb
+ 1943 04af 01       		.byte	0x1
+ 1944 04b0 54030000 		.4byte	.LASF61
+ 1945 04b4 01       		.byte	0x1
+ 1946 04b5 1D01     		.2byte	0x11d
+ 1947 04b7 06       		.byte	0x6
+ 1948 04b8 01       		.byte	0x1
+ 1949 04b9 68010000 		.4byte	.LFB6
+ 1950 04bd 1C020000 		.4byte	.LFE6
+ 1951 04c1 9C000000 		.4byte	.LLST1
+ 1952 04c5 01       		.byte	0x1
+ 1953 04c6 3C050000 		.4byte	0x53c
+ 1954 04ca 16       		.uleb128 0x16
+ 1955 04cb 707600   		.ascii	"pv\000"
+ 1956 04ce 01       		.byte	0x1
+ 1957 04cf 1D01     		.2byte	0x11d
+ 1958 04d1 18       		.byte	0x18
+ 1959 04d2 9B000000 		.4byte	0x9b
+ 1960 04d6 02       		.byte	0x2
+ 1961 04d7 91       		.byte	0x91
+ 1962 04d8 6C       		.sleb128 -20
+ 1963 04d9 14       		.uleb128 0x14
+ 1964 04da 70756300 		.ascii	"puc\000"
+ 1965 04de 01       		.byte	0x1
+ 1966 04df 1F01     		.2byte	0x11f
+ 1967 04e1 0F       		.byte	0xf
+ 1968 04e2 0B010000 		.4byte	0x10b
+ 1969 04e6 02       		.byte	0x2
+ 1970 04e7 91       		.byte	0x91
+ 1971 04e8 74       		.sleb128 -12
+ 1972 04e9 0D       		.uleb128 0xd
+ 1973 04ea C9040000 		.4byte	.LASF62
+ 1974 04ee 01       		.byte	0x1
+ 1975 04ef 2001     		.2byte	0x120
+ 1976 04f1 13       		.byte	0x13
+ 1977 04f2 19020000 		.4byte	0x219
+ 1978 04f6 02       		.byte	0x2
+ 1979 04f7 91       		.byte	0x91
+ 1980 04f8 70       		.sleb128 -16
+ 1981 04f9 0E       		.uleb128 0xe
+ 1982 04fa 94010000 		.4byte	.LBB3
+ 1983 04fe A0010000 		.4byte	.LBE3
+ 1984 0502 1C050000 		.4byte	0x51c
+ 1985 0506 0F       		.uleb128 0xf
+ 1986 0507 01       		.byte	0x1
+ 1987 0508 A8010000 		.4byte	.LASF56
+ 1988 050c 07       		.byte	0x7
+ 1989 050d 00       		.byte	0
+ARM GAS  /tmp/ccX30Dk5.s 			page 46
+
+
+ 1990 050e 01       		.byte	0x1
+ 1991 050f 3D000000 		.4byte	0x3d
+ 1992 0513 01       		.byte	0x1
+ 1993 0514 10       		.uleb128 0x10
+ 1994 0515 A9000000 		.4byte	0xa9
+ 1995 0519 11       		.uleb128 0x11
+ 1996 051a 00       		.byte	0
+ 1997 051b 00       		.byte	0
+ 1998 051c 12       		.uleb128 0x12
+ 1999 051d A8010000 		.4byte	.LBB4
+ 2000 0521 B4010000 		.4byte	.LBE4
+ 2001 0525 0F       		.uleb128 0xf
+ 2002 0526 01       		.byte	0x1
+ 2003 0527 A8010000 		.4byte	.LASF56
+ 2004 052b 07       		.byte	0x7
+ 2005 052c 00       		.byte	0
+ 2006 052d 01       		.byte	0x1
+ 2007 052e 3D000000 		.4byte	0x3d
+ 2008 0532 01       		.byte	0x1
+ 2009 0533 10       		.uleb128 0x10
+ 2010 0534 A9000000 		.4byte	0xa9
+ 2011 0538 11       		.uleb128 0x11
+ 2012 0539 00       		.byte	0
+ 2013 053a 00       		.byte	0
+ 2014 053b 00       		.byte	0
+ 2015 053c 17       		.uleb128 0x17
+ 2016 053d 01       		.byte	0x1
+ 2017 053e AA040000 		.4byte	.LASF63
+ 2018 0542 01       		.byte	0x1
+ 2019 0543 87       		.byte	0x87
+ 2020 0544 08       		.byte	0x8
+ 2021 0545 01       		.byte	0x1
+ 2022 0546 9B000000 		.4byte	0x9b
+ 2023 054a 00000000 		.4byte	.LFB5
+ 2024 054e 68010000 		.4byte	.LFE5
+ 2025 0552 D4000000 		.4byte	.LLST0
+ 2026 0556 01       		.byte	0x1
+ 2027 0557 18       		.uleb128 0x18
+ 2028 0558 93040000 		.4byte	.LASF64
+ 2029 055c 01       		.byte	0x1
+ 2030 055d 87       		.byte	0x87
+ 2031 055e 1D       		.byte	0x1d
+ 2032 055f 25000000 		.4byte	0x25
+ 2033 0563 02       		.byte	0x2
+ 2034 0564 91       		.byte	0x91
+ 2035 0565 64       		.sleb128 -28
+ 2036 0566 0A       		.uleb128 0xa
+ 2037 0567 9D000000 		.4byte	.LASF40
+ 2038 056b 01       		.byte	0x1
+ 2039 056c 89       		.byte	0x89
+ 2040 056d 13       		.byte	0x13
+ 2041 056e 19020000 		.4byte	0x219
+ 2042 0572 02       		.byte	0x2
+ 2043 0573 91       		.byte	0x91
+ 2044 0574 74       		.sleb128 -12
+ 2045 0575 0A       		.uleb128 0xa
+ 2046 0576 00000000 		.4byte	.LASF65
+ARM GAS  /tmp/ccX30Dk5.s 			page 47
+
+
+ 2047 057a 01       		.byte	0x1
+ 2048 057b 89       		.byte	0x89
+ 2049 057c 1E       		.byte	0x1e
+ 2050 057d 19020000 		.4byte	0x219
+ 2051 0581 02       		.byte	0x2
+ 2052 0582 91       		.byte	0x91
+ 2053 0583 70       		.sleb128 -16
+ 2054 0584 0A       		.uleb128 0xa
+ 2055 0585 C2010000 		.4byte	.LASF66
+ 2056 0589 01       		.byte	0x1
+ 2057 058a 89       		.byte	0x89
+ 2058 058b 31       		.byte	0x31
+ 2059 058c 19020000 		.4byte	0x219
+ 2060 0590 02       		.byte	0x2
+ 2061 0591 91       		.byte	0x91
+ 2062 0592 68       		.sleb128 -24
+ 2063 0593 0A       		.uleb128 0xa
+ 2064 0594 E6010000 		.4byte	.LASF67
+ 2065 0598 01       		.byte	0x1
+ 2066 0599 8A       		.byte	0x8a
+ 2067 059a 0C       		.byte	0xc
+ 2068 059b 9B000000 		.4byte	0x9b
+ 2069 059f 02       		.byte	0x2
+ 2070 05a0 91       		.byte	0x91
+ 2071 05a1 6C       		.sleb128 -20
+ 2072 05a2 12       		.uleb128 0x12
+ 2073 05a3 12000000 		.4byte	.LBB2
+ 2074 05a7 1C000000 		.4byte	.LBE2
+ 2075 05ab 0F       		.uleb128 0xf
+ 2076 05ac 01       		.byte	0x1
+ 2077 05ad A8010000 		.4byte	.LASF56
+ 2078 05b1 07       		.byte	0x7
+ 2079 05b2 00       		.byte	0
+ 2080 05b3 01       		.byte	0x1
+ 2081 05b4 3D000000 		.4byte	0x3d
+ 2082 05b8 01       		.byte	0x1
+ 2083 05b9 10       		.uleb128 0x10
+ 2084 05ba A9000000 		.4byte	0xa9
+ 2085 05be 11       		.uleb128 0x11
+ 2086 05bf 00       		.byte	0
+ 2087 05c0 00       		.byte	0
+ 2088 05c1 00       		.byte	0
+ 2089 05c2 00       		.byte	0
+ 2090              		.section	.debug_abbrev,"",%progbits
+ 2091              	.Ldebug_abbrev0:
+ 2092 0000 01       		.uleb128 0x1
+ 2093 0001 11       		.uleb128 0x11
+ 2094 0002 01       		.byte	0x1
+ 2095 0003 25       		.uleb128 0x25
+ 2096 0004 0E       		.uleb128 0xe
+ 2097 0005 13       		.uleb128 0x13
+ 2098 0006 0B       		.uleb128 0xb
+ 2099 0007 03       		.uleb128 0x3
+ 2100 0008 0E       		.uleb128 0xe
+ 2101 0009 1B       		.uleb128 0x1b
+ 2102 000a 0E       		.uleb128 0xe
+ 2103 000b 11       		.uleb128 0x11
+ARM GAS  /tmp/ccX30Dk5.s 			page 48
+
+
+ 2104 000c 01       		.uleb128 0x1
+ 2105 000d 12       		.uleb128 0x12
+ 2106 000e 01       		.uleb128 0x1
+ 2107 000f 10       		.uleb128 0x10
+ 2108 0010 06       		.uleb128 0x6
+ 2109 0011 00       		.byte	0
+ 2110 0012 00       		.byte	0
+ 2111 0013 02       		.uleb128 0x2
+ 2112 0014 16       		.uleb128 0x16
+ 2113 0015 00       		.byte	0
+ 2114 0016 03       		.uleb128 0x3
+ 2115 0017 0E       		.uleb128 0xe
+ 2116 0018 3A       		.uleb128 0x3a
+ 2117 0019 0B       		.uleb128 0xb
+ 2118 001a 3B       		.uleb128 0x3b
+ 2119 001b 0B       		.uleb128 0xb
+ 2120 001c 39       		.uleb128 0x39
+ 2121 001d 0B       		.uleb128 0xb
+ 2122 001e 49       		.uleb128 0x49
+ 2123 001f 13       		.uleb128 0x13
+ 2124 0020 00       		.byte	0
+ 2125 0021 00       		.byte	0
+ 2126 0022 03       		.uleb128 0x3
+ 2127 0023 26       		.uleb128 0x26
+ 2128 0024 00       		.byte	0
+ 2129 0025 49       		.uleb128 0x49
+ 2130 0026 13       		.uleb128 0x13
+ 2131 0027 00       		.byte	0
+ 2132 0028 00       		.byte	0
+ 2133 0029 04       		.uleb128 0x4
+ 2134 002a 24       		.uleb128 0x24
+ 2135 002b 00       		.byte	0
+ 2136 002c 0B       		.uleb128 0xb
+ 2137 002d 0B       		.uleb128 0xb
+ 2138 002e 3E       		.uleb128 0x3e
+ 2139 002f 0B       		.uleb128 0xb
+ 2140 0030 03       		.uleb128 0x3
+ 2141 0031 0E       		.uleb128 0xe
+ 2142 0032 00       		.byte	0
+ 2143 0033 00       		.byte	0
+ 2144 0034 05       		.uleb128 0x5
+ 2145 0035 24       		.uleb128 0x24
+ 2146 0036 00       		.byte	0
+ 2147 0037 0B       		.uleb128 0xb
+ 2148 0038 0B       		.uleb128 0xb
+ 2149 0039 3E       		.uleb128 0x3e
+ 2150 003a 0B       		.uleb128 0xb
+ 2151 003b 03       		.uleb128 0x3
+ 2152 003c 08       		.uleb128 0x8
+ 2153 003d 00       		.byte	0
+ 2154 003e 00       		.byte	0
+ 2155 003f 06       		.uleb128 0x6
+ 2156 0040 0F       		.uleb128 0xf
+ 2157 0041 00       		.byte	0
+ 2158 0042 0B       		.uleb128 0xb
+ 2159 0043 0B       		.uleb128 0xb
+ 2160 0044 00       		.byte	0
+ARM GAS  /tmp/ccX30Dk5.s 			page 49
+
+
+ 2161 0045 00       		.byte	0
+ 2162 0046 07       		.uleb128 0x7
+ 2163 0047 0F       		.uleb128 0xf
+ 2164 0048 00       		.byte	0
+ 2165 0049 0B       		.uleb128 0xb
+ 2166 004a 0B       		.uleb128 0xb
+ 2167 004b 49       		.uleb128 0x49
+ 2168 004c 13       		.uleb128 0x13
+ 2169 004d 00       		.byte	0
+ 2170 004e 00       		.byte	0
+ 2171 004f 08       		.uleb128 0x8
+ 2172 0050 13       		.uleb128 0x13
+ 2173 0051 01       		.byte	0x1
+ 2174 0052 03       		.uleb128 0x3
+ 2175 0053 0E       		.uleb128 0xe
+ 2176 0054 0B       		.uleb128 0xb
+ 2177 0055 0B       		.uleb128 0xb
+ 2178 0056 3A       		.uleb128 0x3a
+ 2179 0057 0B       		.uleb128 0xb
+ 2180 0058 3B       		.uleb128 0x3b
+ 2181 0059 0B       		.uleb128 0xb
+ 2182 005a 39       		.uleb128 0x39
+ 2183 005b 0B       		.uleb128 0xb
+ 2184 005c 01       		.uleb128 0x1
+ 2185 005d 13       		.uleb128 0x13
+ 2186 005e 00       		.byte	0
+ 2187 005f 00       		.byte	0
+ 2188 0060 09       		.uleb128 0x9
+ 2189 0061 0D       		.uleb128 0xd
+ 2190 0062 00       		.byte	0
+ 2191 0063 03       		.uleb128 0x3
+ 2192 0064 0E       		.uleb128 0xe
+ 2193 0065 3A       		.uleb128 0x3a
+ 2194 0066 0B       		.uleb128 0xb
+ 2195 0067 3B       		.uleb128 0x3b
+ 2196 0068 0B       		.uleb128 0xb
+ 2197 0069 39       		.uleb128 0x39
+ 2198 006a 0B       		.uleb128 0xb
+ 2199 006b 49       		.uleb128 0x49
+ 2200 006c 13       		.uleb128 0x13
+ 2201 006d 38       		.uleb128 0x38
+ 2202 006e 0A       		.uleb128 0xa
+ 2203 006f 00       		.byte	0
+ 2204 0070 00       		.byte	0
+ 2205 0071 0A       		.uleb128 0xa
+ 2206 0072 34       		.uleb128 0x34
+ 2207 0073 00       		.byte	0
+ 2208 0074 03       		.uleb128 0x3
+ 2209 0075 0E       		.uleb128 0xe
+ 2210 0076 3A       		.uleb128 0x3a
+ 2211 0077 0B       		.uleb128 0xb
+ 2212 0078 3B       		.uleb128 0x3b
+ 2213 0079 0B       		.uleb128 0xb
+ 2214 007a 39       		.uleb128 0x39
+ 2215 007b 0B       		.uleb128 0xb
+ 2216 007c 49       		.uleb128 0x49
+ 2217 007d 13       		.uleb128 0x13
+ARM GAS  /tmp/ccX30Dk5.s 			page 50
+
+
+ 2218 007e 02       		.uleb128 0x2
+ 2219 007f 0A       		.uleb128 0xa
+ 2220 0080 00       		.byte	0
+ 2221 0081 00       		.byte	0
+ 2222 0082 0B       		.uleb128 0xb
+ 2223 0083 2E       		.uleb128 0x2e
+ 2224 0084 01       		.byte	0x1
+ 2225 0085 3F       		.uleb128 0x3f
+ 2226 0086 0C       		.uleb128 0xc
+ 2227 0087 03       		.uleb128 0x3
+ 2228 0088 0E       		.uleb128 0xe
+ 2229 0089 3A       		.uleb128 0x3a
+ 2230 008a 0B       		.uleb128 0xb
+ 2231 008b 3B       		.uleb128 0x3b
+ 2232 008c 05       		.uleb128 0x5
+ 2233 008d 39       		.uleb128 0x39
+ 2234 008e 0B       		.uleb128 0xb
+ 2235 008f 27       		.uleb128 0x27
+ 2236 0090 0C       		.uleb128 0xc
+ 2237 0091 11       		.uleb128 0x11
+ 2238 0092 01       		.uleb128 0x1
+ 2239 0093 12       		.uleb128 0x12
+ 2240 0094 01       		.uleb128 0x1
+ 2241 0095 40       		.uleb128 0x40
+ 2242 0096 06       		.uleb128 0x6
+ 2243 0097 9642     		.uleb128 0x2116
+ 2244 0099 0C       		.uleb128 0xc
+ 2245 009a 01       		.uleb128 0x1
+ 2246 009b 13       		.uleb128 0x13
+ 2247 009c 00       		.byte	0
+ 2248 009d 00       		.byte	0
+ 2249 009e 0C       		.uleb128 0xc
+ 2250 009f 05       		.uleb128 0x5
+ 2251 00a0 00       		.byte	0
+ 2252 00a1 03       		.uleb128 0x3
+ 2253 00a2 0E       		.uleb128 0xe
+ 2254 00a3 3A       		.uleb128 0x3a
+ 2255 00a4 0B       		.uleb128 0xb
+ 2256 00a5 3B       		.uleb128 0x3b
+ 2257 00a6 05       		.uleb128 0x5
+ 2258 00a7 39       		.uleb128 0x39
+ 2259 00a8 0B       		.uleb128 0xb
+ 2260 00a9 49       		.uleb128 0x49
+ 2261 00aa 13       		.uleb128 0x13
+ 2262 00ab 02       		.uleb128 0x2
+ 2263 00ac 0A       		.uleb128 0xa
+ 2264 00ad 00       		.byte	0
+ 2265 00ae 00       		.byte	0
+ 2266 00af 0D       		.uleb128 0xd
+ 2267 00b0 34       		.uleb128 0x34
+ 2268 00b1 00       		.byte	0
+ 2269 00b2 03       		.uleb128 0x3
+ 2270 00b3 0E       		.uleb128 0xe
+ 2271 00b4 3A       		.uleb128 0x3a
+ 2272 00b5 0B       		.uleb128 0xb
+ 2273 00b6 3B       		.uleb128 0x3b
+ 2274 00b7 05       		.uleb128 0x5
+ARM GAS  /tmp/ccX30Dk5.s 			page 51
+
+
+ 2275 00b8 39       		.uleb128 0x39
+ 2276 00b9 0B       		.uleb128 0xb
+ 2277 00ba 49       		.uleb128 0x49
+ 2278 00bb 13       		.uleb128 0x13
+ 2279 00bc 02       		.uleb128 0x2
+ 2280 00bd 0A       		.uleb128 0xa
+ 2281 00be 00       		.byte	0
+ 2282 00bf 00       		.byte	0
+ 2283 00c0 0E       		.uleb128 0xe
+ 2284 00c1 0B       		.uleb128 0xb
+ 2285 00c2 01       		.byte	0x1
+ 2286 00c3 11       		.uleb128 0x11
+ 2287 00c4 01       		.uleb128 0x1
+ 2288 00c5 12       		.uleb128 0x12
+ 2289 00c6 01       		.uleb128 0x1
+ 2290 00c7 01       		.uleb128 0x1
+ 2291 00c8 13       		.uleb128 0x13
+ 2292 00c9 00       		.byte	0
+ 2293 00ca 00       		.byte	0
+ 2294 00cb 0F       		.uleb128 0xf
+ 2295 00cc 2E       		.uleb128 0x2e
+ 2296 00cd 01       		.byte	0x1
+ 2297 00ce 3F       		.uleb128 0x3f
+ 2298 00cf 0C       		.uleb128 0xc
+ 2299 00d0 03       		.uleb128 0x3
+ 2300 00d1 0E       		.uleb128 0xe
+ 2301 00d2 3A       		.uleb128 0x3a
+ 2302 00d3 0B       		.uleb128 0xb
+ 2303 00d4 3B       		.uleb128 0x3b
+ 2304 00d5 0B       		.uleb128 0xb
+ 2305 00d6 27       		.uleb128 0x27
+ 2306 00d7 0C       		.uleb128 0xc
+ 2307 00d8 49       		.uleb128 0x49
+ 2308 00d9 13       		.uleb128 0x13
+ 2309 00da 3C       		.uleb128 0x3c
+ 2310 00db 0C       		.uleb128 0xc
+ 2311 00dc 00       		.byte	0
+ 2312 00dd 00       		.byte	0
+ 2313 00de 10       		.uleb128 0x10
+ 2314 00df 05       		.uleb128 0x5
+ 2315 00e0 00       		.byte	0
+ 2316 00e1 49       		.uleb128 0x49
+ 2317 00e2 13       		.uleb128 0x13
+ 2318 00e3 00       		.byte	0
+ 2319 00e4 00       		.byte	0
+ 2320 00e5 11       		.uleb128 0x11
+ 2321 00e6 18       		.uleb128 0x18
+ 2322 00e7 00       		.byte	0
+ 2323 00e8 00       		.byte	0
+ 2324 00e9 00       		.byte	0
+ 2325 00ea 12       		.uleb128 0x12
+ 2326 00eb 0B       		.uleb128 0xb
+ 2327 00ec 01       		.byte	0x1
+ 2328 00ed 11       		.uleb128 0x11
+ 2329 00ee 01       		.uleb128 0x1
+ 2330 00ef 12       		.uleb128 0x12
+ 2331 00f0 01       		.uleb128 0x1
+ARM GAS  /tmp/ccX30Dk5.s 			page 52
+
+
+ 2332 00f1 00       		.byte	0
+ 2333 00f2 00       		.byte	0
+ 2334 00f3 13       		.uleb128 0x13
+ 2335 00f4 2E       		.uleb128 0x2e
+ 2336 00f5 01       		.byte	0x1
+ 2337 00f6 03       		.uleb128 0x3
+ 2338 00f7 0E       		.uleb128 0xe
+ 2339 00f8 3A       		.uleb128 0x3a
+ 2340 00f9 0B       		.uleb128 0xb
+ 2341 00fa 3B       		.uleb128 0x3b
+ 2342 00fb 05       		.uleb128 0x5
+ 2343 00fc 39       		.uleb128 0x39
+ 2344 00fd 0B       		.uleb128 0xb
+ 2345 00fe 27       		.uleb128 0x27
+ 2346 00ff 0C       		.uleb128 0xc
+ 2347 0100 11       		.uleb128 0x11
+ 2348 0101 01       		.uleb128 0x1
+ 2349 0102 12       		.uleb128 0x12
+ 2350 0103 01       		.uleb128 0x1
+ 2351 0104 40       		.uleb128 0x40
+ 2352 0105 06       		.uleb128 0x6
+ 2353 0106 9742     		.uleb128 0x2117
+ 2354 0108 0C       		.uleb128 0xc
+ 2355 0109 01       		.uleb128 0x1
+ 2356 010a 13       		.uleb128 0x13
+ 2357 010b 00       		.byte	0
+ 2358 010c 00       		.byte	0
+ 2359 010d 14       		.uleb128 0x14
+ 2360 010e 34       		.uleb128 0x34
+ 2361 010f 00       		.byte	0
+ 2362 0110 03       		.uleb128 0x3
+ 2363 0111 08       		.uleb128 0x8
+ 2364 0112 3A       		.uleb128 0x3a
+ 2365 0113 0B       		.uleb128 0xb
+ 2366 0114 3B       		.uleb128 0x3b
+ 2367 0115 05       		.uleb128 0x5
+ 2368 0116 39       		.uleb128 0x39
+ 2369 0117 0B       		.uleb128 0xb
+ 2370 0118 49       		.uleb128 0x49
+ 2371 0119 13       		.uleb128 0x13
+ 2372 011a 02       		.uleb128 0x2
+ 2373 011b 0A       		.uleb128 0xa
+ 2374 011c 00       		.byte	0
+ 2375 011d 00       		.byte	0
+ 2376 011e 15       		.uleb128 0x15
+ 2377 011f 2E       		.uleb128 0x2e
+ 2378 0120 00       		.byte	0
+ 2379 0121 3F       		.uleb128 0x3f
+ 2380 0122 0C       		.uleb128 0xc
+ 2381 0123 03       		.uleb128 0x3
+ 2382 0124 0E       		.uleb128 0xe
+ 2383 0125 3A       		.uleb128 0x3a
+ 2384 0126 0B       		.uleb128 0xb
+ 2385 0127 3B       		.uleb128 0x3b
+ 2386 0128 05       		.uleb128 0x5
+ 2387 0129 39       		.uleb128 0x39
+ 2388 012a 0B       		.uleb128 0xb
+ARM GAS  /tmp/ccX30Dk5.s 			page 53
+
+
+ 2389 012b 27       		.uleb128 0x27
+ 2390 012c 0C       		.uleb128 0xc
+ 2391 012d 49       		.uleb128 0x49
+ 2392 012e 13       		.uleb128 0x13
+ 2393 012f 11       		.uleb128 0x11
+ 2394 0130 01       		.uleb128 0x1
+ 2395 0131 12       		.uleb128 0x12
+ 2396 0132 01       		.uleb128 0x1
+ 2397 0133 40       		.uleb128 0x40
+ 2398 0134 0A       		.uleb128 0xa
+ 2399 0135 9742     		.uleb128 0x2117
+ 2400 0137 0C       		.uleb128 0xc
+ 2401 0138 00       		.byte	0
+ 2402 0139 00       		.byte	0
+ 2403 013a 16       		.uleb128 0x16
+ 2404 013b 05       		.uleb128 0x5
+ 2405 013c 00       		.byte	0
+ 2406 013d 03       		.uleb128 0x3
+ 2407 013e 08       		.uleb128 0x8
+ 2408 013f 3A       		.uleb128 0x3a
+ 2409 0140 0B       		.uleb128 0xb
+ 2410 0141 3B       		.uleb128 0x3b
+ 2411 0142 05       		.uleb128 0x5
+ 2412 0143 39       		.uleb128 0x39
+ 2413 0144 0B       		.uleb128 0xb
+ 2414 0145 49       		.uleb128 0x49
+ 2415 0146 13       		.uleb128 0x13
+ 2416 0147 02       		.uleb128 0x2
+ 2417 0148 0A       		.uleb128 0xa
+ 2418 0149 00       		.byte	0
+ 2419 014a 00       		.byte	0
+ 2420 014b 17       		.uleb128 0x17
+ 2421 014c 2E       		.uleb128 0x2e
+ 2422 014d 01       		.byte	0x1
+ 2423 014e 3F       		.uleb128 0x3f
+ 2424 014f 0C       		.uleb128 0xc
+ 2425 0150 03       		.uleb128 0x3
+ 2426 0151 0E       		.uleb128 0xe
+ 2427 0152 3A       		.uleb128 0x3a
+ 2428 0153 0B       		.uleb128 0xb
+ 2429 0154 3B       		.uleb128 0x3b
+ 2430 0155 0B       		.uleb128 0xb
+ 2431 0156 39       		.uleb128 0x39
+ 2432 0157 0B       		.uleb128 0xb
+ 2433 0158 27       		.uleb128 0x27
+ 2434 0159 0C       		.uleb128 0xc
+ 2435 015a 49       		.uleb128 0x49
+ 2436 015b 13       		.uleb128 0x13
+ 2437 015c 11       		.uleb128 0x11
+ 2438 015d 01       		.uleb128 0x1
+ 2439 015e 12       		.uleb128 0x12
+ 2440 015f 01       		.uleb128 0x1
+ 2441 0160 40       		.uleb128 0x40
+ 2442 0161 06       		.uleb128 0x6
+ 2443 0162 9642     		.uleb128 0x2116
+ 2444 0164 0C       		.uleb128 0xc
+ 2445 0165 00       		.byte	0
+ARM GAS  /tmp/ccX30Dk5.s 			page 54
+
+
+ 2446 0166 00       		.byte	0
+ 2447 0167 18       		.uleb128 0x18
+ 2448 0168 05       		.uleb128 0x5
+ 2449 0169 00       		.byte	0
+ 2450 016a 03       		.uleb128 0x3
+ 2451 016b 0E       		.uleb128 0xe
+ 2452 016c 3A       		.uleb128 0x3a
+ 2453 016d 0B       		.uleb128 0xb
+ 2454 016e 3B       		.uleb128 0x3b
+ 2455 016f 0B       		.uleb128 0xb
+ 2456 0170 39       		.uleb128 0x39
+ 2457 0171 0B       		.uleb128 0xb
+ 2458 0172 49       		.uleb128 0x49
+ 2459 0173 13       		.uleb128 0x13
+ 2460 0174 02       		.uleb128 0x2
+ 2461 0175 0A       		.uleb128 0xa
+ 2462 0176 00       		.byte	0
+ 2463 0177 00       		.byte	0
+ 2464 0178 00       		.byte	0
+ 2465              		.section	.debug_loc,"",%progbits
+ 2466              	.Ldebug_loc0:
+ 2467              	.LLST4:
+ 2468 0000 48040000 		.4byte	.LFB11-.Ltext0
+ 2469 0004 4A040000 		.4byte	.LCFI11-.Ltext0
+ 2470 0008 0200     		.2byte	0x2
+ 2471 000a 7D       		.byte	0x7d
+ 2472 000b 00       		.sleb128 0
+ 2473 000c 4A040000 		.4byte	.LCFI11-.Ltext0
+ 2474 0010 4C040000 		.4byte	.LCFI12-.Ltext0
+ 2475 0014 0200     		.2byte	0x2
+ 2476 0016 7D       		.byte	0x7d
+ 2477 0017 04       		.sleb128 4
+ 2478 0018 4C040000 		.4byte	.LCFI12-.Ltext0
+ 2479 001c EC040000 		.4byte	.LCFI13-.Ltext0
+ 2480 0020 0200     		.2byte	0x2
+ 2481 0022 7D       		.byte	0x7d
+ 2482 0023 20       		.sleb128 32
+ 2483 0024 EC040000 		.4byte	.LCFI13-.Ltext0
+ 2484 0028 08050000 		.4byte	.LFE11-.Ltext0
+ 2485 002c 0200     		.2byte	0x2
+ 2486 002e 7D       		.byte	0x7d
+ 2487 002f 04       		.sleb128 4
+ 2488 0030 00000000 		.4byte	0
+ 2489 0034 00000000 		.4byte	0
+ 2490              	.LLST3:
+ 2491 0038 DC020000 		.4byte	.LFB10-.Ltext0
+ 2492 003c DE020000 		.4byte	.LCFI8-.Ltext0
+ 2493 0040 0200     		.2byte	0x2
+ 2494 0042 7D       		.byte	0x7d
+ 2495 0043 00       		.sleb128 0
+ 2496 0044 DE020000 		.4byte	.LCFI8-.Ltext0
+ 2497 0048 E0020000 		.4byte	.LCFI9-.Ltext0
+ 2498 004c 0200     		.2byte	0x2
+ 2499 004e 7D       		.byte	0x7d
+ 2500 004f 04       		.sleb128 4
+ 2501 0050 E0020000 		.4byte	.LCFI9-.Ltext0
+ 2502 0054 28040000 		.4byte	.LCFI10-.Ltext0
+ARM GAS  /tmp/ccX30Dk5.s 			page 55
+
+
+ 2503 0058 0200     		.2byte	0x2
+ 2504 005a 7D       		.byte	0x7d
+ 2505 005b 30       		.sleb128 48
+ 2506 005c 28040000 		.4byte	.LCFI10-.Ltext0
+ 2507 0060 48040000 		.4byte	.LFE10-.Ltext0
+ 2508 0064 0200     		.2byte	0x2
+ 2509 0066 7D       		.byte	0x7d
+ 2510 0067 04       		.sleb128 4
+ 2511 0068 00000000 		.4byte	0
+ 2512 006c 00000000 		.4byte	0
+ 2513              	.LLST2:
+ 2514 0070 34020000 		.4byte	.LFB9-.Ltext0
+ 2515 0074 36020000 		.4byte	.LCFI6-.Ltext0
+ 2516 0078 0200     		.2byte	0x2
+ 2517 007a 7D       		.byte	0x7d
+ 2518 007b 00       		.sleb128 0
+ 2519 007c 36020000 		.4byte	.LCFI6-.Ltext0
+ 2520 0080 D2020000 		.4byte	.LCFI7-.Ltext0
+ 2521 0084 0200     		.2byte	0x2
+ 2522 0086 7D       		.byte	0x7d
+ 2523 0087 10       		.sleb128 16
+ 2524 0088 D2020000 		.4byte	.LCFI7-.Ltext0
+ 2525 008c DC020000 		.4byte	.LFE9-.Ltext0
+ 2526 0090 0200     		.2byte	0x2
+ 2527 0092 7D       		.byte	0x7d
+ 2528 0093 00       		.sleb128 0
+ 2529 0094 00000000 		.4byte	0
+ 2530 0098 00000000 		.4byte	0
+ 2531              	.LLST1:
+ 2532 009c 68010000 		.4byte	.LFB6-.Ltext0
+ 2533 00a0 6A010000 		.4byte	.LCFI3-.Ltext0
+ 2534 00a4 0200     		.2byte	0x2
+ 2535 00a6 7D       		.byte	0x7d
+ 2536 00a7 00       		.sleb128 0
+ 2537 00a8 6A010000 		.4byte	.LCFI3-.Ltext0
+ 2538 00ac 6C010000 		.4byte	.LCFI4-.Ltext0
+ 2539 00b0 0200     		.2byte	0x2
+ 2540 00b2 7D       		.byte	0x7d
+ 2541 00b3 04       		.sleb128 4
+ 2542 00b4 6C010000 		.4byte	.LCFI4-.Ltext0
+ 2543 00b8 04020000 		.4byte	.LCFI5-.Ltext0
+ 2544 00bc 0200     		.2byte	0x2
+ 2545 00be 7D       		.byte	0x7d
+ 2546 00bf 18       		.sleb128 24
+ 2547 00c0 04020000 		.4byte	.LCFI5-.Ltext0
+ 2548 00c4 1C020000 		.4byte	.LFE6-.Ltext0
+ 2549 00c8 0200     		.2byte	0x2
+ 2550 00ca 7D       		.byte	0x7d
+ 2551 00cb 04       		.sleb128 4
+ 2552 00cc 00000000 		.4byte	0
+ 2553 00d0 00000000 		.4byte	0
+ 2554              	.LLST0:
+ 2555 00d4 00000000 		.4byte	.LFB5-.Ltext0
+ 2556 00d8 02000000 		.4byte	.LCFI0-.Ltext0
+ 2557 00dc 0200     		.2byte	0x2
+ 2558 00de 7D       		.byte	0x7d
+ 2559 00df 00       		.sleb128 0
+ARM GAS  /tmp/ccX30Dk5.s 			page 56
+
+
+ 2560 00e0 02000000 		.4byte	.LCFI0-.Ltext0
+ 2561 00e4 04000000 		.4byte	.LCFI1-.Ltext0
+ 2562 00e8 0200     		.2byte	0x2
+ 2563 00ea 7D       		.byte	0x7d
+ 2564 00eb 04       		.sleb128 4
+ 2565 00ec 04000000 		.4byte	.LCFI1-.Ltext0
+ 2566 00f0 44010000 		.4byte	.LCFI2-.Ltext0
+ 2567 00f4 0200     		.2byte	0x2
+ 2568 00f6 7D       		.byte	0x7d
+ 2569 00f7 20       		.sleb128 32
+ 2570 00f8 44010000 		.4byte	.LCFI2-.Ltext0
+ 2571 00fc 68010000 		.4byte	.LFE5-.Ltext0
+ 2572 0100 0200     		.2byte	0x2
+ 2573 0102 7D       		.byte	0x7d
+ 2574 0103 04       		.sleb128 4
+ 2575 0104 00000000 		.4byte	0
+ 2576 0108 00000000 		.4byte	0
+ 2577              		.section	.debug_aranges,"",%progbits
+ 2578 0000 1C000000 		.4byte	0x1c
+ 2579 0004 0200     		.2byte	0x2
+ 2580 0006 00000000 		.4byte	.Ldebug_info0
+ 2581 000a 04       		.byte	0x4
+ 2582 000b 00       		.byte	0
+ 2583 000c 0000     		.2byte	0
+ 2584 000e 0000     		.2byte	0
+ 2585 0010 00000000 		.4byte	.Ltext0
+ 2586 0014 08050000 		.4byte	.Letext0-.Ltext0
+ 2587 0018 00000000 		.4byte	0
+ 2588 001c 00000000 		.4byte	0
+ 2589              		.section	.debug_line,"",%progbits
+ 2590              	.Ldebug_line0:
+ 2591 0000 B0040000 		.section	.debug_str,"MS",%progbits,1
+ 2591      0300DB01 
+ 2591      00000201 
+ 2591      FB0E0D00 
+ 2591      01010101 
+ 2592              	.LASF65:
+ 2593 0000 70785072 		.ascii	"pxPreviousBlock\000"
+ 2593      6576696F 
+ 2593      7573426C 
+ 2593      6F636B00 
+ 2594              	.LASF69:
+ 2595 0010 536F7572 		.ascii	"Source/FreeRTOS/portable/MemMang/heap_5.c\000"
+ 2595      63652F46 
+ 2595      72656552 
+ 2595      544F532F 
+ 2595      706F7274 
+ 2596              	.LASF46:
+ 2597 003a 70784865 		.ascii	"pxHeapStats\000"
+ 2597      61705374 
+ 2597      61747300 
+ 2598              	.LASF27:
+ 2599 0046 784D696E 		.ascii	"xMinimumEverFreeBytesRemaining\000"
+ 2599      696D756D 
+ 2599      45766572 
+ 2599      46726565 
+ 2599      42797465 
+ARM GAS  /tmp/ccX30Dk5.s 			page 57
+
+
+ 2600              	.LASF39:
+ 2601 0065 78426C6F 		.ascii	"xBlockAllocatedBit\000"
+ 2601      636B416C 
+ 2601      6C6F6361 
+ 2601      74656442 
+ 2601      697400
+ 2602              	.LASF30:
+ 2603 0078 48656170 		.ascii	"HeapStats_t\000"
+ 2603      53746174 
+ 2603      735F7400 
+ 2604              	.LASF54:
+ 2605 0084 78416464 		.ascii	"xAddress\000"
+ 2605      72657373 
+ 2605      00
+ 2606              	.LASF32:
+ 2607 008d 70784E65 		.ascii	"pxNextFreeBlock\000"
+ 2607      78744672 
+ 2607      6565426C 
+ 2607      6F636B00 
+ 2608              	.LASF40:
+ 2609 009d 7078426C 		.ascii	"pxBlock\000"
+ 2609      6F636B00 
+ 2610              	.LASF4:
+ 2611 00a5 73697A65 		.ascii	"size_t\000"
+ 2611      5F7400
+ 2612              	.LASF26:
+ 2613 00ac 784E756D 		.ascii	"xNumberOfFreeBlocks\000"
+ 2613      6265724F 
+ 2613      66467265 
+ 2613      65426C6F 
+ 2613      636B7300 
+ 2614              	.LASF49:
+ 2615 00c0 70785072 		.ascii	"pxPreviousFreeBlock\000"
+ 2615      6576696F 
+ 2615      75734672 
+ 2615      6565426C 
+ 2615      6F636B00 
+ 2616              	.LASF33:
+ 2617 00d4 78426C6F 		.ascii	"xBlockSize\000"
+ 2617      636B5369 
+ 2617      7A6500
+ 2618              	.LASF37:
+ 2619 00df 7078456E 		.ascii	"pxEnd\000"
+ 2619      6400
+ 2620              	.LASF53:
+ 2621 00e5 78446566 		.ascii	"xDefinedRegions\000"
+ 2621      696E6564 
+ 2621      52656769 
+ 2621      6F6E7300 
+ 2622              	.LASF7:
+ 2623 00f5 73686F72 		.ascii	"short int\000"
+ 2623      7420696E 
+ 2623      7400
+ 2624              	.LASF71:
+ 2625 00ff 70727649 		.ascii	"prvInsertBlockIntoFreeList\000"
+ 2625      6E736572 
+ 2625      74426C6F 
+ARM GAS  /tmp/ccX30Dk5.s 			page 58
+
+
+ 2625      636B496E 
+ 2625      746F4672 
+ 2626              	.LASF14:
+ 2627 011a 75696E74 		.ascii	"uint8_t\000"
+ 2627      385F7400 
+ 2628              	.LASF70:
+ 2629 0122 2F6D6E74 		.ascii	"/mnt/hgfs/Desktop/MC200Board_GCC-TestI2C\000"
+ 2629      2F686766 
+ 2629      732F4465 
+ 2629      736B746F 
+ 2629      702F4D43 
+ 2630              	.LASF31:
+ 2631 014b 415F424C 		.ascii	"A_BLOCK_LINK\000"
+ 2631      4F434B5F 
+ 2631      4C494E4B 
+ 2631      00
+ 2632              	.LASF47:
+ 2633 0158 70784865 		.ascii	"pxHeapRegions\000"
+ 2633      61705265 
+ 2633      67696F6E 
+ 2633      7300
+ 2634              	.LASF25:
+ 2635 0166 7853697A 		.ascii	"xSizeOfSmallestFreeBlockInBytes\000"
+ 2635      654F6653 
+ 2635      6D616C6C 
+ 2635      65737446 
+ 2635      72656542 
+ 2636              	.LASF1:
+ 2637 0186 6C6F6E67 		.ascii	"long long int\000"
+ 2637      206C6F6E 
+ 2637      6720696E 
+ 2637      7400
+ 2638              	.LASF17:
+ 2639 0194 5469636B 		.ascii	"TickType_t\000"
+ 2639      54797065 
+ 2639      5F7400
+ 2640              	.LASF9:
+ 2641 019f 6C6F6E67 		.ascii	"long int\000"
+ 2641      20696E74 
+ 2641      00
+ 2642              	.LASF56:
+ 2643 01a8 7072696E 		.ascii	"printf\000"
+ 2643      746600
+ 2644              	.LASF43:
+ 2645 01af 784D696E 		.ascii	"xMinSize\000"
+ 2645      53697A65 
+ 2645      00
+ 2646              	.LASF5:
+ 2647 01b8 5F5F7569 		.ascii	"__uint8_t\000"
+ 2647      6E74385F 
+ 2647      7400
+ 2648              	.LASF66:
+ 2649 01c2 70784E65 		.ascii	"pxNewBlockLink\000"
+ 2649      77426C6F 
+ 2649      636B4C69 
+ 2649      6E6B00
+ 2650              	.LASF60:
+ARM GAS  /tmp/ccX30Dk5.s 			page 59
+
+
+ 2651 01d1 78506F72 		.ascii	"xPortGetFreeHeapSize\000"
+ 2651      74476574 
+ 2651      46726565 
+ 2651      48656170 
+ 2651      53697A65 
+ 2652              	.LASF67:
+ 2653 01e6 70765265 		.ascii	"pvReturn\000"
+ 2653      7475726E 
+ 2653      00
+ 2654              	.LASF42:
+ 2655 01ef 784D6178 		.ascii	"xMaxSize\000"
+ 2655      53697A65 
+ 2655      00
+ 2656              	.LASF59:
+ 2657 01f8 78506F72 		.ascii	"xPortGetMinimumEverFreeHeapSize\000"
+ 2657      74476574 
+ 2657      4D696E69 
+ 2657      6D756D45 
+ 2657      76657246 
+ 2658              	.LASF34:
+ 2659 0218 426C6F63 		.ascii	"BlockLink_t\000"
+ 2659      6B4C696E 
+ 2659      6B5F7400 
+ 2660              	.LASF2:
+ 2661 0224 6C6F6E67 		.ascii	"long double\000"
+ 2661      20646F75 
+ 2661      626C6500 
+ 2662              	.LASF28:
+ 2663 0230 784E756D 		.ascii	"xNumberOfSuccessfulAllocations\000"
+ 2663      6265724F 
+ 2663      66537563 
+ 2663      63657373 
+ 2663      66756C41 
+ 2664              	.LASF6:
+ 2665 024f 756E7369 		.ascii	"unsigned char\000"
+ 2665      676E6564 
+ 2665      20636861 
+ 2665      7200
+ 2666              	.LASF45:
+ 2667 025d 76506F72 		.ascii	"vPortDefineHeapRegions\000"
+ 2667      74446566 
+ 2667      696E6548 
+ 2667      65617052 
+ 2667      6567696F 
+ 2668              	.LASF23:
+ 2669 0274 78417661 		.ascii	"xAvailableHeapSpaceInBytes\000"
+ 2669      696C6162 
+ 2669      6C654865 
+ 2669      61705370 
+ 2669      61636549 
+ 2670              	.LASF35:
+ 2671 028f 78486561 		.ascii	"xHeapStructSize\000"
+ 2671      70537472 
+ 2671      75637453 
+ 2671      697A6500 
+ 2672              	.LASF50:
+ 2673 029f 78416C69 		.ascii	"xAlignedHeap\000"
+ARM GAS  /tmp/ccX30Dk5.s 			page 60
+
+
+ 2673      676E6564 
+ 2673      48656170 
+ 2673      00
+ 2674              	.LASF3:
+ 2675 02ac 7369676E 		.ascii	"signed char\000"
+ 2675      65642063 
+ 2675      68617200 
+ 2676              	.LASF12:
+ 2677 02b8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2677      206C6F6E 
+ 2677      6720756E 
+ 2677      7369676E 
+ 2677      65642069 
+ 2678              	.LASF15:
+ 2679 02cf 75696E74 		.ascii	"uint32_t\000"
+ 2679      33325F74 
+ 2679      00
+ 2680              	.LASF20:
+ 2681 02d8 48656170 		.ascii	"HeapRegion_t\000"
+ 2681      52656769 
+ 2681      6F6E5F74 
+ 2681      00
+ 2682              	.LASF0:
+ 2683 02e5 756E7369 		.ascii	"unsigned int\000"
+ 2683      676E6564 
+ 2683      20696E74 
+ 2683      00
+ 2684              	.LASF16:
+ 2685 02f2 42617365 		.ascii	"BaseType_t\000"
+ 2685      54797065 
+ 2685      5F7400
+ 2686              	.LASF51:
+ 2687 02fd 78546F74 		.ascii	"xTotalRegionSize\000"
+ 2687      616C5265 
+ 2687      67696F6E 
+ 2687      53697A65 
+ 2687      00
+ 2688              	.LASF38:
+ 2689 030e 78467265 		.ascii	"xFreeBytesRemaining\000"
+ 2689      65427974 
+ 2689      65735265 
+ 2689      6D61696E 
+ 2689      696E6700 
+ 2690              	.LASF24:
+ 2691 0322 7853697A 		.ascii	"xSizeOfLargestFreeBlockInBytes\000"
+ 2691      654F664C 
+ 2691      61726765 
+ 2691      73744672 
+ 2691      6565426C 
+ 2692              	.LASF8:
+ 2693 0341 73686F72 		.ascii	"short unsigned int\000"
+ 2693      7420756E 
+ 2693      7369676E 
+ 2693      65642069 
+ 2693      6E7400
+ 2694              	.LASF61:
+ 2695 0354 76506F72 		.ascii	"vPortFree\000"
+ARM GAS  /tmp/ccX30Dk5.s 			page 61
+
+
+ 2695      74467265 
+ 2695      6500
+ 2696              	.LASF58:
+ 2697 035e 70784974 		.ascii	"pxIterator\000"
+ 2697      65726174 
+ 2697      6F7200
+ 2698              	.LASF13:
+ 2699 0369 63686172 		.ascii	"char\000"
+ 2699      00
+ 2700              	.LASF68:
+ 2701 036e 474E5520 		.ascii	"GNU C17 10.3.1 20210824 (release) -mcpu=cortex-m3 -"
+ 2701      43313720 
+ 2701      31302E33 
+ 2701      2E312032 
+ 2701      30323130 
+ 2702 03a1 6D746875 		.ascii	"mthumb -mfloat-abi=soft -march=armv7-m -g -gdwarf-2"
+ 2702      6D62202D 
+ 2702      6D666C6F 
+ 2702      61742D61 
+ 2702      62693D73 
+ 2703 03d4 202D4F30 		.ascii	" -O0 -fomit-frame-pointer\000"
+ 2703      202D666F 
+ 2703      6D69742D 
+ 2703      6672616D 
+ 2703      652D706F 
+ 2704              	.LASF55:
+ 2705 03ee 70784865 		.ascii	"pxHeapRegion\000"
+ 2705      61705265 
+ 2705      67696F6E 
+ 2705      00
+ 2706              	.LASF57:
+ 2707 03fb 7078426C 		.ascii	"pxBlockToInsert\000"
+ 2707      6F636B54 
+ 2707      6F496E73 
+ 2707      65727400 
+ 2708              	.LASF11:
+ 2709 040b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2709      20756E73 
+ 2709      69676E65 
+ 2709      6420696E 
+ 2709      7400
+ 2710              	.LASF52:
+ 2711 041d 78546F74 		.ascii	"xTotalHeapSize\000"
+ 2711      616C4865 
+ 2711      61705369 
+ 2711      7A6500
+ 2712              	.LASF10:
+ 2713 042c 5F5F7569 		.ascii	"__uint32_t\000"
+ 2713      6E743332 
+ 2713      5F7400
+ 2714              	.LASF48:
+ 2715 0437 70784669 		.ascii	"pxFirstFreeBlockInRegion\000"
+ 2715      72737446 
+ 2715      72656542 
+ 2715      6C6F636B 
+ 2715      496E5265 
+ 2716              	.LASF29:
+ARM GAS  /tmp/ccX30Dk5.s 			page 62
+
+
+ 2717 0450 784E756D 		.ascii	"xNumberOfSuccessfulFrees\000"
+ 2717      6265724F 
+ 2717      66537563 
+ 2717      63657373 
+ 2717      66756C46 
+ 2718              	.LASF18:
+ 2719 0469 70756353 		.ascii	"pucStartAddress\000"
+ 2719      74617274 
+ 2719      41646472 
+ 2719      65737300 
+ 2720              	.LASF36:
+ 2721 0479 78537461 		.ascii	"xStart\000"
+ 2721      727400
+ 2722              	.LASF21:
+ 2723 0480 48656170 		.ascii	"HeapRegion\000"
+ 2723      52656769 
+ 2723      6F6E00
+ 2724              	.LASF41:
+ 2725 048b 78426C6F 		.ascii	"xBlocks\000"
+ 2725      636B7300 
+ 2726              	.LASF64:
+ 2727 0493 7857616E 		.ascii	"xWantedSize\000"
+ 2727      74656453 
+ 2727      697A6500 
+ 2728              	.LASF22:
+ 2729 049f 78486561 		.ascii	"xHeapStats\000"
+ 2729      70537461 
+ 2729      747300
+ 2730              	.LASF63:
+ 2731 04aa 7076506F 		.ascii	"pvPortMalloc\000"
+ 2731      72744D61 
+ 2731      6C6C6F63 
+ 2731      00
+ 2732              	.LASF44:
+ 2733 04b7 76506F72 		.ascii	"vPortGetHeapStats\000"
+ 2733      74476574 
+ 2733      48656170 
+ 2733      53746174 
+ 2733      7300
+ 2734              	.LASF62:
+ 2735 04c9 70784C69 		.ascii	"pxLink\000"
+ 2735      6E6B00
+ 2736              	.LASF19:
+ 2737 04d0 7853697A 		.ascii	"xSizeInBytes\000"
+ 2737      65496E42 
+ 2737      79746573 
+ 2737      00
+ 2738              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  /tmp/ccX30Dk5.s 			page 63
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 heap_5.c
+     /tmp/ccX30Dk5.s:57     .rodata:0000000000000000 $d
+     /tmp/ccX30Dk5.s:60     .rodata:0000000000000000 xHeapStructSize
+     /tmp/ccX30Dk5.s:63     .bss:0000000000000000 $d
+     /tmp/ccX30Dk5.s:64     .bss:0000000000000000 xStart
+     /tmp/ccX30Dk5.s:68     .bss:0000000000000008 pxEnd
+     /tmp/ccX30Dk5.s:72     .bss:000000000000000c xFreeBytesRemaining
+     /tmp/ccX30Dk5.s:76     .bss:0000000000000010 xMinimumEverFreeBytesRemaining
+     /tmp/ccX30Dk5.s:80     .bss:0000000000000014 xNumberOfSuccessfulAllocations
+     /tmp/ccX30Dk5.s:84     .bss:0000000000000018 xNumberOfSuccessfulFrees
+     /tmp/ccX30Dk5.s:88     .bss:000000000000001c xBlockAllocatedBit
+     /tmp/ccX30Dk5.s:99     .text:0000000000000000 $t
+     /tmp/ccX30Dk5.s:105    .text:0000000000000000 pvPortMalloc
+     /tmp/ccX30Dk5.s:638    .text:0000000000000234 prvInsertBlockIntoFreeList
+     /tmp/ccX30Dk5.s:410    .text:0000000000000148 $d
+     /tmp/ccX30Dk5.s:421    .text:0000000000000168 $t
+     /tmp/ccX30Dk5.s:427    .text:0000000000000168 vPortFree
+     /tmp/ccX30Dk5.s:569    .text:0000000000000208 $d
+     /tmp/ccX30Dk5.s:577    .text:000000000000021c $t
+     /tmp/ccX30Dk5.s:583    .text:000000000000021c xPortGetFreeHeapSize
+     /tmp/ccX30Dk5.s:601    .text:0000000000000224 $d
+     /tmp/ccX30Dk5.s:605    .text:0000000000000228 $t
+     /tmp/ccX30Dk5.s:611    .text:0000000000000228 xPortGetMinimumEverFreeHeapSize
+     /tmp/ccX30Dk5.s:629    .text:0000000000000230 $d
+     /tmp/ccX30Dk5.s:633    .text:0000000000000234 $t
+     /tmp/ccX30Dk5.s:808    .text:00000000000002d4 $d
+     /tmp/ccX30Dk5.s:813    .text:00000000000002dc $t
+     /tmp/ccX30Dk5.s:819    .text:00000000000002dc vPortDefineHeapRegions
+     /tmp/ccX30Dk5.s:1122   .text:000000000000042c $d
+     /tmp/ccX30Dk5.s:1132   .text:0000000000000448 $t
+     /tmp/ccX30Dk5.s:1138   .text:0000000000000448 vPortGetHeapStats
+     /tmp/ccX30Dk5.s:1295   .text:00000000000004f0 $d
+
+UNDEFINED SYMBOLS
+printf
+vTaskSuspendAll
+xTaskResumeAll
+vPortEnterCritical
+vPortExitCritical
